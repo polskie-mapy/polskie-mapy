@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
     content: [
         './index.html',
@@ -5,6 +7,10 @@ module.exports = {
     ],
     darkMode: 'media',
     theme: {
+        colors: {
+            'app': '#fb923c',
+            ...colors
+        },
         extend: {
             gridTemplateRows: {
                 'app': 'min-content 1fr',
@@ -14,6 +20,8 @@ module.exports = {
             },
             backgroundColor: {
                 'modal': 'rgba(0, 0, 0, .6)',
+                'pin-var': 'var(--pm-pin-color, white)',
+                'point-details-link-var': 'var(--pm-point-details-link-color, --tm-color-app)',
             },
         },
     },
