@@ -1,0 +1,61 @@
+{
+  "maps": [
+    {
+      "id": 1,
+      "name": "Mapa internetów",
+      "points": [
+        {
+          "id": 1,
+          "title": "Paweł Jumper",
+          "excerpt": "Dawaj Maniek, to już się kameruje!",
+          "coords": [
+            53.19909,
+            18.370480000000043
+          ],
+          "links": [
+            {
+              "type": "yt",
+              "url": "https://www.youtube.com/watch?v=9cX17CeYKt0"
+            },
+            {
+              "type": "ig",
+              "url": "",
+              "tooltip": "Konto Pawła na Instagramie"
+            }
+          ],
+          "icon": "fa-solid:fa-person-biking",
+          "pinColor": "#332233",
+          "tags": [],
+          "group": "Legendy Legend",
+          "mainImage": ""
+        }
+      ]
+    }
+  ],
+  "points": [
+    {
+      "id": 1,
+      "title": "Paweł Jumper",
+      "description": "Dawaj Maniek, to już się kameruje!",
+      "links": [
+        {
+          "type": "yt",
+          "url": "https://www.youtube.com/watch?v=9cX17CeYKt0"
+        },
+        {
+          "type": "ig",
+          "url": "",
+          "tooltip": "Konto Pawła na Instagramie"
+        }
+      ],
+      "icon": "fa-solid:fa-person-biking",
+      "tags": [],
+      "group": "Legendy Legend",
+      "images": [
+        {
+          "url": ""
+        }
+      ]
+    }
+  ]
+}

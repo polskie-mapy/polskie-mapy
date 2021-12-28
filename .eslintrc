@@ -1,0 +1,9 @@
+{
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaVersion": "latest"
+  },
+  "extends": [
+    "plugin:vue/recommended"
+  ]
+}

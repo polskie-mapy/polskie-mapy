@@ -1,0 +1,17 @@
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+@import "~tailwindcss/variants";
+
+#app, #map-viewer {
+    position: relative;
+}
+#app.dark .map .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) grayscale(0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+    #app.system .map .leaflet-tile-pane {
+        filter: invert(1) hue-rotate(180deg) grayscale(0.7);
+    }
+}

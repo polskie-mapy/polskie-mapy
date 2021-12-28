@@ -1,28 +1,9 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="grid grid-cols-1 grid-flow-rows bg-red-200 h-screen grid-rows-app">
+    <div id="nav" class="p-3 shadow bg-red-600 grid grid-rows-1 grid-cols-none auto-cols-min grid-flow-col gap-x-1">
+      <router-link class="p-2 border border-red-400 hover:border-transparent hover:bg-white" to="/">Home</router-link>
+      <router-link class="p-2 border border-red-400 hover:border-transparent hover:bg-white" to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
