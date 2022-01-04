@@ -31,7 +31,10 @@
       />
     </div>
     <PointDetails :data="selectedPointDetails" />
-    <div ref="phantoms">
+    <div
+      ref="phantoms"
+      class="hidden"
+    >
       <fa-icon
         v-for="icon in fontAwesomeIcons"
         :key="icon.id"
@@ -118,14 +121,6 @@ export default {
         await this.$nextTick();
 
         this.loadingState++;
-
-    // await this.$nextTick();
-    //
-    // this.$nextTick(() => {
-    //     this.$refs.phantoms.attachShadow({mode: 'open'});
-    //
-    //     this.loadingState++;
-    // });
     },
     methods: {
         selectPoint(point) {

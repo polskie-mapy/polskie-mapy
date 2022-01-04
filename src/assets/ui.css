@@ -26,7 +26,7 @@
 }
 
 .pm-pin {
-    @apply p-2 rounded-full bg-pin-var border-white border-2 text-white flex w-8 h-8 items-center justify-center hover:border-app hover:shadow relative;
+    @apply p-2 rounded-full bg-pin-var border-white border-2 text-white flex w-8 h-8 items-center justify-center hover:border-app hover:shadow relative -ml-[11px] -mt-[32px];
 }
 
 .pm-pin:hover::after {

@@ -11,19 +11,55 @@
         <div
           class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr_1fr] auto-rows-min gap-3 max-w-5xl"
         >
-          <p class="text-2xl font-semibold col-span-3 pb-3 relative">
-            {{ point.title }}
-            <a
-              class="absolute right-0 top-0 inline-block p-1 leading-none hover:text-app border-app cursor-pointer"
-              @click.prevent="hideDetails"
+          <div class="col-span-3 pb-3 relative flex">
+            <span class="text-2xl font-semibold">
+              {{ point.title }}
+            </span>
+            <div
+              v-if="point.assumedCoords"
+              class="ml-3 tooltipped"
             >
-              <fa-icon
-                icon="fa-solid fa-times"
-                size="sm"
-              />
-            </a>
-          </p>
+              <div class="tooltip">
+                lokalizacja niedokładna, przybliżona bądź prawdopodobna
+              </div>
+              <div
+                class="p-1 bg-black text-yellow-300 text-xs rounded leading-[0]"
+              >
+                <fa-icon
+                  icon="fa-solid fa-triangle-exclamation"
+                />
+              </div>
+            </div>
+            <div
+              class="absolute right-0 top-0 inline-block p-1 leading-none flex gap-x-3"
+            >
+              <div class="tooltipped">
+                <div class="tooltip">
+                  Zgłoś błąd
+                </div>
+                <a
+                  class="hover:text-app cursor-pointer"
+                  @click.prevent="hideDetails"
+                >
+                  <fa-icon
+                    icon="fa-regular fa-flag"
+                    fixed-width
+                  />
+                </a>
+              </div>
+              <a
+                class="hover:text-app cursor-pointer"
+                @click.prevent="hideDetails"
+              >
+                <fa-icon
+                  icon="fa-solid fa-times"
+                  fixed-width
+                />
+              </a>
+            </div>
+          </div>
           <a
+            v-if="ytLink"
             class="rounded overflow-hidden hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative bg-placeholder h-36 w-48"
             :href="ytLink"
             target="_blank"
@@ -46,6 +82,25 @@
               />
             </div>
           </a>
+          <div
+            v-else
+            class="tooltipped"
+          >
+            <div class="tooltip">
+              Brak nagrania :&lt;
+            </div>
+            <div
+              class="rounded overflow-hidden relative bg-placeholder h-36 w-48"
+            >
+              <div class="text-app bg-black/25 inset-0 absolute grid place-content-center">
+                <fa-icon
+                  icon="fa-solid fa-video-slash"
+                  size="4x"
+                  fixed-width
+                />
+              </div>
+            </div>
+          </div>
           <div class="col-span-2 grid grid-rows-1 auto-rows-min gap-y-1 relative">
             <p class="text-ellipsis w-full">
               {{ point.excerpt }}
@@ -54,10 +109,11 @@
               v-if="submitter"
               class="text-sm border-l-2 border-grey-500 pl-2"
             >
-              podesłał -
+              pomógł -
               <a
                 :href="submitter.url"
                 class="hover:text-app font-bold"
+                target="_blank"
               >
                 @{{ submitter.user }}
               </a>
@@ -149,7 +205,7 @@ export default {
         ytThumbnail() {
             const link = this.point.links.find(x => x.type === 'yt');
 
-            if (link !== null) {
+            if (typeof link !== 'undefined') {
                 return this.$H.ytThumbUrl(link.url);
             }
 
@@ -158,7 +214,7 @@ export default {
         ytLink() {
             const link = this.point.links.find(x => x.type === 'yt');
 
-            if (link !== null) {
+            if (typeof link !== 'undefined') {
                 return link.url;
             }
 
@@ -172,8 +228,7 @@ export default {
             const submitter = this.point.submitters[0];
 
             return {
-                icon: this.$H.linkTypeIcon(submitter.source),
-                url: this.$H.linkTypeUrl(submitter.source, submitter.user),
+                url: this.$H.linkTypeUrl(submitter.type, submitter.user),
                 ...submitter
             }
         },

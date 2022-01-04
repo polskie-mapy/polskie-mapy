@@ -7,7 +7,7 @@ const ytUriRegex = new RegExp(
 );
 
 const LINK_TYPE_COLOR = {
-    ['yt']: '#ff0000',
+    ['yt']: '#d70000',
     ['ig']: '#405de6',
     ['map']: '#0b4a6e',
     ['news']: '#75716f'
@@ -16,10 +16,11 @@ const LINK_TYPE_ICONS = {
     ['yt']: 'fa-brands fa-youtube',
     ['ig']: 'fa-brands fa-instagram',
     ['map']: 'fa-solid fa-map-location-dot',
-    ['news']: 'fa-regular fa-newspaper'
+    ['news']: 'fa-regular fa-newspaper',
 };
 const LINK_TYPE_URL = {
     ['ig']: 'https://www.instagram.com/:id/',
+    ['wykop']: 'https://www.wykop.pl/ludzie/:id/',
 };
 
 export const COLOR_SCHEMES = [

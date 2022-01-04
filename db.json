@@ -21,7 +21,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -44,7 +44,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -67,7 +67,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -90,7 +90,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -113,7 +113,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -136,7 +136,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#242424",
+                    "pinColor": "#424242",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -159,7 +159,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -178,15 +178,15 @@
                     "links": [
                         {
                             "type": "link",
-                            "url": "www.sadistic.pl/eee-janusz-gosciu-tam-babke-zapina-na-wiezy-vt29009.htm"
+                            "url": "https://www.sadistic.pl/eee-janusz-gosciu-tam-babke-zapina-na-wiezy-vt29009.htm"
                         },
                         {
                             "type": "link",
-                            "url": "www.fakt.pl/wydarzenia/swiat/nie-zyje-ilse-uyttersprot-burmistrz-ktora-polacy-przylapali-na-uprawianiu-seksu/6549tj2"
+                            "url": "https://www.fakt.pl/wydarzenia/swiat/nie-zyje-ilse-uyttersprot-burmistrz-ktora-polacy-przylapali-na-uprawianiu-seksu/6549tj2"
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -209,7 +209,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#187771",
+                    "pinColor": "#177781",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -232,7 +232,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c9720b",
+                    "pinColor": "#b0279c",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -255,7 +255,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -309,7 +309,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#2c81b5",
+                    "pinColor": "#5b18c2",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -332,7 +332,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#2c81b5",
+                    "pinColor": "#5b18c2",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -355,7 +355,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -378,7 +378,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#2c81b5",
+                    "pinColor": "#5b18c2",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -401,7 +401,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c9720b",
+                    "pinColor": "#b0279c",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -424,11 +424,12 @@
                         },
                         {
                             "type": "yt",
-                            "url": "https://www.youtube.com/watch?v=0ZDr0anChnk"
+                            "url": "https://www.youtube.com/watch?v=0ZDr0anChnk",
+                            "tooltip": "Ujęcie z drugiej kamery"
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#9f8a52",
+                    "pinColor": "#25a8f9",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -455,7 +456,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -482,7 +483,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#242424",
+                    "pinColor": "#424242",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -505,7 +506,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c9720b",
+                    "pinColor": "#b0279c",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -519,7 +520,7 @@
                         53.302118,
                         17.3604185
                     ],
-                    "assumedCoords": false,
+                    "assumedCoords": true,
                     "submitters": [],
                     "links": [
                         {
@@ -528,11 +529,11 @@
                         },
                         {
                             "type": "link",
-                            "url": "zlotowskie.pl/artykul/amigo-z-dzwierszna-gwiazda-internetu/493206"
+                            "url": "https://zlotowskie.pl/artykul/amigo-z-dzwierszna-gwiazda-internetu/493206"
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -555,7 +556,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ffae00",
+                    "pinColor": "#00eaff",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -578,7 +579,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -610,7 +611,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c9720b",
+                    "pinColor": "#b0279c",
                     "tags": [],
                     "group": "Legendy Legend",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -633,7 +634,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -656,7 +657,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#9f8a52",
+                    "pinColor": "#25a8f9",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -679,7 +680,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#901783",
+                    "pinColor": "#387109",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -702,7 +703,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -725,7 +726,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -748,7 +749,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff6d00",
+                    "pinColor": "#00d6ff",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -771,7 +772,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -794,7 +795,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -817,7 +818,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -840,7 +841,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -863,7 +864,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#187771",
+                    "pinColor": "#177781",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -886,7 +887,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#00797a",
+                    "pinColor": "#a79700",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -909,7 +910,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -932,7 +933,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -955,7 +956,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#575757",
+                    "pinColor": "#757575",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1005,7 +1006,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#dbdbdb",
+                    "pinColor": "#bdbdbd",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1028,7 +1029,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1051,7 +1052,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1074,7 +1075,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ffae00",
+                    "pinColor": "#00eaff",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1097,7 +1098,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1120,7 +1121,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1143,7 +1144,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#2c81b5",
+                    "pinColor": "#5b18c2",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1166,7 +1167,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1189,7 +1190,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1212,7 +1213,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1240,7 +1241,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1263,7 +1264,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1286,7 +1287,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "filmiki z żulami",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1309,7 +1310,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1332,7 +1333,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#242424",
+                    "pinColor": "#424242",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1355,7 +1356,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1378,7 +1379,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1401,7 +1402,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#55b8f2",
+                    "pinColor": "#2f8b55",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1424,7 +1425,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1447,7 +1448,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1470,7 +1471,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1493,7 +1494,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1516,7 +1517,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1539,7 +1540,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#76a37b",
+                    "pinColor": "#b73a67",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1562,7 +1563,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#2c81b5",
+                    "pinColor": "#5b18c2",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1585,7 +1586,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1608,7 +1609,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ffae00",
+                    "pinColor": "#00eaff",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1631,7 +1632,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1654,7 +1655,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#55b8f2",
+                    "pinColor": "#2f8b55",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1677,7 +1678,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#575757",
+                    "pinColor": "#757575",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1700,7 +1701,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1723,7 +1724,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#000646",
+                    "pinColor": "#646000",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1746,7 +1747,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1769,7 +1770,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1792,7 +1793,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1815,7 +1816,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1838,7 +1839,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1861,7 +1862,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1881,14 +1882,10 @@
                         {
                             "type": "yt",
                             "url": "https://www.youtube.com/watch?v=VCvH3Tz_1iw"
-                        },
-                        {
-                            "type": "link",
-                            "url": "P.I.W.O.2"
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#88e0f4",
+                    "pinColor": "#4f0e88",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1911,7 +1908,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1934,7 +1931,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1961,7 +1958,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -1984,7 +1981,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#dbdbdb",
+                    "pinColor": "#bdbdbd",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2007,7 +2004,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2030,7 +2027,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#901783",
+                    "pinColor": "#387109",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2053,7 +2050,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2076,7 +2073,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2099,7 +2096,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#00797a",
+                    "pinColor": "#a79700",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2122,7 +2119,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2145,7 +2142,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#000646",
+                    "pinColor": "#646000",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2168,7 +2165,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2191,7 +2188,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#a132e7",
+                    "pinColor": "#7e231a",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2214,7 +2211,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#dbdbdb",
+                    "pinColor": "#bdbdbd",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2237,7 +2234,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2260,7 +2257,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "szkoła, dzieciaki i studenci",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2283,7 +2280,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2306,7 +2303,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2329,7 +2326,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#a132e7",
+                    "pinColor": "#7e231a",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2352,7 +2349,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#575757",
+                    "pinColor": "#757575",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2375,7 +2372,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2398,7 +2395,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2421,7 +2418,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2444,7 +2441,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2467,7 +2464,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#dbdbdb",
+                    "pinColor": "#bdbdbd",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2490,7 +2487,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2505,7 +2502,12 @@
                         23.4834404
                     ],
                     "assumedCoords": false,
-                    "submitters": [],
+                    "submitters": [
+                        {
+                            "type": "wykop",
+                            "user": "Reevder"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "yt",
@@ -2513,7 +2515,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2536,7 +2538,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#55b8f2",
+                    "pinColor": "#2f8b55",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2559,7 +2561,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#a132e7",
+                    "pinColor": "#7e231a",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2582,7 +2584,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2605,7 +2607,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2628,7 +2630,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#00797a",
+                    "pinColor": "#a79700",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2651,7 +2653,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2674,7 +2676,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2697,7 +2699,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2724,7 +2726,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#187771",
+                    "pinColor": "#177781",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2747,7 +2749,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ffae00",
+                    "pinColor": "#00eaff",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2770,7 +2772,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2793,7 +2795,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2816,7 +2818,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2839,7 +2841,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2862,7 +2864,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff6d00",
+                    "pinColor": "#00d6ff",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2885,7 +2887,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2908,7 +2910,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#9394ba",
+                    "pinColor": "#ab4939",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2931,7 +2933,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff6d00",
+                    "pinColor": "#00d6ff",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -2977,7 +2979,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#575757",
+                    "pinColor": "#757575",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3004,7 +3006,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#76a37b",
+                    "pinColor": "#b73a67",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3027,7 +3029,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#dbdbdb",
+                    "pinColor": "#bdbdbd",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3042,7 +3044,12 @@
                         16.3988059
                     ],
                     "assumedCoords": false,
-                    "submitters": [],
+                    "submitters": [
+                        {
+                            "type": "wykop",
+                            "user": "ainam102"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "yt",
@@ -3050,7 +3057,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#55b8f2",
+                    "pinColor": "#2f8b55",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3065,7 +3072,12 @@
                         15.8390849
                     ],
                     "assumedCoords": false,
-                    "submitters": [],
+                    "submitters": [
+                        {
+                            "type": "wykop",
+                            "user": "lewe_konto"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "yt",
@@ -3073,7 +3085,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3092,11 +3104,11 @@
                     "links": [
                         {
                             "type": "link",
-                            "url": "www.motofakty.pl/artykul/hajto-smiertelnie-potracil-kobiete.html"
+                            "url": "https://www.motofakty.pl/artykul/hajto-smiertelnie-potracil-kobiete.html"
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#dbdbdb",
+                    "pinColor": "#bdbdbd",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3119,7 +3131,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c9720b",
+                    "pinColor": "#b0279c",
                     "tags": [],
                     "group": "samochody, rajdy i inne pojazdy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3146,7 +3158,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff6d00",
+                    "pinColor": "#00d6ff",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3169,7 +3181,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#901783",
+                    "pinColor": "#387109",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3192,7 +3204,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#000646",
+                    "pinColor": "#646000",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3215,7 +3227,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#00797a",
+                    "pinColor": "#a79700",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3238,7 +3250,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3261,7 +3273,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3284,7 +3296,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3311,7 +3323,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#dbdbdb",
+                    "pinColor": "#bdbdbd",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3334,7 +3346,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3357,7 +3369,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3380,7 +3392,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#575757",
+                    "pinColor": "#757575",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3403,7 +3415,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3426,7 +3438,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3449,7 +3461,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#76a37b",
+                    "pinColor": "#b73a67",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3463,8 +3475,13 @@
                         49.9807135,
                         20.9392026
                     ],
-                    "assumedCoords": false,
-                    "submitters": [],
+                    "assumedCoords": true,
+                    "submitters": [
+                        {
+                            "type": "wykop",
+                            "user": "Don_Lukasio"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "yt",
@@ -3472,7 +3489,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#a132e7",
+                    "pinColor": "#7e231a",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3495,7 +3512,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3518,7 +3535,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#55b8f2",
+                    "pinColor": "#2f8b55",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3541,7 +3558,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3564,7 +3581,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3587,7 +3604,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#901783",
+                    "pinColor": "#387109",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3610,7 +3627,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3633,7 +3650,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff6d00",
+                    "pinColor": "#00d6ff",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3656,7 +3673,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ffae00",
+                    "pinColor": "#00eaff",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3679,7 +3696,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3702,7 +3719,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3725,7 +3742,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3771,7 +3788,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3794,7 +3811,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3817,7 +3834,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#9394ba",
+                    "pinColor": "#ab4939",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3840,7 +3857,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3863,7 +3880,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#dbdbdb",
+                    "pinColor": "#bdbdbd",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3886,7 +3903,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3909,7 +3926,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ffae00",
+                    "pinColor": "#00eaff",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3932,7 +3949,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#000646",
+                    "pinColor": "#646000",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3955,7 +3972,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -3978,7 +3995,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4001,7 +4018,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#a132e7",
+                    "pinColor": "#7e231a",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4024,7 +4041,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#2c81b5",
+                    "pinColor": "#5b18c2",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4047,7 +4064,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4070,7 +4087,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#242424",
+                    "pinColor": "#424242",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4093,7 +4110,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#76a37b",
+                    "pinColor": "#b73a67",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4116,7 +4133,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#575757",
+                    "pinColor": "#757575",
                     "tags": [],
                     "group": "ciekawe wywiady i rozmowy telefoniczne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4139,7 +4156,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4162,7 +4179,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4185,7 +4202,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4208,7 +4225,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c9720b",
+                    "pinColor": "#b0279c",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4231,7 +4248,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4254,7 +4271,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4277,7 +4294,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4300,7 +4317,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4323,7 +4340,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#88e0f4",
+                    "pinColor": "#4f0e88",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4346,7 +4363,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#00797a",
+                    "pinColor": "#a79700",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4369,7 +4386,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#9394ba",
+                    "pinColor": "#ab4939",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4392,7 +4409,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4415,7 +4432,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4438,7 +4455,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#2c81b5",
+                    "pinColor": "#5b18c2",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4461,7 +4478,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4484,7 +4501,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#76a37b",
+                    "pinColor": "#b73a67",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4507,7 +4524,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4530,7 +4547,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4553,7 +4570,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4576,7 +4593,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4599,7 +4616,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#a132e7",
+                    "pinColor": "#7e231a",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4627,11 +4644,11 @@
                         },
                         {
                             "type": "link",
-                            "url": "nonsa.pl/wiki/Wojna_kebabowa#E%C5%82k"
+                            "url": "https://nonsa.pl/wiki/Wojna_kebabowa#E%C5%82k"
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4646,7 +4663,12 @@
                         17.0267221
                     ],
                     "assumedCoords": false,
-                    "submitters": [],
+                    "submitters": [
+                        {
+                            "type": "wykop",
+                            "user": "Bekon2000"
+                        }
+                    ],
                     "links": [
                         {
                             "type": "yt",
@@ -4654,7 +4676,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4677,7 +4699,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "Sztuki walki i kaskaderzy",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4700,7 +4722,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4727,7 +4749,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4750,7 +4772,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#9394ba",
+                    "pinColor": "#ab4939",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4773,7 +4795,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4796,7 +4818,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#76a37b",
+                    "pinColor": "#b73a67",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4819,7 +4841,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#88e0f4",
+                    "pinColor": "#4f0e88",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4842,7 +4864,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4865,7 +4887,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4888,7 +4910,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4911,7 +4933,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#76a37b",
+                    "pinColor": "#b73a67",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4934,7 +4956,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -4957,7 +4979,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#242424",
+                    "pinColor": "#424242",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5003,7 +5025,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5026,7 +5048,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5049,7 +5071,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#a132e7",
+                    "pinColor": "#7e231a",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5072,7 +5094,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5095,7 +5117,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5118,7 +5140,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "muzyka do tańca i do różańca",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5141,7 +5163,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5164,7 +5186,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5187,7 +5209,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5210,7 +5232,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#e443e2",
+                    "pinColor": "#2e344e",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5233,7 +5255,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5256,7 +5278,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5279,7 +5301,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#1075b9",
+                    "pinColor": "#9b5701",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5302,7 +5324,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5325,7 +5347,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff6d00",
+                    "pinColor": "#00d6ff",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5348,7 +5370,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5371,7 +5393,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5394,7 +5416,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#ff2525",
+                    "pinColor": "#5252ff",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5417,7 +5439,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5440,7 +5462,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#fa4bb2",
+                    "pinColor": "#2bb4af",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5463,7 +5485,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5486,7 +5508,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5514,7 +5536,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5537,7 +5559,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5560,7 +5582,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5583,7 +5605,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5606,7 +5628,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#901783",
+                    "pinColor": "#387109",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5629,7 +5651,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5652,7 +5674,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5675,7 +5697,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5698,7 +5720,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5721,7 +5743,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5744,7 +5766,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#2c81b5",
+                    "pinColor": "#5b18c2",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5767,7 +5789,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5790,7 +5812,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5813,7 +5835,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "kultowe sytuacje w telewizji i polityce",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5831,7 +5853,7 @@
                     "submitters": [],
                     "links": [],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c73b24",
+                    "pinColor": "#42b37c",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5854,7 +5876,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c9720b",
+                    "pinColor": "#b0279c",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5872,7 +5894,7 @@
                     "submitters": [],
                     "links": [],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#242424",
+                    "pinColor": "#424242",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5895,7 +5917,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#00797a",
+                    "pinColor": "#a79700",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5918,7 +5940,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#c9720b",
+                    "pinColor": "#b0279c",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5941,7 +5963,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5964,7 +5986,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#76a37b",
+                    "pinColor": "#b73a67",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -5981,7 +6003,7 @@
                     "submitters": [],
                     "links": [],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#575757",
+                    "pinColor": "#757575",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6004,7 +6026,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6027,7 +6049,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#20881d",
+                    "pinColor": "#d18802",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6050,7 +6072,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6073,7 +6095,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#00797a",
+                    "pinColor": "#a79700",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6096,7 +6118,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5fc700",
+                    "pinColor": "#007cf5",
                     "tags": [],
                     "group": "Celebryci internetowi",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6119,7 +6141,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#f0d985",
+                    "pinColor": "#589d0f",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6142,7 +6164,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6165,7 +6187,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6188,7 +6210,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#5a7241",
+                    "pinColor": "#1427a5",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6211,7 +6233,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6234,7 +6256,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#901783",
+                    "pinColor": "#387109",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6257,7 +6279,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#bf0cd2",
+                    "pinColor": "#2dc0fb",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6280,7 +6302,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#975584",
+                    "pinColor": "#485579",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6303,7 +6325,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#6e1500",
+                    "pinColor": "#0051e6",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6326,7 +6348,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#9394ba",
+                    "pinColor": "#ab4939",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",
@@ -6349,7 +6371,7 @@
                         }
                     ],
                     "icon": "fa-solid:fa-question",
-                    "pinColor": "#a132e7",
+                    "pinColor": "#7e231a",
                     "tags": [],
                     "group": "inne",
                     "createdAt": "2022-01-01T00:00:00.000Z",

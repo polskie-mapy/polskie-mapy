@@ -17,18 +17,28 @@ function parseDescription(description) {
             ytLinks: [],
             igNicks: [],
             genericUrls: [],
+            wykopNicks: [],
             assumedCoords: false,
         }
     }
 
     const ytLinks = uniq(description.match(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/gi));
     const igNicks = (() => {
-        const it = [...description.matchAll(/instagramu?:?\s@?(\w+)/gi)];
+        const it = [
+            ...description.matchAll(/instagramu?:?\s@?(\w+)/gi),
+        ];
+
+        return it.map(x => x[1]);
+    })();
+    const wykopNicks = (() => {
+        const it = [
+            ...description.matchAll(/użytkownik wykopu:?\s?@?(\w+)/gi)
+        ];
 
         return it.map(x => x[1]);
     })();
     const genericUrls = (() => {
-        const groups = [...description.matchAll(/([-a-zA-Z0-9@:%._\+~#=]{1,256})\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi)];
+        const groups = [...description.matchAll(/https?:\/\/([-a-zA-Z0-9@:%._\+~#=]{1,256})\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi)];
 
         return groups.filter(x => {
             return x[0].indexOf('youtube.com') === -1 && x[0].indexOf('googleusercontent.com') === -1;
@@ -42,11 +52,13 @@ function parseDescription(description) {
             || description.indexOf('lokacja niedokładna') !== -1
             || description.indexOf('lokalizacja dokładna w toku') !== -1
             || description.indexOf('lokalizacja nieznana') !== -1
+            || description.indexOf('lokacja nieznana') !== -1
     })();
 
     return {
         ytLinks,
         igNicks,
+        wykopNicks,
         genericUrls,
         assumedCoords
     }
@@ -58,12 +70,8 @@ function getPinColor(styleUrl) {
     if (styleUrl.indexOf('labelson') === -1) {
         styleUrl = styleUrl + '-normal';
     }
-
-    console.log(styleUrl, id);
-    return '#' + jObj.kml.Document.Style.find(x => x['@id'] === styleUrl).IconStyle.color.substr(2).split('').reverse().join('');
+    return '#' + jObj.kml.Document.Style.find(x => x['@id'] === styleUrl).IconStyle.color.substr(2);
 }
-
-// return console.log(jObj.kml.Document.Style[0])
 
 const out = jObj.kml.Document.Folder.flatMap(folder => {
     return folder.Placemark.map(mark => {
@@ -78,6 +86,10 @@ const out = jObj.kml.Document.Folder.flatMap(folder => {
             submitters: [
                 ...desc.igNicks.map(y => ({
                     type: 'ig',
+                    user: y
+                })),
+                ...desc.wykopNicks.map(y => ({
+                    type: 'wykop',
                     user: y
                 })),
             ],
