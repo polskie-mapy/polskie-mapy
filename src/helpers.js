@@ -15,6 +15,9 @@ const LINK_TYPE_ICONS = {
     ['ig']: 'fa-brands fa-instagram',
     ['map']: 'fa-solid fa-map-location-dot'
 };
+const LINK_TYPE_URL = {
+    ['ig']: 'https://www.instagram.com/:id/',
+};
 
 export const COLOR_SCHEMES = [
     'system',
@@ -74,22 +77,27 @@ function coords2GmapsPin(coords) {
     return `https://www.google.com/maps/place/${placePin}/@${loc},${zoom}z`;
 }
 
+function ytThumbUrl(ytUrl) {
+    return `https://img.youtube.com/vi/${ytId(ytUrl)}/hqdefault.jpg`
+}
+
+function linkTypeUrl(type, id) {
+    const template = LINK_TYPE_URL[type];
+
+    return template ? template.replace(':u', id) : null;
+
+}
+
 export default {
     install(Vue) {
-        Vue.H = {
-            ytId,
-            linkTypeColor,
-            linkTypeIcon,
-            coords2Dms,
-            coords2GmapsPin
-        };
-
         Vue.prototype.$H = {
             ytId,
             linkTypeColor,
             linkTypeIcon,
             coords2Dms,
-            coords2GmapsPin
+            coords2GmapsPin,
+            ytThumbUrl,
+            linkTypeUrl
         };
 
         Vue.mixin({

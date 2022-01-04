@@ -27,7 +27,13 @@
           "pinColor": "#332233",
           "tags": [],
           "group": "Legendy Legend",
-          "mainImage": ""
+          "mainImage": "",
+          "submitters": [
+            {
+              "source": "ig",
+              "user": "@sswirek"
+            }
+          ]
         }
       ]
     }

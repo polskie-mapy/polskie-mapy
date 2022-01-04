@@ -33,7 +33,10 @@
               :data="ytThumbnail"
               class="h-36 w-48"
             >
-              <img src="../assets/placeholder.svg">
+              <img
+                src="../assets/placeholder.svg"
+                alt=""
+              >
             </object>
             <div class="text-app bg-black/25 inset-0 absolute grid place-content-center">
               <fa-icon
@@ -43,6 +46,21 @@
               />
             </div>
           </a>
+          <div class="col-span-2 grid grid-rows-1 auto-rows-min divide-y gap-y-1">
+            <p>{{ point.excerpt }}</p>
+            <p
+              v-if="submitter"
+              class="text-sm"
+            >
+              podesłał
+              <a :href="submitter.url">
+                <fa-icon
+                  :icon="submitter.icon"
+                />
+                {{ submitter.user }}
+              </a>
+            </p>
+          </div>
           <div class="col-span-3 flex gap-2 mb-3">
             <div
               v-for="link in links"
@@ -82,6 +100,7 @@ export default {
         data: {
             type: Object,
             required: false,
+            default: () => null,
         },
     },
     computed: {
@@ -104,7 +123,7 @@ export default {
             const link = this.point.links.find(x => x.type === 'yt');
 
             if (link !== null) {
-                return `https://img.youtube.com/vi/${this.$H.ytId(link.url)}/hqdefault.jpg`;
+                return this.$H.ytThumbUrl(link.url);
             }
 
             return null;
@@ -118,6 +137,20 @@ export default {
 
             return null;
         },
+        submitter() {
+            if (!this.point.submitters) {
+                return null;
+            }
+
+            const submitter = this.point.submitters[0];
+
+
+            return {
+                icon: this.$H.linkTypeIcon(submitter.source),
+                url: this.$H.linkTypeUrl(submitter.user),
+                ...submitter
+            }
+        }
     },
     methods: {
         hideDetails() {
