@@ -1,7 +1,10 @@
 <template>
   <div id="map-viewer">
     <MapView />
-    <portal-target name="details" slim/>
+    <portal-target
+      name="details"
+      slim
+    />
   </div>
 </template>
 

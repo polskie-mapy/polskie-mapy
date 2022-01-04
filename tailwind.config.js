@@ -23,6 +23,9 @@ module.exports = {
                 'pin-var': 'var(--pm-pin-color, white)',
                 'point-details-link-var': 'var(--pm-point-details-link-color, --tm-color-app)',
             },
+            backgroundImage: {
+                'placeholder': 'url("placeholder.svg")'
+            }
         },
     },
     plugins: [],

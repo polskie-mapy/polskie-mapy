@@ -1,52 +1,58 @@
 <template>
   <div class="map-phantoms">
-    <fa-icon :icon="icon.name" :key="icon.id" :ref="icon.id" v-for="icon in fontAwesomeIcons" fixed-width/>
+    <fa-icon
+      v-for="icon in fontAwesomeIcons"
+      :key="icon.id"
+      :ref="icon.id"
+      :icon="icon.name"
+      fixed-width
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MapPhantoms',
+    name: 'MapPhantoms',
 
-  props: {
-    icons: {
-      type: Array,
-      default: () => [],
+    props: {
+        icons: {
+            type: Array,
+            default: () => [],
+        },
     },
-  },
 
-  computed: {
-    fontAwesomeIcons() {
-      return this.icons
-          .filter(x => x.startsWith('fa-solid:') || x.startsWith('fa-regular:'))
-          .map(x => ({
-            name: x.split(':').join(' '),
-            id: x,
-          }));
+    computed: {
+        fontAwesomeIcons() {
+            return this.icons
+                .filter(x => x.startsWith('fa-solid:') || x.startsWith('fa-regular:'))
+                .map(x => ({
+                    name: x.split(':').join(' '),
+                    id: x,
+                }));
+        },
     },
-  },
 
-  methods: {
-    emitPhantoms() {
-      const phantoms = this.icons.map(x => ({
-        data: this.$refs[x][0],
-        name: x,
-      }));
+    async mounted() {
+        this.$el.attachShadow({mode: 'open'});
 
-      this.$emit('phantoms', phantoms);
+        const unwatch = this.$watch('icons', () => {
+            unwatch();
+
+            this.emitPhantoms();
+            this.$watch('icons', () => this.emitPhantoms());
+            this.$nextTick(() => this.$emit('loaded'));
+        });
     },
-  },
 
-  async mounted() {
-    this.$el.attachShadow({mode: 'open'});
+    methods: {
+        emitPhantoms() {
+            const phantoms = this.icons.map(x => ({
+                data: this.$refs[x][0],
+                name: x,
+            }));
 
-    const unwatch = this.$watch('icons', () => {
-      unwatch();
-
-      this.emitPhantoms();
-      this.$watch('icons', () => this.emitPhantoms());
-      this.$nextTick(() => this.$emit('loaded'));
-    });
-  },
+            this.$emit('phantoms', phantoms);
+        },
+    },
 };
 </script>

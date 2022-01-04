@@ -17,13 +17,13 @@ import 'leaflet/dist/leaflet.css';
 import '@/assets/ui.css';
 
 library.add(fas, far, fab);
-Vue.component('fa-icon', FontAwesomeIcon);
+Vue.component('FaIcon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 
-Vue.component('l-map', LMap);
-Vue.component('l-tile-layer', LTileLayer);
-Vue.component('l-marker', LMarker);
+Vue.component('LMap', LMap);
+Vue.component('LTileLayer', LTileLayer);
+Vue.component('LMarker', LMarker);
 
 Vue.use(PortalVue);
 Vue.use(VueHelpers);

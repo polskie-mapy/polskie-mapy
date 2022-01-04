@@ -1,13 +1,42 @@
-@import "~tailwindcss/base";
-@import "~tailwindcss/components";
-@import "~tailwindcss/utilities";
-@import "~tailwindcss/variants";
+@tailwind base;
+@tailwind components;
+
+.tooltipped {
+    @apply relative inline-block;
+}
+
+.tooltipped .tooltip {
+    @apply invisible absolute bg-point-details-link-var p-2 bottom-full border border-app shadow text-white text-sm w-max max-w-xs rounded -translate-x-1 -translate-y-2;
+}
+
+.tooltipped:hover .tooltip {
+    @apply visible z-50 select-none pointer-events-none;
+}
 
 #app, #map-viewer {
     position: relative;
 }
+
 #app.dark .map .leaflet-tile-pane {
     filter: invert(1) hue-rotate(180deg) grayscale(0.7);
+}
+
+.pm-pin {
+    @apply p-2 rounded-full bg-pin-var border-white border-2 text-white flex w-8 h-8 items-center justify-center hover:border-app hover:shadow relative;
+}
+
+.bg-placeholder::before {
+    display: none;
+}
+
+.pm-pin:hover::after {
+    @apply border-app bg-app;
+}
+
+.pm-pin::after {
+    content: "";
+
+    @apply absolute -bottom-1 w-5 h-5 border border-white border-2 border-t-0 border-l-0 rotate-45 bg-white -z-10;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,3 +44,5 @@
         filter: invert(1) hue-rotate(180deg) grayscale(0.7);
     }
 }
+
+@tailwind utilities;
