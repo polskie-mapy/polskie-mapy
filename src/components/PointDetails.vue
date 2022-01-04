@@ -9,7 +9,7 @@
     >
       <div class="self-end flex w-full justify-center cursor-auto">
         <div
-          class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-3 auto-rows-min gap-3"
+          class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr_1fr] auto-rows-min gap-3 max-w-5xl"
         >
           <p class="text-2xl font-semibold col-span-3 pb-3 relative">
             {{ point.title }}
@@ -24,7 +24,7 @@
             </a>
           </p>
           <a
-            class="rounded overflow-hidden hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative bg-placeholder"
+            class="rounded overflow-hidden hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative bg-placeholder h-36 w-48"
             :href="ytLink"
             target="_blank"
           >
@@ -46,22 +46,24 @@
               />
             </div>
           </a>
-          <div class="col-span-2 grid grid-rows-1 auto-rows-min divide-y gap-y-1">
-            <p>{{ point.excerpt }}</p>
+          <div class="col-span-2 grid grid-rows-1 auto-rows-min gap-y-1 relative">
+            <p class="text-ellipsis w-full">
+              {{ point.excerpt }}
+            </p>
             <p
               v-if="submitter"
-              class="text-sm"
+              class="text-sm border-l-2 border-grey-500 pl-2"
             >
-              podesłał
-              <a :href="submitter.url">
-                <fa-icon
-                  :icon="submitter.icon"
-                />
-                {{ submitter.user }}
+              podesłał -
+              <a
+                :href="submitter.url"
+                class="hover:text-app font-bold"
+              >
+                @{{ submitter.user }}
               </a>
             </p>
           </div>
-          <div class="col-span-3 flex gap-2 mb-3">
+          <div class="col-span-2 flex gap-2 mb-3">
             <div
               v-for="link in links"
               :key="link.url"
@@ -70,7 +72,7 @@
             >
               <div
                 v-if="link.tooltip"
-                class="tooltip"
+                class="tooltip color-inherit"
               >
                 {{ link.tooltip }}
               </div>
@@ -87,6 +89,29 @@
               </a>
             </div>
           </div>
+          <div class="grid grid-rows-2 justify-end cursor-default">
+            <div class="tooltipped">
+              <div
+                class="tooltip"
+              >
+                {{ createdAt | prettyDate }}
+              </div>
+              <p class="text-xs leading-[0] text-right text-gray-500 underline underline-offset-4">
+                <span>dodano {{ createdAtDesc }}</span>
+              </p>
+            </div>
+            <div class="tooltipped">
+              <div
+                v-if="recordedAt"
+                class="tooltip"
+              >
+                {{ recordedAt | prettyDate }}
+              </div>
+              <p class="text-xs leading-[0] text-right text-gray-500">
+                <span>nagrano {{ recordedAtDesc }}</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -94,6 +119,8 @@
 </template>
 
 <script>
+const { DateTime } = require("luxon");
+
 export default {
     name: 'PointDetails',
     props: {
@@ -138,18 +165,33 @@ export default {
             return null;
         },
         submitter() {
-            if (!this.point.submitters) {
+            if (!this.point.submitters || this.point.submitters.length === 0) {
                 return null;
             }
 
             const submitter = this.point.submitters[0];
 
-
             return {
                 icon: this.$H.linkTypeIcon(submitter.source),
-                url: this.$H.linkTypeUrl(submitter.user),
+                url: this.$H.linkTypeUrl(submitter.source, submitter.user),
                 ...submitter
             }
+        },
+        createdAt() {
+            return DateTime.fromISO(this.point.createdAt);
+        },
+        recordedAt() {
+            return this.point.recordedAt ? DateTime.fromISO(this.point.recordedAt) : null;
+        },
+        createdAtDesc() {
+            return this.$H.dateTimeDiffHumans(DateTime.fromISO(this.createdAt));
+        },
+        recordedAtDesc() {
+            if (this.recordedAt === null) {
+                return '¯\\_(ツ)_/¯';
+            }
+          
+            return this.$H.dateTimeDiffHumans(DateTime.fromISO(this.recordedAt));
         }
     },
     methods: {

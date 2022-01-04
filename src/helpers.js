@@ -1,4 +1,5 @@
 import {round} from "lodash";
+import {DateTime} from "luxon";
 
 const ytUriRegex = new RegExp(
     /^(?:https?:\/\/)?(?:\w+\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})$/,
@@ -8,12 +9,14 @@ const ytUriRegex = new RegExp(
 const LINK_TYPE_COLOR = {
     ['yt']: '#ff0000',
     ['ig']: '#405de6',
-    ['map']: '#0b4a6e'
+    ['map']: '#0b4a6e',
+    ['news']: '#75716f'
 };
 const LINK_TYPE_ICONS = {
     ['yt']: 'fa-brands fa-youtube',
     ['ig']: 'fa-brands fa-instagram',
-    ['map']: 'fa-solid fa-map-location-dot'
+    ['map']: 'fa-solid fa-map-location-dot',
+    ['news']: 'fa-regular fa-newspaper'
 };
 const LINK_TYPE_URL = {
     ['ig']: 'https://www.instagram.com/:id/',
@@ -24,6 +27,18 @@ export const COLOR_SCHEMES = [
     'dark',
     'light'
 ];
+
+const DATEDIFF_PRIORITIES = [
+    'years', 'months', 'weeks', 'days'
+];
+
+const DATEDIFF_LANG = {
+    years: ['rok temu', ':v lata temu', 'dawno temu'],
+    months: ['miesiąc temu', ':v m-ce temu', ':v m-cy temu'],
+    weeks: ['tydzień temu', ':v tygodnie temu', ':v tygodni temu'],
+    days: ['dzień temu', ':v dni temu', ':v dni temu'],
+    recently: ['niedawno']
+};
 
 function ytId(link) {
     return ytUriRegex.exec(link)[1];
@@ -84,8 +99,47 @@ function ytThumbUrl(ytUrl) {
 function linkTypeUrl(type, id) {
     const template = LINK_TYPE_URL[type];
 
-    return template ? template.replace(':u', id) : null;
+    return template ? template.replace(':id', id) : null;
 
+}
+
+function langChoice(langArr, value) {
+    if (value === 1) {
+        return langArr[0].replace(':v', value);
+    } else if (value >= 5) {
+        return langArr[2].replace(':v', value);
+    }
+
+    return langArr[1].replace(':v', value);
+}
+
+function dateTimeDiffHumans(date) {
+    const dur = DateTime.now().diff(date, DATEDIFF_PRIORITIES).toObject();
+
+    for (const k of DATEDIFF_PRIORITIES) {
+        if (dur[k] > 0) {
+            return langChoice(DATEDIFF_LANG[k], Math.floor(dur[k]));
+        }
+    }
+
+    // if too small to show difference (<day), show generic recently title
+    return langChoice(DATEDIFF_LANG.recently, 1);
+}
+
+function prettyDate(date) {
+    if (typeof date === 'string') {
+        date = DateTime.fromISO(date);
+    }
+
+    return date.toLocaleString(DateTime.DATETIME_MED);
+}
+
+function translateIconCode(code) {
+    if (code.startsWith('fa-solid:') || code.startsWith('fa-regular:')) {
+        return code.split(':').join(' ');
+    }
+
+    return 'fa-solid fa-marker';
 }
 
 export default {
@@ -97,13 +151,16 @@ export default {
             coords2Dms,
             coords2GmapsPin,
             ytThumbUrl,
-            linkTypeUrl
+            linkTypeUrl,
+            dateTimeDiffHumans,
+            translateIconCode
         };
 
         Vue.mixin({
             filters: {
                 linkTypeColorStyle,
-                linkTypeIcon
+                linkTypeIcon,
+                prettyDate
             }
         })
     },

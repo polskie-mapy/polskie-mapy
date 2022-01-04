@@ -1,10 +1,10 @@
 <template>
   <div class="h-full">
     <l-map
-      v-if="loadingState === 2"
+      v-if="loadingState === 1"
       class="h-full map"
       :zoom="mapZoom"
-      :min-zoom="mapZoom"
+      :min-zoom="minZoom"
       :center="mapCenter"
     >
       <l-tile-layer
@@ -30,29 +30,32 @@
         fixed-size
       />
     </div>
-    <MapPhantoms
-      :icons="icons"
-      @phantoms="setPhantoms"
-      @loaded="loadingState++"
-    />
     <PointDetails :data="selectedPointDetails" />
+    <div ref="phantoms">
+      <fa-icon
+        v-for="icon in fontAwesomeIcons"
+        :key="icon.id"
+        :ref="icon.id"
+        :icon="icon.name"
+        fixed-width
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import {uniq} from 'lodash';
 import {divIcon} from 'leaflet';
-import MapPhantoms from '@/components/MapPhantoms';
 import PointDetails from '@/components/PointDetails';
+import {uniq} from "lodash";
+// import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 export default {
     name: 'MapView',
     components: {
-        MapPhantoms, PointDetails,
+        PointDetails,
     },
     data: () => ({
         rawPoints: [],
-        phantoms: [],
         loadingState: 0,
         selectedPointId: 0,
     }),
@@ -61,22 +64,13 @@ export default {
         mapAttribution: () => '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         mapCenter: () => [52, 19],
         mapZoom: () => 7,
-        icons() {
-            const pointIcons = this.rawPoints.map(x => x.icon);
-
-            return uniq([...pointIcons, 'fa-solid:fa-marker']);
-        },
-        mapMarkerDefaultIconElement() {
-            return this.phantoms['fa-solid:fa-marker'];
-        },
+        minZoom: () => 6,
         points() {
             return this.rawPoints.map(x => {
                 const iconContainer = document.createElement('div');
-
                 iconContainer.classList.add('pm-pin');
-
                 iconContainer.style.setProperty('--pm-pin-color', x.pinColor);
-                iconContainer.append((this.phantoms.find(y => x.name === y.icon)?.data || this.mapMarkerDefaultIconElement).cloneNode(true));
+                iconContainer.append(this.$refs[x.icon][0].cloneNode(true));
                 iconContainer.title = `${x.title}\n\n${x.excerpt}`;
 
                 const icon = divIcon({
@@ -99,6 +93,14 @@ export default {
 
             return this.points.find(x => x.id === this.selectedPointId);
         },
+        fontAwesomeIcons() {
+            return uniq(this.rawPoints.map(x => x.icon || 'fa-solid:fa-marker'))
+                .filter(x => x.startsWith('fa-solid:') || x.startsWith('fa-regular:'))
+                .map(x => ({
+                    name: x.split(':').join(' '),
+                    id: x,
+                }));
+        },
     },
 
     beforeMount() {
@@ -110,15 +112,22 @@ export default {
             const resp = await fetch('http://localhost:3000/maps');
             const maps = await resp.json();
 
-            this.loadingState++;
-
             return maps[0].points;
         })();
+
+        await this.$nextTick();
+
+        this.loadingState++;
+
+    // await this.$nextTick();
+    //
+    // this.$nextTick(() => {
+    //     this.$refs.phantoms.attachShadow({mode: 'open'});
+    //
+    //     this.loadingState++;
+    // });
     },
     methods: {
-        setPhantoms(phantoms) {
-            this.phantoms = phantoms;
-        },
         selectPoint(point) {
             this.selectedPointId = point.id;
         },
