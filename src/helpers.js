@@ -18,6 +18,7 @@ const LINK_TYPE_ICONS = {
     ['ig']: 'fa-brands fa-instagram',
     ['map']: 'fa-solid fa-map-location-dot',
     ['news']: 'fa-regular fa-newspaper',
+    ['link']: linkTypeIconDefault(),
 };
 const LINK_TYPE_URL = {
     ['ig']: 'https://www.instagram.com/:id/',
@@ -41,6 +42,12 @@ const DATEDIFF_LANG = {
     days: ['dzień temu', ':v dni temu', ':v dni temu'],
     recently: ['niedawno']
 };
+
+const LINK_TYPE_TOOLTIPS = {
+    ['yt']: 'Zobacz nagranie na YT',
+    ['map']: 'Zobacz miejsce na Google Maps',
+    ['news']: 'Zobacz artykuł dotyczący tego nagrania',
+}
 
 function ytId(link) {
     return ytUriRegex.exec(link)[1];
@@ -156,6 +163,9 @@ function findIconDefinition(code) {
     return faFindIconDefinition(iconLookup);
 }
 
+function linkTypeDefaultTooltip(type) {
+    return LINK_TYPE_TOOLTIPS[type];
+}
 
 export default {
     install(Vue) {
@@ -169,6 +179,7 @@ export default {
             linkTypeUrl,
             dateTimeDiffHumans,
             findIconDefinition,
+            linkTypeDefaultTooltip
         };
 
         Vue.mixin({

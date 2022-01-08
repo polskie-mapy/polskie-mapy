@@ -2,7 +2,6 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import 'idb';
 import 'leaflet.offline';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -13,20 +12,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import PortalVue from 'portal-vue';
 import VueHelpers from '@/helpers';
 
-import 'leaflet/dist/leaflet.css';
-import LIconMarker from '@/leaflet-icon-marker';
-import '@fortawesome/fontawesome-free/css/all.css';
 import '@/assets/ui.css';
+import 'leaflet/dist/leaflet.css';
 
 library.add(fas, far, fab);
 Vue.component('FaIcon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;
-
-Vue.component('LMap', LMap);
-Vue.component('LTileLayer', LTileLayer);
-Vue.component('LMarker', LMarker);
-Vue.component('LIconMarker', LIconMarker);
 
 Vue.use(PortalVue);
 Vue.use(VueHelpers);

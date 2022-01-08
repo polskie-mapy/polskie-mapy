@@ -4,5 +4,6 @@
     class="grid grid-cols-1 grid-flow-rows bg-app h-screen"
   >
     <router-view />
+    <portal name="modal" />
   </div>
 </template>

@@ -175,7 +175,8 @@
 </template>
 
 <script>
-const { DateTime } = require("luxon");
+import {DateTime} from 'luxon';
+
 
 export default {
     name: 'PointDetails',
@@ -197,10 +198,15 @@ export default {
             const STATIC_LINKS = [{
                 type: 'map',
                 url: this.$H.coords2GmapsPin(this.point.coords),
-                tooltip: 'Zobacz miejsce na Google Maps'
             }];
 
-            return [...STATIC_LINKS, ...this.point.links];
+            return [
+                ...STATIC_LINKS,
+                ...this.point.links
+            ].map(x => ({
+                tooltip: this.$H.linkTypeDefaultTooltip(x.type),
+                ...x
+            }));
         },
         ytThumbnail() {
             const link = this.point.links.find(x => x.type === 'yt');
@@ -245,7 +251,7 @@ export default {
             if (this.recordedAt === null) {
                 return '¯\\_(ツ)_/¯';
             }
-          
+
             return this.$H.dateTimeDiffHumans(DateTime.fromISO(this.recordedAt));
         }
     },
