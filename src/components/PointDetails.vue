@@ -102,7 +102,7 @@
             </div>
           </div>
           <div class="col-span-2 grid grid-rows-1 auto-rows-min gap-y-1 relative">
-            <p class="text-ellipsis w-full">
+            <p class="break-all max-h-40 overflow-y-auto">
               {{ point.excerpt }}
             </p>
             <p
