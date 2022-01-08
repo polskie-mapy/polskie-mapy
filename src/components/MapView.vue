@@ -22,6 +22,7 @@
         :fill-opacity="1"
         :stroke="true"
         color="#fff"
+        hover-color="#fb923c"
         :weight="2"
         :radius="16"
         @click="selectPoint(point)"

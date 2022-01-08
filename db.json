@@ -20,7 +20,7 @@
                             "url": "https://www.youtube.com/watch?v=9cX17CeYKt0"
                         }
                     ],
-                    "icon": "fa-solid:fa-square-full",
+                    "icon": "fa-solid:fa-question",
                     "pinColor": "#1427a5",
                     "tags": [],
                     "group": "Legendy Legend",
@@ -43,7 +43,7 @@
                             "url": "https://www.youtube.com/watch?v=kyoOPy4_GPs"
                         }
                     ],
-                    "icon": "fa-solid:fa-ambulance",
+                    "icon": "fa-solid:fa-question",
                     "pinColor": "#589d0f",
                     "tags": [],
                     "group": "Legendy Legend",

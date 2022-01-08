@@ -36,7 +36,14 @@ LeafletCanvas.include({
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 1;
 
-        this._fillStroke(ctx, layer);
+        if (layer._hover) {
+            const oldColor = layer.options.color;
+            layer.options.color = layer.options.hoverColor;
+            this._fillStroke(ctx, layer);
+            layer.options.color = oldColor;
+        } else {
+            this._fillStroke(ctx, layer);
+        }
 
         ctx.shadowColor = 'transparent';
 
@@ -48,19 +55,26 @@ LeafletCanvas.include({
         const iconWidth = layer.options.iconData[0];
         const iconHeight = layer.options.iconData[1];
         // first, center by marker radius
-        // then remove offset provided by icon itself (iconHeight != iconWidth)
+        // then remove offset provided by icon itself (iconHeight != iconWidth) and multiply by half of icon size (1/64)
         const sx = r / 2 - (iconHeight - iconWidth) * 0.015625;
         // since all icons have same height, no need to adjust that
         const sy = r / 2;
-        const path = new Path2D(layer.options.iconData[4]);
+        const iconPath = new Path2D(layer.options.iconData[4]);
+        // Need to create separate path2d to perform matrix transformation
         const iconContainer = new Path2D();
+        // Adding icon path to container path
+        // while applying transformation
+        // (scaling icon down to 16px (1/32) and translating position)
         iconContainer.addPath(
-            path,
+            iconPath,
             new DOMMatrix(
-                /* a      ,       b,     c,       d,           e,           f */
-                /* scale x, skew x, skew y, scale y, translate x, translate y */
                 [
-                    0.03125, 0, 0, 0.03125, p.x - sx, p.y - sy
+                    0.03125,    // scale x      A
+                    0,          // skew y       B
+                    0,          // skew y       C
+                    0.03125,    // scale y      D
+                    p.x - sx,   // translate x  E
+                    p.y - sy    // translate y  F
                 ]
             )
         )
@@ -76,11 +90,10 @@ LeafletCanvas.include({
 const IconMarker = LeafletCircleMarker.extend({
     options: {
         iconData: null,
-        hovered: false,
     },
     _updatePath() {
         this._renderer._updateIconMarker(this);
-    }
+    },
 })
 
 export default {
@@ -91,12 +104,17 @@ export default {
             required: true,
             type: Array,
         },
+        hoverColor: {
+            required: false,
+            type: String,
+        }
     },
     mounted() {
         const options = optionsMerger(this.circleOptions, this);
         this.mapObject = new IconMarker(this.latLng, {
             ...options,
-            iconData: this.iconData
+            iconData: this.iconData,
+            hoverColor: this.hoverColor
         });
         DomEvent.on(this.mapObject, this.$listeners);
         propsBinder(this, this.mapObject, this.$options.props);
@@ -111,5 +129,14 @@ export default {
              */
             this.$emit('ready', this.mapObject);
         });
+        this.mapObject.on('mouseover', () => {
+            this.mapObject._hover = true;
+            this.mapObject.redraw();
+        });
+
+        this.mapObject.on('mouseout', () => {
+            this.mapObject._hover = false;
+            this.mapObject.redraw();
+        })
     }
 }
