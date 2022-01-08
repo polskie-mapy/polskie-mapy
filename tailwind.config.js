@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const {APP_COLOR} = require("./src/app_helpers");
 
 module.exports = {
     content: [
@@ -8,7 +9,7 @@ module.exports = {
     darkMode: 'media',
     theme: {
         colors: {
-            'app': '#fb923c',
+            'app': APP_COLOR,
             ...colors
         },
         extend: {

@@ -22,7 +22,7 @@
         :fill-opacity="1"
         :stroke="true"
         color="#fff"
-        hover-color="#fb923c"
+        :hover-color="hoverPointColor"
         :weight="2"
         :radius="16"
         @click="selectPoint(point)"
@@ -46,6 +46,7 @@
 <script>
 import PointDetails from '@/components/PointDetails';
 import {uniq} from "lodash";
+import {APP_COLOR} from "@/app_helpers";
 
 export default {
     name: 'MapView',
@@ -63,6 +64,7 @@ export default {
         mapCenter: () => [52, 19],
         mapZoom: () => 7,
         minZoom: () => 6,
+        hoverPointColor: () => APP_COLOR,
         points() {
             return this.rawPoints.map(x => {
                 // const iconContainer = document.createElement('div');

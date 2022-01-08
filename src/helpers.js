@@ -168,7 +168,7 @@ export default {
             ytThumbUrl,
             linkTypeUrl,
             dateTimeDiffHumans,
-            findIconDefinition
+            findIconDefinition,
         };
 
         Vue.mixin({
