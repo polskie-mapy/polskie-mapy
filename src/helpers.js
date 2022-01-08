@@ -1,5 +1,6 @@
 import {round} from "lodash";
 import {DateTime} from "luxon";
+import {findIconDefinition as faFindIconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 const ytUriRegex = new RegExp(
     /^(?:https?:\/\/)?(?:\w+\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})$/,
@@ -135,13 +136,26 @@ function prettyDate(date) {
     return date.toLocaleString(DateTime.DATETIME_MED);
 }
 
-function translateIconCode(code) {
-    if (code.startsWith('fa-solid:') || code.startsWith('fa-regular:')) {
-        return code.split(':').join(' ');
-    }
+function findIconDefinition(code) {
+    const iconLookup = (() => {
+        if (code.startsWith('fa-solid:') || code.startsWith('fa-regular:')) {
+            const icon = code.split(':');
 
-    return 'fa-solid fa-marker';
+            return {
+                prefix: `fa${icon[0][3]}`,
+                iconName: icon[1].substr(3)
+            }
+        }
+
+        return {
+            prefix: `fas`,
+            iconName: 'marker'
+        };
+    })();
+
+    return faFindIconDefinition(iconLookup);
 }
+
 
 export default {
     install(Vue) {
@@ -154,7 +168,7 @@ export default {
             ytThumbUrl,
             linkTypeUrl,
             dateTimeDiffHumans,
-            translateIconCode
+            findIconDefinition
         };
 
         Vue.mixin({

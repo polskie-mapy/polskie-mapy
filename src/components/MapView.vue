@@ -6,16 +6,24 @@
       :zoom="mapZoom"
       :min-zoom="minZoom"
       :center="mapCenter"
+      :options="{ preferCanvas: true }"
+      @ready="customizeMapOnReady"
     >
       <l-tile-layer
         :url="tileLayerUrl"
         :attribution="mapAttribution"
       />
-      <l-marker
+      <l-icon-marker
         v-for="point in points"
         :key="`point-${point.id}`"
         :lat-lng="point.coords"
-        :icon="point.icon"
+        :icon-data="point.icon"
+        :fill-color="point.pinColor"
+        :fill-opacity="1"
+        :stroke="true"
+        color="#fff"
+        :weight="2"
+        :radius="16"
         @click="selectPoint(point)"
       />
     </l-map>
@@ -31,26 +39,12 @@
       />
     </div>
     <PointDetails :data="selectedPointDetails" />
-    <div
-      ref="phantoms"
-      class="hidden"
-    >
-      <fa-icon
-        v-for="icon in fontAwesomeIcons"
-        :key="icon.id"
-        :ref="icon.id"
-        :icon="icon.name"
-        fixed-width
-      />
-    </div>
   </div>
 </template>
 
 <script>
-import {divIcon} from 'leaflet';
 import PointDetails from '@/components/PointDetails';
 import {uniq} from "lodash";
-// import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 export default {
     name: 'MapView',
@@ -70,22 +64,24 @@ export default {
         minZoom: () => 6,
         points() {
             return this.rawPoints.map(x => {
-                const iconContainer = document.createElement('div');
-                iconContainer.classList.add('pm-pin');
-                iconContainer.style.setProperty('--pm-pin-color', x.pinColor);
-                iconContainer.append(this.$refs[x.icon][0].cloneNode(true));
-                iconContainer.title = `${x.title}\n\n${x.excerpt}`;
+                // const iconContainer = document.createElement('div');
+                // iconContainer.classList.add('pm-pin');
+                // iconContainer.style.setProperty('--pm-pin-color', x.pinColor);
+                // const iconRef = document.createElement('i');
+                // iconRef.className = x.icon.split(':').join(' ');
+                //
+                // iconContainer.append(iconRef);
+                // iconContainer.title = `${x.title}\n\n${x.excerpt}`;
 
-                const icon = divIcon({
-                    html: iconContainer,
-                    iconSize: false, // custom css will be used to determine size
-                    className: '',
-                });
-
+                // const icon = divIcon({
+                //     html: iconContainer,
+                //     iconSize: false, // custom css will be used to determine size
+                //     className: '',
+                // });
                 return {
                     ...x,
                     iconName: x.icon,
-                    icon,
+                    icon: this.$H.findIconDefinition(x.icon).icon,
                 };
             });
         },
@@ -126,6 +122,9 @@ export default {
         selectPoint(point) {
             this.selectedPointId = point.id;
         },
+        customizeMapOnReady(map) {
+            console.log(map)
+        }
     },
 };
 </script>
