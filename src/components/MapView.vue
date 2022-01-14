@@ -11,6 +11,7 @@
         :min-zoom="minZoom"
         :center="mapCenter"
         :options="{ preferCanvas: true, zoomControl: false }"
+        @ready="mapMounted"
       >
         <l-tile-layer
           :url="tileLayerUrl"
@@ -30,99 +31,17 @@
           :radius="16"
           @click="selectPoint(point)"
         />
-        <l-control position="topleft">
-          <div class="grid grid-rows-2 grid-cols-1 shadow">
-            <a
-              href="#"
-              class="p-2 bg-app rounded-b-none hover:outline outline-2 outline-offset-1 outline-app text-white rounded flex flex-cols justify-center"
-              @click="zoomIn"
-            >
-              <fa-icon
-                icon="fa-solid fa-plus"
-                fixed-size
-              />
-            </a>
-            <a
-              href="#"
-              class="p-2 bg-app hover:outline rounded-t-none outline-2 outline-offset-1 outline-app text-white rounded flex flex-cols justify-center"
-              @click="zoomOut"
-            >
-              <fa-icon
-                icon="fa-solid fa-minus"
-                fixed-size
-              />
-            </a>
-          </div>
+        <l-control
+          position="topleft"
+        >
+          <MapControls
+            v-if="mapObject"
+            :map-object="mapObject"
+          />
         </l-control>
-        <l-control position="topleft">
-          <div class="flex gap-1">
-            <a
-              href="#"
-              class="p-2 bg-app hover:outline outline-2 outline-offset-1 outline-app text-white rounded shadow flex flex-cols justify-center"
-              @click="menuVisible = !menuVisible"
-            >
-              <fa-icon
-                icon="fa-solid fa-chevron-left"
-                size="xl"
-                fixed-width
-              />
-            </a>
-            <input
-              v-if="menuVisible"
-              type="text"
-              class="px-2 py-1 border-app border border-2 rounded shadow outline-none focus:ring ring-app hover:outline hover:outline-app outline-offset-1 outline-2 text-lg"
-              placeholder="Szukaj pinezki"
-            >
-          </div>
-        </l-control>
-        <l-control position="topleft">
-          <div
-            v-if="menuVisible"
-            class="py-2 px-4 bg-white border-app border-2 rounded shadow mb-4"
-          >
-            <div class="text-lg leading-loose divide-y">
-              Wyświetlane mapy
-            </div>
-            <ul class="my-2 ml-4">
-              <li
-                v-for="map in maps"
-                :key="map.id"
-              >
-                <label>
-                  <input
-                    type="checkbox"
-                  >
-                  {{ map.name }}
-                </label>
-              </li>
-            </ul>
-            <div class="text-lg leading-loose divide-y">
-              Grupy pinezek
-            </div>
-            <ul class="my-2 ml-4">
-              <li
-                v-for="group in pinGroups"
-                :key="group"
-              >
-                <label>
-                  <input
-                    type="checkbox"
-                  >
-                  {{ group }}
-                </label>
-              </li>
-            </ul>
-          </div>
-        </l-control>
+        <MapLookup />
       </l-map>
-      <div class="bg-white border border-black flex flex-col justify-center w-[300px] text-gray-500 relative">
-        <div class="text-center absolute top-0 inset-x-0 text-xs bg-white">
-          Ta reklama pomaga utrzymać mapkę ( ͡~ ͜ʖ ͡°)
-        </div>
-        <div class="text-center block">
-          Ad
-        </div>
-      </div>
+      <AdBanner />
     </div>
     <div
       v-else
@@ -141,19 +60,24 @@
 
 <script>
 import 'leaflet/dist/leaflet.css';
-import {APP_COLOR} from "@/app_helpers";
+import {APP_COLOR} from "@/app-helpers";
 import {LControl, LMap, LTileLayer} from "vue2-leaflet";
 import LIconMarker from "@/leaflet-icon-marker";
 import {mapGetters} from 'vuex';
+import MapControls from "@/components/MapControls";
+import AdBanner from "@/components/AdBanner";
+import MapLookup from "@/components/MapLookup";
 
 export default {
     name: 'MapView',
     components: {
+        MapLookup,
+        AdBanner,
+        MapControls,
         LMap, LTileLayer, LIconMarker, LControl
     },
     data: () => ({
-        loadingState: 0,
-        menuVisible: false,
+        mapObject: null,
     }),
     computed: {
         tileLayerUrl: () => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -162,15 +86,6 @@ export default {
         mapZoom: () => 7,
         minZoom: () => 6,
         hoverPointColor: () => APP_COLOR,
-        pinGroups() {
-            return this.rawPoints.reduce((a, v) => {
-                if (!a.includes(v.group)) {
-                    return [...a, v.group];
-                }
-
-                return a;
-            }, [])
-        },
         maps() {
             return this.rawMaps;
         },
@@ -186,6 +101,7 @@ export default {
         ...mapGetters({
             rawPoints: 'points',
             rawMaps: 'maps',
+
         })
     },
     methods: {
@@ -197,13 +113,9 @@ export default {
                 }
             })
         },
-        zoomIn() {
-            this.$refs.map.mapObject.zoomIn();
-        },
-        zoomOut() {
-            this.$refs.map.mapObject.zoomOut();
+        mapMounted() {
+            this.mapObject = this.$refs.map.mapObject;
         }
     },
-
 };
 </script>

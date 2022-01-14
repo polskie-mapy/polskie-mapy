@@ -1,5 +1,5 @@
 const colors = require('tailwindcss/colors');
-const {APP_COLOR} = require("./src/app_helpers");
+const {APP_COLOR} = require("./src/app-helpers");
 
 module.exports = {
     content: [
