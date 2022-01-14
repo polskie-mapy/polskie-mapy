@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-full">
     <div
-      v-if="loadingState === 1"
+      v-if="true"
       class="flex h-full w-full"
     >
       <l-map
@@ -135,28 +135,24 @@
         fixed-size
       />
     </div>
-    <PointDetails :data="selectedPointDetails" />
+    <router-view />
   </div>
 </template>
 
 <script>
 import 'leaflet/dist/leaflet.css';
-import PointDetails from '@/components/PointDetails';
-import {uniq} from "lodash";
 import {APP_COLOR} from "@/app_helpers";
 import {LControl, LMap, LTileLayer} from "vue2-leaflet";
 import LIconMarker from "@/leaflet-icon-marker";
+import {mapGetters} from 'vuex';
 
 export default {
     name: 'MapView',
     components: {
-        PointDetails, LMap, LTileLayer, LIconMarker, LControl
+        LMap, LTileLayer, LIconMarker, LControl
     },
     data: () => ({
-        rawPoints: [],
-        rawMaps: [],
         loadingState: 0,
-        selectedPointId: 0,
         menuVisible: false,
     }),
     computed: {
@@ -187,45 +183,19 @@ export default {
                 };
             });
         },
-        selectedPointDetails() {
-            if (this.selectedPointId === 0) {
-                return null;
-            }
-
-            return this.points.find(x => x.id === this.selectedPointId);
-        },
-        fontAwesomeIcons() {
-            return uniq(this.rawPoints.map(x => x.icon || 'fa-solid:fa-marker'))
-                .filter(x => x.startsWith('fa-solid:') || x.startsWith('fa-regular:'))
-                .map(x => ({
-                    name: x.split(':').join(' '),
-                    id: x,
-                }));
-        },
-    },
-
-    beforeMount() {
-        this.loadingState = 0;
-    },
-
-    async mounted() {
-        this.rawMaps = await (async () => {
-            // https://cdn.jsdelivr.net/gh/polskie-mapy/data@master/maps.json
-            const resp = await fetch('http://localhost:3000/maps');
-            const maps = await resp.json();
-
-            return maps;
-        })();
-
-        this.rawPoints = this.rawMaps[0].points;
-
-        await this.$nextTick();
-
-        this.loadingState++;
+        ...mapGetters({
+            rawPoints: 'points',
+            rawMaps: 'maps',
+        })
     },
     methods: {
         selectPoint(point) {
-            this.selectedPointId = point.id;
+            this.$router.push({
+                name: 'PointDetails',
+                params: {
+                    pointId: point.id
+                }
+            })
         },
         zoomIn() {
             this.$refs.map.mapObject.zoomIn();

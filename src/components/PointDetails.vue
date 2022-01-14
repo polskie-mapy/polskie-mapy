@@ -1,6 +1,5 @@
 <template>
   <portal
-    v-if="detailsVisible"
     to="details"
   >
     <div
@@ -60,7 +59,7 @@
           </div>
           <a
             v-if="ytLink"
-            class="rounded overflow-hidden hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative bg-placeholder h-36 w-48"
+            class="rounded overflow-hidden hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative h-36 w-48"
             :href="ytLink"
             target="_blank"
           >
@@ -69,10 +68,13 @@
               :data="ytThumbnail"
               class="h-36 w-48"
             >
-              <img
-                src="../assets/placeholder.svg"
-                alt=""
-              >
+              <div class="h-full w-full grid place-items-center text-white bg-gray-300">
+                <fa-icon
+                  icon="fa-solid fa-ellipsis"
+                  class="slide-top"
+                  size="5x"
+                />
+              </div>
             </object>
             <div class="text-app bg-black/25 inset-0 absolute grid place-content-center">
               <fa-icon
@@ -90,7 +92,7 @@
               Brak nagrania :&lt;
             </div>
             <div
-              class="rounded overflow-hidden relative bg-placeholder h-36 w-48"
+              class="rounded overflow-hidden relative bg h-36 w-48"
             >
               <div class="text-app bg-black/25 inset-0 absolute grid place-content-center">
                 <fa-icon
@@ -176,24 +178,26 @@
 
 <script>
 import {DateTime} from 'luxon';
-
+import {mapGetters} from "vuex";
+import store from "@/store";
 
 export default {
     name: 'PointDetails',
-    props: {
-        data: {
-            type: Object,
-            required: false,
-            default: () => null,
-        },
+    beforeRouteEnter(to, from, next) {
+        if (store.getters.point(to.params.pointId)) {
+            store.commit('setCurrentPoint', store.getters.point(to.params.pointId));
+        }
+
+        next();
+    },
+    beforeRouteUpdate(to, from, next) {
+        if (store.getters.point(to.params.pointId)) {
+            store.commit('setCurrentPoint', store.getters.point(to.params.pointId));
+        }
+
+        next();
     },
     computed: {
-        detailsVisible() {
-            return this.data !== null;
-        },
-        point() {
-            return this.data;
-        },
         links() {
             const STATIC_LINKS = [{
                 type: 'map',
@@ -253,11 +257,14 @@ export default {
             }
 
             return this.$H.dateTimeDiffHumans(DateTime.fromISO(this.recordedAt));
-        }
+        },
+        ...mapGetters({
+            point: 'currentPoint',
+        })
     },
     methods: {
         hideDetails() {
-            this.$parent.selectedPointId = 0;
+            this.$router.back();
         },
     },
 };
