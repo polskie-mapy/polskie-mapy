@@ -64,7 +64,7 @@ LeafletCanvas.include({
         const iconContainer = new Path2D();
         // Adding icon path to container path
         // while applying transformation
-        // (scaling icon down to 16px (1/32) and translating position)
+        // (scaling icon down to 16px (32:1; 512/32 = 16) and translating position)
         iconContainer.addPath(
             iconPath,
             new DOMMatrix(

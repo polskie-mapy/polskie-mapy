@@ -140,6 +140,7 @@
 </template>
 
 <script>
+import 'leaflet/dist/leaflet.css';
 import PointDetails from '@/components/PointDetails';
 import {uniq} from "lodash";
 import {APP_COLOR} from "@/app_helpers";
@@ -209,6 +210,7 @@ export default {
 
     async mounted() {
         this.rawMaps = await (async () => {
+            // https://cdn.jsdelivr.net/gh/polskie-mapy/data@master/maps.json
             const resp = await fetch('http://localhost:3000/maps');
             const maps = await resp.json();
 

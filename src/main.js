@@ -13,7 +13,6 @@ import PortalVue from 'portal-vue';
 import VueHelpers from '@/helpers';
 
 import '@/assets/ui.css';
-import 'leaflet/dist/leaflet.css';
 
 library.add(fas, far, fab);
 Vue.component('FaIcon', FontAwesomeIcon);
