@@ -34,7 +34,7 @@
             >
               <div class="tooltipped">
                 <div class="tooltip">
-                  Zgłoś błąd
+                  Zaproponuj poprawkę
                 </div>
                 <a
                   class="hover:text-app cursor-pointer"
@@ -59,30 +59,15 @@
           </div>
           <a
             v-if="ytLink"
-            class="rounded overflow-hidden hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative h-36 w-48"
+            class="rounded hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative h-36 w-48"
             :href="ytLink"
             target="_blank"
           >
-            <object
-              type="image/jpg"
-              :data="ytThumbnail"
+            <VideoThumbnail
+              :thumbnail-url="ytThumbnail"
+              object-class="h-36 w-48"
               class="h-36 w-48"
-            >
-              <div class="h-full w-full grid place-items-center text-white bg-gray-300">
-                <fa-icon
-                  icon="fa-solid fa-ellipsis"
-                  class="slide-top"
-                  size="5x"
-                />
-              </div>
-            </object>
-            <div class="text-app bg-black/25 inset-0 absolute grid place-content-center">
-              <fa-icon
-                icon="fa-regular fa-circle-play"
-                size="4x"
-                fixed-width
-              />
-            </div>
+            />
           </a>
           <div
             v-else
@@ -180,9 +165,11 @@
 import {DateTime} from 'luxon';
 import {mapGetters} from "vuex";
 import store from "@/store";
+import VideoThumbnail from "@/components/VideoThumbnail";
 
 export default {
     name: 'PointDetails',
+    components: {VideoThumbnail},
     beforeRouteEnter(to, from, next) {
         if (store.getters.point(to.params.pointId)) {
             store.commit('setCurrentPoint', store.getters.point(to.params.pointId));
