@@ -1,25 +1,27 @@
 <template>
   <div class="grid grid-rows-2 grid-cols-1 shadow">
-    <a
-      href="#"
-      class="p-2 bg-app rounded-b-none hover:outline outline-2 outline-offset-1 outline-app text-white rounded flex flex-cols justify-center"
+    <button
+      class="p-2 rounded-b-none hover:outline outline-2 outline-offset-1 text-white rounded flex flex-cols justify-center"
+      :class="zoomInClass"
       @click="zoomIn"
     >
       <fa-icon
         icon="fa-solid fa-plus"
-        fixed-size
+        size="xl"
+        fixed-width
       />
-    </a>
-    <a
-      href="#"
-      class="p-2 bg-app hover:outline rounded-t-none outline-2 outline-offset-1 outline-app text-white rounded flex flex-cols justify-center"
+    </button>
+    <button
+      class="p-2 rounded-t-none outline-2 outline-offset-1 text-white rounded flex flex-cols justify-center"
+      :class="zoomOutClass"
       @click="zoomOut"
     >
       <fa-icon
         icon="fa-solid fa-minus"
-        fixed-size
+        size="xl"
+        fixed-width
       />
-    </a>
+    </button>
   </div>
 </template>
 
@@ -32,6 +34,18 @@ export default {
         mapObject: {
             type: L_Map,
             required: true,
+        }
+    },
+    computed: {
+        zoomInClass() {
+            return this.mapObject.getMaxZoom() > this.mapObject.getZoom()
+                ? 'bg-app outline-app hover:outline'
+                : 'bg-gray-400 outline-transparent cursor-default touch-none'
+        },
+        zoomOutClass() {
+            return this.mapObject.getMinZoom() < this.mapObject.getZoom()
+                ? 'bg-app outline-app hover:outline'
+                : 'bg-gray-400 outline-transparent cursor-default touch-none'
         }
     },
     methods: {

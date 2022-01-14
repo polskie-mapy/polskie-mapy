@@ -84,7 +84,7 @@ export default {
         mapAttribution: () => '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         mapCenter: () => [52, 19],
         mapZoom: () => 7,
-        minZoom: () => 6,
+        minZoom: () => 4,
         hoverPointColor: () => APP_COLOR,
         maps() {
             return this.rawMaps;

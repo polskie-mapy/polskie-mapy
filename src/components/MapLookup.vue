@@ -2,17 +2,16 @@
   <div>
     <l-control position="topleft">
       <div class="flex gap-1">
-        <a
-          href="#"
+        <button
           class="p-2 bg-app hover:outline outline-2 outline-offset-1 outline-app text-white rounded shadow flex flex-cols justify-center"
           @click="menuVisible = !menuVisible"
         >
           <fa-icon
-            icon="fa-solid fa-chevron-left"
+            :icon="toggleIcon"
             size="xl"
             fixed-width
           />
-        </a>
+        </button>
         <input
           v-if="menuVisible"
           type="text"
@@ -75,6 +74,11 @@ export default {
         menuVisible: false,
     }),
     computed: {
+        toggleIcon() {
+            return this.menuVisible
+                ? 'fa-solid fa-chevron-left'
+                : 'fa-solid fa-chevron-right';
+        },
         ...mapGetters({
             maps: 'maps',
             pinGroups: 'pinGroups'
