@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {mapGetters, mapState} from "vuex";
 
 export default {
     name: "MapConfig",
@@ -74,14 +74,16 @@ export default {
                 ? 'fa-solid fa-chevron-up'
                 : 'fa-solid fa-chevron-down';
         },
+        ...mapState({
+            currentMaps: 'currentMaps'
+        }),
         ...mapGetters({
             maps: 'maps',
             points: 'points',
-            currentMaps: 'currentMaps',
             currentMapsIds: 'currentMapsIds',
         }),
         isInCurrentMaps() {
-            return this.currentMaps.has(this.map);
+            return this.currentMaps.has(this.map.id + '');
         },
         pinGroups() {
             return new Set(
@@ -92,8 +94,8 @@ export default {
         }
     },
     methods: {
-        toggleCurrentMaps(enabled) {
-            this.$store.commit('toggleCurrentMaps', {map: this.map, enabled});
+        toggleCurrentMaps(ev) {
+            this.$store.commit('toggleCurrentMaps', {map: this.map, enabled: ev.target.checked});
         },
         toggle() {
             this.expanded = !this.expanded;

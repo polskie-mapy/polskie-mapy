@@ -4,6 +4,7 @@ export default {
         searchResults: [],
         indexInitialized: false,
         query: '',
+        performingSearch: false,
     }),
     mutations: {
         markIndexInitialized(state) {
@@ -17,6 +18,9 @@ export default {
         },
         unsetSearchResults(state) {
             state.searchResults = [];
+        },
+        togglePerformingSearch(state, enabled) {
+            state.performingSearch = !!enabled;
         }
     },
     getters: {
@@ -31,9 +35,11 @@ export default {
                 });
         },
         doSearch(ctx) {
+            ctx.commit('togglePerformingSearch', true);
             this.delegateTask('doSearch', [ctx.state.query])
                 .then((results) => {
                     ctx.commit('setSearchResults', results);
+                    ctx.commit('togglePerformingSearch', false);
                 })
         }
     }

@@ -15,15 +15,29 @@
             fixed-width
           />
         </button>
-        <input
+        <div
           v-if="menuVisible"
-          :disabled="!searchIndexInitialized"
-          type="text"
-          class="px-2 py-1 border-app border border-2 rounded shadow outline-none focus:ring ring-app hover:outline hover:outline-app outline-offset-1 outline-2 text-lg w-full"
-          placeholder="Szukaj pinezki"
-          :value="searchQuery"
-          @input="setSearchQuery"
+          class="border-app border border-2 rounded shadow outline-none focus:ring ring-app hover:outline hover:outline-app outline-offset-1 outline-2 text-lg w-full flex"
         >
+          <input
+            :disabled="!searchIndexInitialized"
+            type="text"
+            class="px-2 py-1 w-full outline-none border-none"
+            placeholder="Szukaj pinezki"
+            :value="searchQuery"
+            @input="setSearchQuery"
+          >
+          <div
+            v-if="performingSearch"
+            class="inline px-2 bg-white flex text-app"
+          >
+            <fa-icon
+              class="self-center"
+              icon="fa-solid fa-sync"
+              spin
+            />
+          </div>
+        </div>
       </div>
     </l-control>
     <l-control
@@ -92,10 +106,12 @@ export default {
                 ? 'fa-solid fa-chevron-left'
                 : 'fa-solid fa-chevron-right';
         },
+        ...mapState({
+            currentMaps: 'currentMaps'
+        }),
         ...mapGetters({
             maps: 'maps',
             pinGroups: 'pinGroups',
-            currentMaps: 'currentMaps',
         }),
         ...mapGetters('search', {
             hasSearchResults: 'hasSearchResults',
@@ -105,6 +121,7 @@ export default {
             searchQuery: (state) => state.query,
             searchIndexInitialized: (state) => state.indexInitialized,
             searchResults: (state) => state.searchResults,
+            performingSearch: (state) => state.performingSearch,
         }),
     },
     mounted() {
