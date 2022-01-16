@@ -90,18 +90,22 @@ export default {
             return this.rawMaps;
         },
         points() {
-            return this.rawPoints.map(x => {
-                return {
-                    ...x,
-                    iconName: x.icon,
-                    icon: this.$H.findIconDefinition(x.icon).icon,
-                };
-            });
+            return this.rawPoints
+                .filter(x => {
+                    return this.currentMapsIds.includes(x.mapId + '');
+                })
+                .map(x => {
+                    return {
+                        ...x,
+                        iconName: x.icon,
+                        icon: this.$H.findIconDefinition(x.icon).icon,
+                    };
+                });
         },
         ...mapGetters({
             rawPoints: 'points',
             rawMaps: 'maps',
-
+            currentMapsIds: 'currentMapsIds',
         })
     },
     methods: {
