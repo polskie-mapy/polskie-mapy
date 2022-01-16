@@ -10,13 +10,13 @@
         <div
           class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr_1fr] auto-rows-min gap-3 max-w-5xl"
         >
-          <div class="col-span-3 pb-3 relative flex">
+          <div class="col-span-3 relative flex">
             <span class="text-2xl font-semibold">
               {{ point.title }}
             </span>
             <div
               v-if="point.assumedCoords"
-              class="ml-3 tooltipped"
+              class="ml-3 tooltipped self-center"
             >
               <div class="tooltip">
                 lokalizacja niedokładna, przybliżona bądź prawdopodobna
@@ -55,6 +55,34 @@
                   fixed-width
                 />
               </a>
+            </div>
+          </div>
+          <div class="col-span-3 text-gray-400 text-xs flex gap-x-3 -mt-1">
+            <div>
+              grupa:
+              <span class="py-0.5 px-1 rounded-sm bg-app text-white">{{ point.group }}</span>
+            </div>
+            <div>
+              mapa:
+              <span class="py-0.5 px-1 rounded-sm bg-app text-white">{{ map.name }}</span>
+            </div>
+            <div>
+              tagi:
+              <template v-if="point.tags.length">
+                <span
+                  v-for="tag in point.tags"
+                  :key="tag"
+                  class="py-0.5 px-1 rounded-sm bg-app text-white"
+                >
+                  {{ tag }}
+                </span>
+              </template>
+              <span
+                v-else
+                class="py-0.5 px-1 rounded-sm bg-app text-white"
+              >
+                brak
+              </span>
             </div>
           </div>
           <a
@@ -140,7 +168,7 @@
                 {{ createdAt | prettyDate }}
               </div>
               <p class="text-xs leading-[0] text-right text-gray-500 underline underline-offset-4">
-                <span>dodano {{ createdAtDesc }}</span>
+                <span>dodano <span class="text-app">{{ createdAtDesc }}</span></span>
               </p>
             </div>
             <div class="tooltipped">
@@ -151,7 +179,7 @@
                 {{ recordedAt | prettyDate }}
               </div>
               <p class="text-xs leading-[0] text-right text-gray-500">
-                <span>nagrano {{ recordedAtDesc }}</span>
+                <span>nagrano <span class="text-app">{{ recordedAtDesc }}</span></span>
               </p>
             </div>
           </div>
@@ -245,8 +273,12 @@ export default {
 
             return this.$H.dateTimeDiffHumans(DateTime.fromISO(this.recordedAt));
         },
+        map() {
+            return this.mapLookup(this.point.mapId);
+        },
         ...mapGetters({
             point: 'currentPoint',
+            mapLookup: 'map'
         })
     },
     methods: {

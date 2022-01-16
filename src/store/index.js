@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {COLOR_SCHEMES} from "@/helpers";
+import search from './search';
+import createDelegatedTasksHandler from "@/store/delegated-tasks";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
@@ -12,6 +14,10 @@ export default new Vuex.Store({
         currentMaps: new Set(),
         currentPoint: null,
     },
+    // set - overwrites value(s)
+    // add - appends value(s)
+    // toggle - switches between two value (i.e: true and false)
+    // mark - toggles from one value to another ALWAYS (i.e: false to true, subsequent calls don't modify value)
     mutations: {
         setColorSchema(state, schema) {
             if (!COLOR_SCHEMES.contains(schema)) {
@@ -35,11 +41,10 @@ export default new Vuex.Store({
         toggleCurrentMaps(state, {map, enabled}) {
             if (enabled) {
                 state.currentMaps.add(map);
-            }
-            else {
+            } else {
                 state.currentMaps.delete(map);
             }
-        }
+        },
     },
     getters: {
         defaultMap(state) {
@@ -84,5 +89,12 @@ export default new Vuex.Store({
         },
     },
     actions: {},
-    modules: {}
+    modules: {
+        search
+    },
+    plugins: [
+        createDelegatedTasksHandler(
+            () => new Worker(new URL('@/web-worker.js', import.meta.url))
+        )
+    ]
 })

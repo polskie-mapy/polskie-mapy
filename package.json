@@ -18,6 +18,7 @@
     "@vue/cli": "^5.0.0-rc.1",
     "autoprefixer": "^10.4.0",
     "core-js": "^3.6.5",
+    "fuse.js": "^6.5.3",
     "idb": "^6.1.5",
     "leaflet": "^1.7.1",
     "leaflet.offline": "^2.1.0",

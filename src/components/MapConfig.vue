@@ -17,6 +17,7 @@
         </label>
       </div>
       <button
+        v-if="false"
         class="text-gray-600"
         @click="toggle"
       >

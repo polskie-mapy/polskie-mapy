@@ -143,28 +143,40 @@ function prettyDate(date) {
     return date.toLocaleString(DateTime.DATETIME_MED);
 }
 
-function findIconDefinition(code) {
-    const iconLookup = (() => {
-        if (code.startsWith('fa-solid:') || code.startsWith('fa-regular:')) {
-            const icon = code.split(':');
-
-            return {
-                prefix: `fa${icon[0][3]}`,
-                iconName: icon[1].substr(3)
-            }
-        }
+function translateIconCode(code) {
+    if (code.startsWith('fa-solid:') || code.startsWith('fa-regular:')) {
+        const icon = code.split(':');
 
         return {
-            prefix: `fas`,
-            iconName: 'marker'
-        };
-    })();
+            prefix: icon[0],
+            iconName: icon[1],
+        }
+    }
+
+    return {
+        prefix: 'fa-solid',
+        iconName: 'marker'
+    };
+}
+
+function findIconDefinition(code) {
+    const tr = translateIconCode(code);
+    const iconLookup = {
+        prefix: `fa${tr.prefix[3]}`,
+        iconName: tr.iconName.substr(3)
+    }
 
     return faFindIconDefinition(iconLookup);
 }
 
 function linkTypeDefaultTooltip(type) {
     return LINK_TYPE_TOOLTIPS[type];
+}
+
+function iconCodeToIconName(code) {
+    const {iconName, prefix} = translateIconCode(code);
+
+    return `${prefix} ${iconName}`;
 }
 
 export default {
@@ -186,7 +198,8 @@ export default {
             filters: {
                 linkTypeColorStyle,
                 linkTypeIcon,
-                prettyDate
+                prettyDate,
+                iconCodeToIconName
             }
         })
     },

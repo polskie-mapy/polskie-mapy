@@ -17,9 +17,12 @@
         </button>
         <input
           v-if="menuVisible"
+          :disabled="!searchIndexInitialized"
           type="text"
           class="px-2 py-1 border-app border border-2 rounded shadow outline-none focus:ring ring-app hover:outline hover:outline-app outline-offset-1 outline-2 text-lg w-full"
           placeholder="Szukaj pinezki"
+          :value="searchQuery"
+          @input="setSearchQuery"
         >
       </div>
     </l-control>
@@ -27,6 +30,26 @@
       position="topleft"
       class="w-80"
     >
+      <div
+        v-if="menuVisible && hasSearchResults && hasSearchQuery"
+        class="flex flex-col bg-white border-app border-2 rounded shadow divide-y mb-3"
+      >
+        <router-link
+          v-for="item in searchResults"
+          :key="item.id"
+          :to="{ name: 'PointDetails', params: { pointId: item.id }}"
+          class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent hover:border-white border last:mb-px"
+          :title="item.title"
+        >
+          <fa-icon
+            :icon="item.icon | iconCodeToIconName"
+            fixed-width
+            class="self-center"
+          />
+          <span class="text-ellipsis break-all w-full whitespace-nowrap overflow-x-hidden">{{ item.title }}</span>
+        </router-link>
+      </div>
+
       <div
         v-if="menuVisible"
         class="py-2 px-4 bg-white border-app border-2 rounded shadow mb-4"
@@ -48,7 +71,8 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {debounce} from "lodash";
+import {mapGetters, mapState} from "vuex";
 import {LControl} from "vue2-leaflet";
 import MapConfig from "@/components/MapConfig";
 
@@ -60,6 +84,7 @@ export default {
     },
     data: () => ({
         menuVisible: true,
+        searchDebouncer: Function,
     }),
     computed: {
         toggleIcon() {
@@ -70,11 +95,37 @@ export default {
         ...mapGetters({
             maps: 'maps',
             pinGroups: 'pinGroups',
-            currentMaps: 'currentMaps'
+            currentMaps: 'currentMaps',
+        }),
+        ...mapGetters('search', {
+            hasSearchResults: 'hasSearchResults',
+            hasSearchQuery: 'hasQuery'
+        }),
+        ...mapState('search', {
+            searchQuery: (state) => state.query,
+            searchIndexInitialized: (state) => state.indexInitialized,
+            searchResults: (state) => state.searchResults,
         }),
     },
-    methods: {
+    mounted() {
+        this.$store.dispatch('search/initSearchIndex');
 
+        this.searchDebouncer = debounce(() => {
+            if (this.searchQuery.length > 1) {
+                this.$store.dispatch('search/doSearch');
+            }
+        }, 250);
+    },
+    methods: {
+        setSearchQuery(ev) {
+            this.$store.commit('search/setQuery', ev.target.value);
+
+            if (!this.hasSearchQuery) {
+                this.$store.commit('search/unsetSearchResults');
+            } else {
+                this.searchDebouncer();
+            }
+        }
     }
 }
 </script>
