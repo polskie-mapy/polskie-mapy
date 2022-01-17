@@ -1,10 +1,9 @@
 import {
-    Canvas as LeafletCanvas, CircleMarker as LeafletCircleMarker, DomEvent
+    Canvas as LeafletCanvas, CircleMarker as LeafletCircleMarker, setOptions
 } from "leaflet";
 
-import {LCircleMarker} from "vue2-leaflet";
-import {findRealParent, optionsMerger, propsBinder} from "vue2-leaflet/src/utils/utils";
 import {findColorInvert} from "@/color-helpers";
+import {toLatLng} from "leaflet/src/geo/LatLng";
 
 LeafletCanvas.include({
     _updateIconMarker: function (layer) {
@@ -36,14 +35,14 @@ LeafletCanvas.include({
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 1;
 
-        if (layer._hover) {
-            const oldColor = layer.options.color;
-            layer.options.color = layer.options.hoverColor;
-            this._fillStroke(ctx, layer);
-            layer.options.color = oldColor;
-        } else {
-            this._fillStroke(ctx, layer);
-        }
+        // if (layer._hover) {
+        //     const oldColor = layer.options.color;
+        //     layer.options.color = layer.options.hoverColor;
+        //     this._fillStroke(ctx, layer);
+        //     layer.options.color = oldColor;
+        // } else {
+        this._fillStroke(ctx, layer);
+        // }
 
         ctx.shadowColor = 'transparent';
 
@@ -52,14 +51,14 @@ LeafletCanvas.include({
             ctx.scale(1, s);
         }
 
-        const iconWidth = layer.options.iconData[0];
-        const iconHeight = layer.options.iconData[1];
+        const iconWidth = layer._iconData[0];
+        const iconHeight = layer._iconData[1];
         // first, center by marker radius
         // then remove offset provided by icon itself (iconHeight != iconWidth) and multiply by half of icon size (1/64)
         const sx = r / 2 - (iconHeight - iconWidth) * 0.015625;
         // since all icons have same height, no need to adjust that
         const sy = r / 2;
-        const iconPath = new Path2D(layer.options.iconData[4]);
+        const iconPath = new Path2D(layer._iconData[4]);
         // Need to create separate path2d to perform matrix transformation
         const iconContainer = new Path2D();
         // Adding icon path to container path
@@ -87,56 +86,18 @@ LeafletCanvas.include({
     },
 });
 
-const IconMarker = LeafletCircleMarker.extend({
+export const IconMarker = LeafletCircleMarker.extend({
     options: {
         iconData: null,
     },
-    _updatePath() {
+    initialize: function (latlng, iconData, options) {
+        setOptions(this, options);
+        this._latlng = toLatLng(latlng);
+        this._radius = this.options.radius;
+        this._iconData = iconData;
+        this._hover = false;
+    },
+    _updatePath: function() {
         this._renderer._updateIconMarker(this);
-    },
-})
-
-export default {
-    name: 'LIconMarker',
-    extends: LCircleMarker,
-    props: {
-        iconData: {
-            required: true,
-            type: Array,
-        },
-        hoverColor: {
-            required: false,
-            type: String,
-        }
-    },
-    mounted() {
-        const options = optionsMerger(this.circleOptions, this);
-        this.mapObject = new IconMarker(this.latLng, {
-            ...options,
-            iconData: this.iconData,
-            hoverColor: this.hoverColor
-        });
-        DomEvent.on(this.mapObject, this.$listeners);
-        propsBinder(this, this.mapObject, this.$options.props);
-        this.ready = true;
-        this.parentContainer = findRealParent(this.$parent);
-        this.parentContainer.addLayer(this, !this.visible);
-        this.$nextTick(() => {
-            /**
-             * Triggers when the component is ready
-             * @type {object}
-             * @property {object} mapObject - reference to leaflet map object
-             */
-            this.$emit('ready', this.mapObject);
-        });
-        this.mapObject.on('mouseover', () => {
-            this.mapObject._hover = true;
-            this.mapObject.redraw();
-        });
-
-        this.mapObject.on('mouseout', () => {
-            this.mapObject._hover = false;
-            this.mapObject.redraw();
-        })
     }
-}
+});

@@ -11,7 +11,7 @@ export default new Vuex.Store({
         colorSchema: 'system',
         maps: new Map(),
         points: new Map(),
-        currentMaps: new Set(),
+        currentMaps: new Map(),
         currentPoint: null,
     },
     // set - overwrites value(s)
@@ -27,23 +27,31 @@ export default new Vuex.Store({
             state.colorSchema = schema;
         },
         addMaps(state, maps) {
-            maps.forEach(x => state.maps.set(x.id + '', x))
+            maps.forEach(x => state.maps.set(x.id + '', x));
+
+            state.maps = new Map(state.maps);
         },
         addPoints(state, points) {
             points.forEach(x => state.points.set(x.id + '', x))
+
+            state.points = new Map(state.points);
         },
         setCurrentMap(state, map) {
-            state.currentMaps.add(map);
+            state.currentMaps.set(map.id + '', map);
+
+            state.currentMaps = new Map(state.currentMaps);
         },
         setCurrentPoint(state, point) {
             state.currentPoint = point;
         },
         toggleCurrentMaps(state, {map, enabled}) {
             if (enabled) {
-                state.currentMaps.add(map);
+                state.currentMaps.set(map.id + '', map);
             } else {
-                state.currentMaps.delete(map);
+                state.currentMaps.delete(map.id + '');
             }
+
+            state.currentMaps = new Map(state.currentMaps);
         },
     },
     getters: {
@@ -62,18 +70,14 @@ export default new Vuex.Store({
         currentMap(state, getters) {
             return state.currentMaps.values().next().value || getters.defaultMap;
         },
-        currentMaps(state, getters) {
-            if (state.currentMaps.size === 0) {
-                return new Set([getters.defaultMap]);
-            }
-
-            return state.currentMaps;
-        },
-        currentMapsIds(state, getters) {
-            return Array.from(getters.currentMaps.values()).map(x => x.id + '');
+        currentMapsIds(state) {
+            return Array.from(state.currentMaps.keys()).map(x => x + '');
         },
         points(state) {
             return Array.from(state.points.values());
+        },
+        currentPoints(state, getters) {
+            return getters.points.filter(x => getters.currentMapsIds.includes(x.mapId + ''));
         },
         maps(state) {
             return Array.from(state.maps.values());

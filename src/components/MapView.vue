@@ -17,20 +17,6 @@
           :url="tileLayerUrl"
           :attribution="mapAttribution"
         />
-        <l-icon-marker
-          v-for="point in points"
-          :key="`point-${point.id}`"
-          :lat-lng="point.coords"
-          :icon-data="point.icon"
-          :fill-color="point.pinColor"
-          :fill-opacity="1"
-          :stroke="true"
-          color="#fff"
-          :hover-color="hoverPointColor"
-          :weight="2"
-          :radius="16"
-          @click="selectPoint(point)"
-        />
         <l-control
           position="topleft"
         >
@@ -62,11 +48,12 @@
 import 'leaflet/dist/leaflet.css';
 import {APP_COLOR} from "@/app-helpers";
 import {LControl, LMap, LTileLayer} from "vue2-leaflet";
-import LIconMarker from "@/leaflet-icon-marker";
+import {IconMarker} from "@/leaflet-icon-marker";
 import {mapGetters} from 'vuex';
 import MapControls from "@/components/MapControls";
 import AdBanner from "@/components/AdBanner";
 import MapLookup from "@/components/MapLookup";
+import {findColorInvert} from "@/color-helpers";
 
 export default {
     name: 'MapView',
@@ -74,10 +61,11 @@ export default {
         MapLookup,
         AdBanner,
         MapControls,
-        LMap, LTileLayer, LIconMarker, LControl
+        LMap, LTileLayer, LControl
     },
     data: () => ({
         mapObject: null,
+        markers: [],
     }),
     computed: {
         tileLayerUrl: () => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -91,9 +79,6 @@ export default {
         },
         points() {
             return this.rawPoints
-                .filter(x => {
-                    return this.currentMapsIds.includes(x.mapId + '');
-                })
                 .map(x => {
                     return {
                         ...x,
@@ -103,10 +88,15 @@ export default {
                 });
         },
         ...mapGetters({
-            rawPoints: 'points',
+            rawPoints: 'currentPoints',
             rawMaps: 'maps',
             currentMapsIds: 'currentMapsIds',
         })
+    },
+    watch: {
+        points() {
+            this.redrawMarkers();
+        }
     },
     methods: {
         selectPoint(point) {
@@ -117,8 +107,63 @@ export default {
                 }
             })
         },
+        redrawMarkers() {
+            for (const marker of this.markers) {
+                this.mapObject.removeLayer(marker);
+            }
+
+            this.markers = this.points.map(x => {
+                const options = {
+                    attribution: null,
+                    bubblingMouseEvents: true,
+                    className: null,
+                    color: findColorInvert(x.pinColor),
+                    dashArray: null,
+                    dashOffset: null,
+                    fill: true,
+                    fillColor: x.pinColor,
+                    fillOpacity: 1,
+                    fillRule: "evenodd",
+                    hoverColor: "#fb923c",
+                    iconData: null,
+                    interactive: true,
+                    lStyle: null,
+                    latLng: null,
+                    layerType: undefined,
+                    lineCap: "round",
+                    lineJoin: "round",
+                    name: undefined,
+                    opacity: 1,
+                    options: {},
+                    pane: "markerPane",
+                    radius: 16,
+                    stroke: true,
+                    visible: true,
+                    weight: 2,
+                };
+
+                const marker = new IconMarker(x.coords, x.icon, options);
+                marker.on('mouseover', () => {
+                    marker._hover = true;
+                    marker.redraw();
+                });
+                marker.on('mouseout', () => {
+                    marker._hover = false;
+                    marker.redraw();
+                });
+                marker.on('click', () => {
+                    this.selectPoint(x);
+                });
+
+                this.mapObject.addLayer(marker);
+
+                return marker;
+            });
+        },
         mapMounted() {
             this.mapObject = this.$refs.map.mapObject;
+
+            this.$nextTick(() => this.redrawMarkers());
         }
     },
 };
