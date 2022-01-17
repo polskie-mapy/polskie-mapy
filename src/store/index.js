@@ -13,8 +13,10 @@ export default new Vuex.Store({
         points: new Map(),
         currentMaps: new Map(),
         currentPoint: null,
+        focusedPoint: null,
     },
     // set - overwrites value(s)
+    // unset - removes value(s)
     // add - appends value(s)
     // toggle - switches between two value (i.e: true and false)
     // mark - toggles from one value to another ALWAYS (i.e: false to true, subsequent calls don't modify value)
@@ -53,6 +55,12 @@ export default new Vuex.Store({
 
             state.currentMaps = new Map(state.currentMaps);
         },
+        setFocusedPoint(state, point) {
+            state.focusedPoint = point;
+        },
+        unsetFocusedPoint(state) {
+            state.focusedPoint = null;
+        }
     },
     getters: {
         defaultMap(state) {

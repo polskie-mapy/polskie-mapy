@@ -11,27 +11,43 @@
           class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr_1fr] auto-rows-min gap-3 max-w-5xl"
         >
           <div class="col-span-3 relative flex">
-            <span class="text-2xl font-semibold">
-              {{ point.title }}
-            </span>
-            <div
-              v-if="point.assumedCoords"
-              class="ml-3 tooltipped self-center"
-            >
-              <div class="tooltip">
-                lokalizacja niedokładna, przybliżona bądź prawdopodobna
-              </div>
+            <div class="flex-1">
+              <span class="text-2xl font-semibold">
+                {{ point.title }}
+              </span>
               <div
-                class="p-1 bg-black text-yellow-300 text-xs rounded leading-[0]"
+                v-if="point.assumedCoords"
+                class="ml-3 tooltipped self-center"
               >
-                <fa-icon
-                  icon="fa-solid fa-triangle-exclamation"
-                />
+                <div class="tooltip">
+                  lokalizacja niedokładna, przybliżona bądź prawdopodobna
+                </div>
+                <div
+                  class="p-1 bg-black text-yellow-300 text-xs rounded leading-[0]"
+                >
+                  <fa-icon
+                    icon="fa-solid fa-triangle-exclamation"
+                  />
+                </div>
               </div>
             </div>
             <div
-              class="absolute right-0 top-0 inline-block p-1 leading-none flex gap-x-3"
+              class="flex-0 p-1 leading-none flex gap-x-3"
             >
+              <div class="tooltipped">
+                <div class="tooltip">
+                  Pokaż na mapie
+                </div>
+                <router-link
+                  class="hover:text-app"
+                  :to="{ name:'MapPage', query: {focusPoint: point.id}, params: {mapId: map.id} }"
+                >
+                  <fa-icon
+                    icon="fa-solid fa-crosshairs"
+                    fixed-width
+                  />
+                </router-link>
+              </div>
               <div class="tooltipped">
                 <div class="tooltip">
                   Zaproponuj poprawkę
@@ -284,7 +300,7 @@ export default {
     methods: {
         hideDetails() {
             this.$router.back();
-        },
+        }
     },
 };
 </script>

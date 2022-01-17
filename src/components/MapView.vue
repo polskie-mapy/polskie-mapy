@@ -49,11 +49,12 @@ import 'leaflet/dist/leaflet.css';
 import {APP_COLOR} from "@/app-helpers";
 import {LControl, LMap, LTileLayer} from "vue2-leaflet";
 import {IconMarker} from "@/leaflet-icon-marker";
-import {mapGetters} from 'vuex';
+import {mapGetters, mapState} from 'vuex';
 import MapControls from "@/components/MapControls";
 import AdBanner from "@/components/AdBanner";
 import MapLookup from "@/components/MapLookup";
 import {findColorInvert} from "@/color-helpers";
+import {LatLng} from 'leaflet';
 
 export default {
     name: 'MapView',
@@ -87,6 +88,12 @@ export default {
                     };
                 });
         },
+        focusedMarker() {
+            return this.markers.find(x => x._pointData.id === this.focusedPoint.id);
+        },
+        ...mapState({
+            focusedPoint: 'focusedPoint',
+        }),
         ...mapGetters({
             rawPoints: 'currentPoints',
             rawMaps: 'maps',
@@ -96,6 +103,11 @@ export default {
     watch: {
         points() {
             this.redrawMarkers();
+        },
+        focusedPoint() {
+            this.$nextTick(() => {
+                this.flyToFocusedPoint();
+            });
         }
     },
     methods: {
@@ -112,16 +124,16 @@ export default {
                 this.mapObject.removeLayer(marker);
             }
 
-            this.markers = this.points.map(x => {
+            this.markers = this.points.map(point => {
                 const options = {
                     attribution: null,
                     bubblingMouseEvents: true,
                     className: null,
-                    color: findColorInvert(x.pinColor),
+                    color: findColorInvert(point.pinColor),
                     dashArray: null,
                     dashOffset: null,
                     fill: true,
-                    fillColor: x.pinColor,
+                    fillColor: point.pinColor,
                     fillOpacity: 1,
                     fillRule: "evenodd",
                     hoverColor: "#fb923c",
@@ -140,9 +152,11 @@ export default {
                     stroke: true,
                     visible: true,
                     weight: 2,
+                    focusWeight: 4,
+                    focusColor: '#ed4546',
                 };
 
-                const marker = new IconMarker(x.coords, x.icon, options);
+                const marker = new IconMarker(point, options);
                 marker.on('mouseover', () => {
                     marker._hover = true;
                     marker.redraw();
@@ -152,7 +166,7 @@ export default {
                     marker.redraw();
                 });
                 marker.on('click', () => {
-                    this.selectPoint(x);
+                    this.selectPoint(point);
                 });
 
                 this.mapObject.addLayer(marker);
@@ -164,6 +178,19 @@ export default {
             this.mapObject = this.$refs.map.mapObject;
 
             this.$nextTick(() => this.redrawMarkers());
+            this.$nextTick(() => this.flyToFocusedPoint());
+        },
+        flyToFocusedPoint() {
+            if (this.focusedPoint) {
+                this.mapObject.flyTo(
+                    new LatLng(this.focusedPoint.coords[0], this.focusedPoint.coords[1]),
+                    10 // target zoom level
+                );
+                this.markers.forEach(x => x.blur());
+                this.focusedMarker.focus();
+            } else {
+                this.markers.forEach(x => x.blur());
+            }
         }
     },
 };

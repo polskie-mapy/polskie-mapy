@@ -35,14 +35,30 @@ LeafletCanvas.include({
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 1;
 
-        // if (layer._hover) {
-        //     const oldColor = layer.options.color;
-        //     layer.options.color = layer.options.hoverColor;
-        //     this._fillStroke(ctx, layer);
-        //     layer.options.color = oldColor;
-        // } else {
-        this._fillStroke(ctx, layer);
-        // }
+        if (layer._hover) {
+            const oldColor = layer.options.color;
+
+            layer.options.color = layer.options.hoverColor;
+
+            this._fillStroke(ctx, layer);
+
+            layer.options.color = oldColor;
+        }
+        else if (layer._focus) {
+            const oldColor = layer.options.color;
+            const oldWidth = layer.options.weight;
+
+            layer.options.color = layer.options.focusColor;
+            layer.options.weight = layer.options.focusWeight;
+
+            this._fillStroke(ctx, layer);
+
+            layer.options.color = oldColor;
+            layer.options.weight = oldWidth;
+        }
+        else {
+            this._fillStroke(ctx, layer);
+        }
 
         ctx.shadowColor = 'transparent';
 
@@ -90,14 +106,28 @@ export const IconMarker = LeafletCircleMarker.extend({
     options: {
         iconData: null,
     },
-    initialize: function (latlng, iconData, options) {
+    initialize(point, options) {
         setOptions(this, options);
-        this._latlng = toLatLng(latlng);
+        this._latlng = toLatLng(point.coords);
         this._radius = this.options.radius;
-        this._iconData = iconData;
+        this._iconData = point.icon;
+        this._pointData = point;
         this._hover = false;
+        this._focus = false;
     },
-    _updatePath: function() {
+    _updatePath() {
         this._renderer._updateIconMarker(this);
+    },
+    focus() {
+        if (!this._focus) {
+            this._focus = true;
+            this.bringToFront();
+        }
+    },
+    blur() {
+        if (this._focus) {
+            this._focus = false;
+            this.redraw();
+        }
     }
 });
