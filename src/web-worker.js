@@ -7,7 +7,7 @@ self.addEventListener('message', async (msg) => {
         throw new TypeError(`handler for delegate action [${type}] missing`);
     }
 
-    const data = await self[type](args, {type, taskId});
+    const data = await self[type](args);
 
     self.postMessage({
         data: Array.isArray(data) ? data : [data].filter(x => x),
@@ -16,14 +16,20 @@ self.addEventListener('message', async (msg) => {
 });
 
 // eslint-disable-next-line no-unused-vars
-self.initSearchIndex = ([points]) => {
+self.extendSearchIndex = ([points]) => {
     const options = {
         keys: ['title', 'excerpt', 'group', 'tags'],
         minMatchCharLength: 2
     };
 
-    self.pointsSearchIndex = Fuse.createIndex(options.keys, points);
-    self.pointsSearch = new Fuse(points, options, self.pointsSearchIndex);
+    if (!self.pointsSearchIndex) {
+        self.pointsSearchIndex = Fuse.createIndex(options.keys, points);
+        self.pointsSearch = new Fuse(points, options, self.pointsSearchIndex);
+        self.pointsIndexedMaps = [points[0].mapId + ''];
+    } else if (!self.pointsIndexedMaps.includes(points[0].mapId + '')) {
+        self.pointsIndexedMaps.push(points[0].mapId + '');
+        points.forEach(x => self.pointsSearch.add(x));
+    }
 }
 
 self.doSearch = ([query]) => {

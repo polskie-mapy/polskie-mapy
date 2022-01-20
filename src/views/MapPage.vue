@@ -5,6 +5,10 @@
       name="details"
       slim
     />
+    <portal-target
+      name="modal"
+      slim
+    />
   </div>
 </template>
 
@@ -18,25 +22,12 @@ export default {
         MapView,
     },
     async beforeRouteEnter(to, from, next) {
-        const maps = await (async () => {
-            // https://cdn.jsdelivr.net/gh/polskie-mapy/data@master/maps.json
-            const resp = await fetch('http://localhost:3000/maps');
-
-            return resp.json();
-        })();
-
-        store.commit('addMaps', maps);
+        await store.dispatch('fetchMaps');
 
         if (store.getters.map(to.params.mapId)) {
             store.commit('setCurrentMap', store.getters.map(to.params.mapId));
 
-            const points = await (async () => {
-                const resp = await fetch(`http://localhost:3000/maps/${store.getters.currentMap.id}/points`);
-
-                return resp.json();
-            })();
-
-            store.commit('addPoints', points);
+            await store.dispatch('fetchPoints', to.params.mapId + '');
         }
 
         next(vm => {
@@ -50,15 +41,12 @@ export default {
         });
     },
     async beforeRouteUpdate(to, from, next) {
-        if (from.params.mapId != to.params.mapId) {
-            const maps = await (async () => {
-                // https://cdn.jsdelivr.net/gh/polskie-mapy/data@master/maps.json
-                const resp = await fetch(`http://localhost:3000/maps/${store.getters.defaultMap.id}`);
+        if (from.params.mapId != to.params.mapId
+            || !this.$store.getters.currentMapsIds.includes(to.params.mapId + '')
+        ) {
+            await this.$store.dispatch('fetchPoints', to.params.mapId + '');
 
-                return resp.json();
-            })();
-
-            store.commit('addMaps', maps);
+            store.commit('setCurrentMap', store.getters.map(to.params.mapId));
         }
 
         next();

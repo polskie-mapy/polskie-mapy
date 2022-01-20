@@ -2,7 +2,7 @@
   <div class="h-full w-full">
     <div
       v-if="true"
-      class="flex h-full w-full"
+      class="flex h-full w-full flex-col md:flex-row"
     >
       <l-map
         ref="map"
@@ -18,12 +18,24 @@
           :attribution="mapAttribution"
         />
         <l-control
-          position="topleft"
+          position="bottomleft"
         >
           <MapControls
             v-if="mapObject"
             :map-object="mapObject"
           />
+        </l-control>
+        <l-control
+          position="topright"
+        >
+          <div class="text-app grid">
+            <router-link
+              :to="{ name: 'About' }"
+              class="bg-white p-2 border-app border border-2 shadow rounded"
+            >
+              <fa-icon icon="fa-solid fa-circle-exclamation" />
+            </router-link>
+          </div>
         </l-control>
         <MapLookup />
       </l-map>
@@ -117,7 +129,7 @@ export default {
                 params: {
                     pointId: point.id
                 }
-            })
+            });
         },
         redrawMarkers() {
             for (const marker of this.markers) {
@@ -182,12 +194,16 @@ export default {
         },
         flyToFocusedPoint() {
             if (this.focusedPoint) {
-                this.mapObject.flyTo(
-                    new LatLng(this.focusedPoint.coords[0], this.focusedPoint.coords[1]),
-                    10 // target zoom level
-                );
-                this.markers.forEach(x => x.blur());
-                this.focusedMarker.focus();
+                // need to invoke after whole render cycle completed
+                // otherwise race can occur
+                this.$nextTick(() => {
+                    this.mapObject.flyTo(
+                        new LatLng(this.focusedPoint.coords[0], this.focusedPoint.coords[1]),
+                        10 // target zoom level
+                    );
+                    this.markers.forEach(x => x.blur());
+                    this.focusedMarker.focus();
+                });
             } else {
                 this.markers.forEach(x => x.blur());
             }

@@ -11,7 +11,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import PortalVue from 'portal-vue';
 import VueHelpers from '@/helpers';
-
 import '@/assets/ui.css';
 
 library.add(fas, far, fab);
@@ -27,4 +26,3 @@ new Vue({
     store,
     render: h => h(App),
 }).$mount('#app');
-

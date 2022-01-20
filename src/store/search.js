@@ -29,7 +29,10 @@ export default {
     },
     actions: {
         initSearchIndex(ctx) {
-            this.delegateTask('initSearchIndex', [ctx.rootGetters.points])
+            ctx.dispatch('extendSearchIndex', [ctx.rootGetters.points])
+        },
+        extendSearchIndex(ctx, points) {
+            this.delegateTask('extendSearchIndex', [points])
                 .then(() => {
                     ctx.commit('markIndexInitialized');
                 });

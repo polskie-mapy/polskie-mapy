@@ -2,7 +2,7 @@
   <div>
     <l-control
       position="topleft"
-      class="w-80"
+      class="lg:w-80 w-full"
     >
       <div class="flex gap-1">
         <button
@@ -23,12 +23,12 @@
             :disabled="!searchIndexInitialized"
             type="text"
             class="px-2 py-1 w-full outline-none border-none"
-            placeholder="Szukaj pinezki"
+            placeholder="Szukaj pinezki (min. 2 znaki)"
             :value="searchQuery"
             @input="setSearchQuery"
           >
           <div
-            v-if="performingSearch"
+            v-if="performingSearch || !searchIndexInitialized"
             class="inline px-2 bg-white flex text-app"
           >
             <fa-icon
@@ -42,7 +42,7 @@
     </l-control>
     <l-control
       position="topleft"
-      class="w-80"
+      class="lg:w-80 w-full"
     >
       <div
         v-if="menuVisible && hasSearchResults && hasSearchQuery"
@@ -51,7 +51,7 @@
         <router-link
           v-for="item in searchResults"
           :key="item.id"
-          :to="{ name: 'PointDetails', params: { pointId: item.id }}"
+          :to="{ name: 'PointDetails', params: { pointId: item.id, mapId: item.mapId }}"
           class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent hover:border-white border last:mb-px"
           :title="item.title"
         >
@@ -62,6 +62,12 @@
           />
           <span class="text-ellipsis break-all w-full whitespace-nowrap overflow-x-hidden">{{ item.title }}</span>
         </router-link>
+      </div>
+      <div
+        v-else-if="hasSearchQuery && !hasSearchResults && !performingSearch"
+        class="flex flex-col bg-white border-app border-2 rounded shadow divide-y py-2 px-4 mb-3"
+      >
+        <p>nie znaleziono wyników :&lt;</p>
       </div>
 
       <div
@@ -122,6 +128,7 @@ export default {
             searchIndexInitialized: (state) => state.indexInitialized,
             searchResults: (state) => state.searchResults,
             performingSearch: (state) => state.performingSearch,
+
         }),
     },
     mounted() {

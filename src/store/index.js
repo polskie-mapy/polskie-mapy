@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {COLOR_SCHEMES} from "@/helpers";
+import {COLOR_SCHEMES, rsrcUrl} from "@/helpers";
 import search from './search';
 import createDelegatedTasksHandler from "@/store/delegated-tasks";
 
@@ -100,7 +100,32 @@ export default new Vuex.Store({
             return new Set(getters.points.map(x => x.group));
         },
     },
-    actions: {},
+    actions: {
+        async fetchPoints(ctx, mapId) {
+            if (ctx.getters.points.find(x => x.mapId === mapId)) {
+                // already fetched, no need to do that
+                return;
+            }
+
+            const points = await (async () => {
+                const resp = await fetch(rsrcUrl(`/maps/${mapId}/points`));
+
+                return resp.json();
+            })();
+
+            ctx.commit('addPoints', points);
+            ctx.dispatch('search/extendSearchIndex', points);
+        },
+        async fetchMaps(ctx) {
+            const maps = await (async () => {
+                const resp = await fetch(rsrcUrl('/maps'));
+
+                return resp.json();
+            })();
+
+            ctx.commit('addMaps', maps);
+        }
+    },
     modules: {
         search
     },

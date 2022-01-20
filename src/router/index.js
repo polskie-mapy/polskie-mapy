@@ -8,8 +8,14 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        redirect: { name: 'MapPage', params: { mapId: 1 } },
+        component: MapPage,
+        children: [
+            {
+                path: 'about',
+                name: 'About',
+                component: () => import(/* webpackChunkName: "about" */ '@/views/AboutModal.vue')
+            }
+        ]
     },
     {
         path: '/maps/:mapId/',
@@ -23,11 +29,6 @@ const routes = [
             }
         ]
     },
-    {
-        path: '/about',
-        name: 'About',
-        component: () => import(/* webpackChunkName: "about" */ '@/views/AboutPage.vue')
-    }
 ]
 
 const router = new VueRouter({

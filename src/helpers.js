@@ -1,4 +1,4 @@
-import {round} from "lodash";
+import {round, trimStart} from "lodash";
 import {DateTime} from "luxon";
 import {findIconDefinition as faFindIconDefinition} from "@fortawesome/fontawesome-svg-core";
 
@@ -177,6 +177,10 @@ function iconCodeToIconName(code) {
     const {iconName, prefix} = translateIconCode(code);
 
     return `${prefix} ${iconName}`;
+}
+
+export function rsrcUrl(url) {
+    return `${process.env.VUE_APP_DATA_BASE_URL}/${trimStart(url, '/')}${process.env.VUE_APP_DATA_URL_SUFFIX}`;
 }
 
 export default {

@@ -5,19 +5,19 @@ export default function createDelegatedTasksHandler(createWorker) {
 
     return store => {
         store.delegateTask = function delegateTask(name, payload) {
-            const taskId = store.getters['_tasks/nextTaskId'];
+            const taskId = store.getters['_tasks/nextTaskId'] | 0;
 
             return new Promise((resolve, rescue) => {
+                store.commit('_tasks/addTask', {
+                    resolve,
+                    rescue,
+                    name
+                });
+
                 store.getters['_tasks/workerHandle'].postMessage({
                     type: name,
                     args: Array.isArray(payload) ? payload : [payload].filter(x => x),
                     taskId,
-                });
-
-                store.commit('_tasks/addTask', {
-                    taskId,
-                    resolve,
-                    rescue
                 });
             }).finally(() => {
                 store.commit('_tasks/removeTask', taskId);
@@ -38,7 +38,10 @@ export default function createDelegatedTasksHandler(createWorker) {
             },
             mutations: {
                 addTask(state, taskData) {
-                    state.tasks.set(taskData.taskId, taskData)
+                    state.tasks.set(++state.lastTaskId, {
+                        ...taskData,
+                        taskId: state.lastTaskId,
+                    });
                 },
                 removeTask(state, taskId) {
                     state.tasks.delete(taskId)

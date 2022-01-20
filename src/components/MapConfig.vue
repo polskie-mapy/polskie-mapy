@@ -5,6 +5,7 @@
         <input
           :id="`ml-map-${map.id}`"
           :checked="isInCurrentMaps"
+          :disabled="fetchingData"
           type="checkbox"
           class="appearance-none h-4 w-4 border border-gray-300 rounded bg-white checked:bg-app checked:border-app focus:outline-none align-top mr-2 cursor-pointer"
           @input="toggleCurrentMaps"
@@ -15,6 +16,15 @@
         >
           {{ map.name }}
         </label>
+      </div>
+      <div
+        v-if="fetchingData"
+        class="text-app"
+      >
+        <fa-icon
+          icon="fa-solid fa-sync"
+          spin
+        />
       </div>
       <button
         v-if="false"
@@ -67,6 +77,7 @@ export default {
     },
     data: () => ({
         expanded: false,
+        fetchingData: false,
     }),
     computed: {
         togglerIcon() {
@@ -94,8 +105,15 @@ export default {
         }
     },
     methods: {
-        toggleCurrentMaps(ev) {
-            this.$store.commit('toggleCurrentMaps', {map: this.map, enabled: ev.target.checked});
+        async toggleCurrentMaps(ev) {
+            this.$store.commit('toggleCurrentMaps', {
+                map: this.map,
+                enabled: ev.target.checked
+            });
+
+            this.fetchingData = true;
+            await this.$store.dispatch('fetchPoints', this.map.id + '');
+            this.fetchingData = false;
         },
         toggle() {
             this.expanded = !this.expanded;

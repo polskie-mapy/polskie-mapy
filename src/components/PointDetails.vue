@@ -44,7 +44,6 @@
                 >
                   <fa-icon
                     icon="fa-solid fa-crosshairs"
-                    fixed-width
                   />
                 </router-link>
               </div>
@@ -54,11 +53,10 @@
                 </div>
                 <a
                   class="hover:text-app cursor-pointer"
-                  @click.prevent="hideDetails"
+                  @click.prevent="proposeChange"
                 >
                   <fa-icon
-                    icon="fa-regular fa-flag"
-                    fixed-width
+                    icon="fa-solid fa-flag"
                   />
                 </a>
               </div>
@@ -68,7 +66,6 @@
               >
                 <fa-icon
                   icon="fa-solid fa-times"
-                  fixed-width
                 />
               </a>
             </div>
@@ -299,7 +296,13 @@ export default {
     },
     methods: {
         hideDetails() {
-            this.$router.back();
+            this.$router.push({
+                name: 'MapPage',
+                params: { mapId: this.point.mapId }
+            });
+        },
+        proposeChange() {
+            alert('Możliwość proponowania poprawek wkrótce :)');
         }
     },
 };
