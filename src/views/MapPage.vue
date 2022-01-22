@@ -41,8 +41,10 @@ export default {
         });
     },
     async beforeRouteUpdate(to, from, next) {
-        if (from.params.mapId != to.params.mapId
-            || !this.$store.getters.currentMapsIds.includes(to.params.mapId + '')
+        if (
+          typeof to.params.mapId !== 'undefined'
+          && (from.params.mapId != to.params.mapId
+            || !this.$store.getters.currentMapsIds.includes(to.params.mapId + ''))
         ) {
             await this.$store.dispatch('fetchPoints', to.params.mapId + '');
 

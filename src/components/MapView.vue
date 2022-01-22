@@ -39,7 +39,6 @@
         </l-control>
         <MapLookup />
       </l-map>
-      <AdBanner />
     </div>
     <div
       v-else
@@ -63,7 +62,6 @@ import {LControl, LMap, LTileLayer} from "vue2-leaflet";
 import {IconMarker} from "@/leaflet-icon-marker";
 import {mapGetters, mapState} from 'vuex';
 import MapControls from "@/components/MapControls";
-import AdBanner from "@/components/AdBanner";
 import MapLookup from "@/components/MapLookup";
 import {findColorInvert} from "@/color-helpers";
 import {LatLng} from 'leaflet';
@@ -72,7 +70,6 @@ export default {
     name: 'MapView',
     components: {
         MapLookup,
-        AdBanner,
         MapControls,
         LMap, LTileLayer, LControl
     },
