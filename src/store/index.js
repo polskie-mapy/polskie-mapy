@@ -19,7 +19,7 @@ export default new Vuex.Store({
     // unset - removes value(s)
     // add - appends value(s)
     // toggle - switches between two value (i.e: true and false)
-    // mark - toggles from one value to another ALWAYS (i.e: false to true, subsequent calls don't modify value)
+    // mark - one-way toggle (i.e: false to true, subsequent calls don't modify value)
     mutations: {
         setColorSchema(state, schema) {
             if (!COLOR_SCHEMES.contains(schema)) {

@@ -124,7 +124,8 @@ export default {
             this.$router.push({
                 name: 'PointDetails',
                 params: {
-                    pointId: point.id
+                    pointId: point.id,
+                    mapId: point.mapId,
                 }
             });
         },

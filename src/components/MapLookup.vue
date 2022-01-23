@@ -17,12 +17,13 @@
         </button>
         <div
           v-if="menuVisible"
-          class="border-app border border-2 rounded shadow outline-none focus:ring ring-app hover:outline hover:outline-app outline-offset-1 outline-2 text-lg w-full flex"
+          class="border-app border border-2 rounded shadow outline-none ring-app hover:outline hover:outline-app outline-offset-1 outline-2 text-lg w-full flex"
+          :class="{'border-gray-600 hover:outline-gray-600': !searchIndexInitialized, 'hover:outline-app ring-app focus:ring': searchIndexInitialized}"
         >
           <input
             :disabled="!searchIndexInitialized"
             type="text"
-            class="px-2 py-1 w-full outline-none border-none"
+            class="px-2 py-1 w-full outline-none border-none disabled:bg-white disabled:cursor-not-allowed"
             placeholder="Szukaj pinezki (min. 2 znaki)"
             :value="searchQuery"
             @input="setSearchQuery"

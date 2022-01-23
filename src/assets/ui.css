@@ -6,7 +6,7 @@
 }
 
 .tooltipped .tooltip {
-    @apply invisible absolute bg-black p-2 bottom-full border border-app shadow text-white text-sm w-max max-w-xs rounded -translate-x-1 -translate-y-2;
+    @apply invisible absolute bg-black p-2 bottom-full border border-app shadow text-white text-sm w-max max-w-xs rounded -translate-x-1 -translate-y-2 hidden md:visible;
 }
 
 .tooltipped .tooltip.color-inherit {

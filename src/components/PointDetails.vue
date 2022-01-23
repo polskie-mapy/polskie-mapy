@@ -8,16 +8,16 @@
     >
       <div class="self-end flex w-full justify-center cursor-auto">
         <div
-          class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr_1fr] auto-rows-min gap-3 max-w-5xl"
+          class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr] auto-rows-min gap-2 max-w-5xl md:gap-3"
         >
-          <div class="col-span-3 relative flex">
-            <div class="flex-1">
+          <div class="col-span-2 relative flex">
+            <div class="flex-1 flex gap-x-3">
               <span class="text-2xl font-semibold">
                 {{ point.title }}
               </span>
               <div
                 v-if="point.assumedCoords"
-                class="ml-3 tooltipped self-center"
+                class="tooltipped self-center"
               >
                 <div class="tooltip">
                   lokalizacja niedokładna, przybliżona bądź prawdopodobna
@@ -70,7 +70,7 @@
               </a>
             </div>
           </div>
-          <div class="col-span-3 text-gray-400 text-xs flex gap-x-3 -mt-1">
+          <div class="col-span-2 text-gray-400 text-xs flex gap-y-1 gap-x-3 -mt-1 hidden md:visible">
             <div>
               grupa:
               <span class="py-0.5 px-1 rounded-sm bg-app text-white">{{ point.group }}</span>
@@ -100,7 +100,7 @@
           </div>
           <a
             v-if="ytLink"
-            class="rounded hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative h-36 w-48"
+            class="rounded hover:outline-2 hover:outline hover:outline-offset-1 hover:outline-app relative h-36 w-48 md:justify-self-auto justify-self-center col-span-2 md:col-span-1"
             :href="ytLink"
             target="_blank"
           >
@@ -129,7 +129,7 @@
               </div>
             </div>
           </div>
-          <div class="col-span-2 grid grid-rows-1 auto-rows-min gap-y-1 relative">
+          <div class="grid grid-rows-1 auto-rows-min gap-y-1 relative md:col-span-1 col-span-2 mb-2 md:mb-0">
             <p class="break-all max-h-40 overflow-y-auto">
               {{ point.excerpt }}
             </p>
@@ -147,7 +147,7 @@
               </a>
             </p>
           </div>
-          <div class="col-span-2 flex gap-2 mb-3">
+          <div class="flex gap-2 mb-3">
             <div
               v-for="link in links"
               :key="link.url"
