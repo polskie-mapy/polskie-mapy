@@ -26,7 +26,7 @@
             </button>
           </div>
           <p class="mb-4 text-sm text-gray-400">
-            a.k.a polskie mapy
+            a.k.a polskie mapy &bull; {{ version }}
           </p>
           <ul class="space-y-2">
             <li>
@@ -76,11 +76,18 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
+
 export default {
     methods: {
         closeModal() {
             this.$router.back();
         }
+    },
+    computed: {
+        ...mapGetters([
+            'version',
+        ]),
     }
 }
 </script>

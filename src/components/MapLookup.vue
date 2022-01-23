@@ -2,7 +2,7 @@
   <div>
     <l-control
       position="topleft"
-      class="lg:w-80 w-full"
+      class="lg:w-80 w-64 sm:w-full"
     >
       <div class="flex gap-1">
         <button
@@ -43,7 +43,7 @@
     </l-control>
     <l-control
       position="topleft"
-      class="lg:w-80 w-full"
+      class="lg:w-80 w-64 sm:w-full"
     >
       <div
         v-if="menuVisible && hasSearchResults && hasSearchQuery"

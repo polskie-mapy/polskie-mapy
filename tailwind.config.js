@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const colors = require('tailwindcss/colors');
 const {APP_COLOR} = require("./src/app-helpers");
 

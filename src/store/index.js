@@ -99,6 +99,9 @@ export default new Vuex.Store({
         pinGroups(state, getters) {
             return new Set(getters.points.map(x => x.group));
         },
+        version() {
+            return process.env.VUE_APP_VERSION;
+        }
     },
     actions: {
         async fetchPoints(ctx, mapId) {

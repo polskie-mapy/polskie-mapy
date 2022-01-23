@@ -6,9 +6,12 @@
       class="absolute h-full w-full inset-0 flex flex-row z-modal bg-modal cursor-pointer"
       @click.self.prevent="hideDetails"
     >
-      <div class="self-end flex w-full justify-center cursor-auto">
+      <div
+        class="self-end flex w-full justify-center cursor-pointer"
+        @click.self.prevent="hideDetails"
+      >
         <div
-          class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr] auto-rows-min gap-2 max-w-5xl md:gap-3"
+          class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr] auto-rows-min gap-2 max-w-5xl md:gap-3 cursor-auto"
         >
           <div class="col-span-2 relative flex">
             <div class="flex-1 flex gap-x-3">
@@ -173,7 +176,7 @@
               </a>
             </div>
           </div>
-          <div class="grid grid-rows-2 justify-end cursor-default">
+          <div class="grid-rows-2 justify-end cursor-default hidden sm:grid">
             <div class="tooltipped">
               <div
                 class="tooltip"
