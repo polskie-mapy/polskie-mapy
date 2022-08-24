@@ -29,7 +29,7 @@ LeafletCanvas.include({
             ctx.restore();
         }
 
-        // tailiwnd's default shadow - https://tailwindcss.com/docs/box-shadow
+        // tailwind's default shadow - https://tailwindcss.com/docs/box-shadow
         ctx.shadowColor = 'rgba(0, 0, 0, 0.1)';
         ctx.shadowBlur = 3;
         ctx.shadowOffsetX = 0;

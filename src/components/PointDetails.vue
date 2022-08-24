@@ -56,7 +56,9 @@
                 </div>
                 <a
                   class="hover:text-app cursor-pointer"
-                  @click.prevent="proposeChange"
+                  :href="proposeUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <fa-icon
                     icon="fa-solid fa-flag"
@@ -90,7 +92,7 @@
                   :key="tag"
                   class="py-0.5 px-1 rounded-sm bg-app text-white"
                 >
-                  {{ tag }}
+                  {{ tag.title }}
                 </span>
               </template>
               <span
@@ -214,14 +216,14 @@ import VideoThumbnail from "@/components/VideoThumbnail";
 export default {
     name: 'PointDetails',
     components: {VideoThumbnail},
-    beforeRouteEnter(to, from, next) {
+    beforeRouteEnter(to, _from, next) {
         if (store.getters.point(to.params.pointId)) {
             store.commit('setCurrentPoint', store.getters.point(to.params.pointId));
         }
 
         next();
     },
-    beforeRouteUpdate(to, from, next) {
+    beforeRouteUpdate(to, _from, next) {
         if (store.getters.point(to.params.pointId)) {
             store.commit('setCurrentPoint', store.getters.point(to.params.pointId));
         }
@@ -292,6 +294,7 @@ export default {
         map() {
             return this.mapLookup(this.point.mapId);
         },
+        proposeUrl: () => 'https://github.com/polskie-mapy/data/issues',
         ...mapGetters({
             point: 'currentPoint',
             mapLookup: 'map'
@@ -304,9 +307,6 @@ export default {
                 params: { mapId: this.point.mapId }
             });
         },
-        proposeChange() {
-            alert('Możliwość proponowania poprawek wkrótce :)');
-        }
     },
 };
 </script>

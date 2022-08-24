@@ -5,7 +5,7 @@ export default function createDelegatedTasksHandler(createWorker) {
 
     return store => {
         store.delegateTask = function delegateTask(name, payload) {
-            const taskId = store.getters['_tasks/nextTaskId'] | 0;
+            const taskId = parseInt(store.getters['_tasks/nextTaskId']);
 
             return new Promise((resolve, rescue) => {
                 store.commit('_tasks/addTask', {

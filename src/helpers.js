@@ -144,9 +144,8 @@ function prettyDate(date) {
 }
 
 function translateIconCode(code) {
-    if (code.startsWith('fa-solid:') || code.startsWith('fa-regular:')) {
+    if (code.startsWith('fa-solid:') || code.startsWith('fa-regular:') || code.startsWith('fa-brands:')) {
         const icon = code.split(':');
-
         return {
             prefix: icon[0],
             iconName: icon[1],

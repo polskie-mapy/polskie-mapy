@@ -11,7 +11,6 @@ export function findColorInvert(color) {
 }
 
 function normalizeColorFormat(color) {
-
     if (color[0] === '#') {
         // Lengths of certain color hex formats:
         // rgb = 3 (4 with starting hash)

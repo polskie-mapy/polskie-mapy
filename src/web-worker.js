@@ -1,13 +1,15 @@
 import Fuse from 'fuse.js';
 
+self.callbacks = {}
+
 self.addEventListener('message', async (msg) => {
     const {type, args, taskId} = msg.data;
 
-    if (typeof self[type] === 'undefined') {
+    if (typeof self.callbacks[type] === 'undefined') {
         throw new TypeError(`handler for delegate action [${type}] missing`);
     }
 
-    const data = await self[type](args);
+    const data = await self.callbacks[type](args);
 
     self.postMessage({
         data: Array.isArray(data) ? data : [data].filter(x => x),
@@ -16,7 +18,7 @@ self.addEventListener('message', async (msg) => {
 });
 
 // eslint-disable-next-line no-unused-vars
-self.extendSearchIndex = ([points]) => {
+self.callbacks.extendSearchIndex = ([points]) => {
     const options = {
         keys: ['title', 'excerpt', 'group', 'tags'],
         minMatchCharLength: 2
@@ -32,7 +34,7 @@ self.extendSearchIndex = ([points]) => {
     }
 }
 
-self.doSearch = ([query]) => {
+self.callbacks.doSearch = ([query]) => {
     const results = self.pointsSearch.search(query, {
         limit: 5
     });

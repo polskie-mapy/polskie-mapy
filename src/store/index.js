@@ -96,7 +96,7 @@ export default new Vuex.Store({
         map(state) {
             return (id) => state.maps.get(id + '')
         },
-        pinGroups(state, getters) {
+        pinGroups(_state, getters) {
             return new Set(getters.points.map(x => x.group));
         },
         version() {

@@ -21,7 +21,7 @@ export default {
     components: {
         MapView,
     },
-    async beforeRouteEnter(to, from, next) {
+    async beforeRouteEnter(to, _from, next) {
         await store.dispatch('fetchMaps');
 
         if (store.getters.map(to.params.mapId)) {
