@@ -94,6 +94,10 @@ export default {
                         x.icon = 'fa-solid:fa-question';
                     }
 
+                    if (!x.pinColor) {
+                        x.pinColor = '#000';
+                    }
+
                     return {
                         ...x,
                         iconName: x.icon,
