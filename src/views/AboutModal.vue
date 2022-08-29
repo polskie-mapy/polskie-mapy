@@ -68,6 +68,19 @@
                 Repozytorium
               </a>
             </li>
+            <li>
+              <a
+                href="https://github.com/polskie-mapy/data/issues"
+                target="_blank"
+                class="text-app hover:underline"
+              >
+                <fa-icon
+                  icon="fa-solid fa-lightbulb"
+                  fixed-width
+                />
+                Zaproponuj pinezkę / zgłoś pinezkę
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -79,15 +92,15 @@
 import {mapGetters} from 'vuex';
 
 export default {
-    methods: {
-        closeModal() {
-            this.$router.back();
-        }
-    },
     computed: {
         ...mapGetters([
             'version',
         ]),
+    },
+    methods: {
+        closeModal() {
+            this.$router.back();
+        }
     }
 }
 </script>

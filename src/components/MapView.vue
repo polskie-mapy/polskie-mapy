@@ -90,6 +90,10 @@ export default {
         points() {
             return this.rawPoints
                 .map(x => {
+                    if (!x.icon) {
+                        x.icon = 'fa-solid:fa-question';
+                    }
+
                     return {
                         ...x,
                         iconName: x.icon,
