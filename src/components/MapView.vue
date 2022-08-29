@@ -89,6 +89,7 @@ export default {
         },
         points() {
             return this.rawPoints
+                .filter(x => x.coords)
                 .map(x => {
                     if (!x.icon) {
                         x.icon = 'fa-solid:fa-question';
