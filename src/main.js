@@ -11,6 +11,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import PortalVue from 'portal-vue';
 import VueHelpers from '@/helpers';
+import 'virtual:windi.css';
+import 'virtual:windi-devtools';
 import '@/assets/ui.css';
 
 library.add(fas, far, fab);

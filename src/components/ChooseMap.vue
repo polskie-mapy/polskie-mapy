@@ -8,7 +8,9 @@
         class="self-center flex w-full justify-center cursor-pointer"
         @click.self.prevent="closeModal"
       >
-        <div class="bg-white rounded p-3 shadow border-2 border-app cursor-auto w-prose">
+        <div
+          class="bg-white rounded p-3 shadow border-2 border-app cursor-auto"
+        >
           <div class="flex gap-2">
             <p class="text-2xl font-bold flex-1">
               Projekt <code>mapainternetow.pl</code>
@@ -24,7 +26,7 @@
             </button>
           </div>
           <p class="mb-4 text-sm text-gray-400">
-            a.k.a polskie mapy &bull; <abbr :title="builtDate">{{ version }}</abbr>
+            a.k.a polskie mapy &bull; {{ version }}
           </p>
           <ul class="space-y-2">
             <li>
@@ -76,33 +78,7 @@
                   icon="fa-solid fa-lightbulb"
                   fixed-width
                 />
-                Zaproponuj pinezkę / poprawkę
-              </a>
-            </li>
-            <li>
-              <a
-                :href="privacyPolicyUrl"
-                target="_blank"
-                class="text-app hover:underline"
-              >
-                <fa-icon
-                  icon="fa-solid fa-legal"
-                  fixed-width
-                />
-                Polityka prywatności + ciasteczka
-              </a>
-            </li>
-            <li>
-              <a
-                :href="infrigementReportMailtoUrl"
-                target="_blank"
-                class="text-red-600 hover:underline"
-              >
-                <fa-icon
-                  icon="fa-solid fa-user-ninja"
-                  fixed-width
-                />
-                Zgłoś naruszenie
+                Zaproponuj pinezkę / zgłoś pinezkę
               </a>
             </li>
           </ul>
@@ -113,25 +89,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import {mapGetters} from 'vuex';
 
 export default {
     computed: {
         ...mapGetters([
             'version',
-            'builtDate'
         ]),
-
-        infrigementReportMailtoUrl() {
-            return "mailto:ronaldinhothc@gmail.com"
-                + "?subject=Zg%C5%82oszenie%20naruszenia%20punktu%20w%20aplikacji%20polskie%20mapy"
-                + "&body=Link%20do%20punktu%3A%20%3Curl%3E%0D%0A%0D%0A"
-                + "Prosimy%20ci%C4%99%20r%C3%B3wnie%C5%BC%20o%20opisanie%20problemu.";
-        },
-
-        privacyPolicyUrl() {
-            return 'https://github.com/polskie-mapy/polskie-mapy/blob/master/PRIVACY_POLICY.md';
-        }
     },
     methods: {
         closeModal() {

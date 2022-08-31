@@ -11,9 +11,9 @@
         @click.self.prevent="hideDetails"
       >
         <div
-          class="bg-white rounded-t p-3 pb-0 shadow border-2 border-b-0 border-app grid grid-cols-[12rem_1fr] auto-rows-min gap-2 max-w-5xl md:gap-3 cursor-auto"
+          class="bg-white md:rounded-t p-3 pb-0 shadow border-t-2 border-b-0 border-app md:border-l-2 md:border-r-2 grid grid-cols-[12rem_1fr] auto-rows-min w-full md:w-auto md:min-w-prose gap-2 max-w-5xl md:gap-3 cursor-auto"
         >
-          <div class="col-span-2 relative flex">
+          <div class="col-span-2 relative flex gap-x-3">
             <div class="flex-1 flex gap-x-3">
               <span class="text-2xl font-semibold">
                 {{ point.title }}
@@ -211,7 +211,7 @@
 import {DateTime} from 'luxon';
 import {mapGetters} from "vuex";
 import store from "@/store";
-import VideoThumbnail from "@/components/VideoThumbnail";
+import VideoThumbnail from "@/components/VideoThumbnail.vue";
 
 export default {
     name: 'PointDetails',

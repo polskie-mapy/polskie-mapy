@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import MapView from '@/components/MapView';
+import MapView from '@/components/MapView.vue';
 import store from '@/store';
 
 export default {

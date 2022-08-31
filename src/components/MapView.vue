@@ -28,7 +28,13 @@
         <l-control
           position="topright"
         >
-          <div class="text-app grid">
+          <div class="text-app flex gap-2">
+            <router-link
+              :to="{ name: 'Funding' }"
+              class="bg-white p-2 border-app border border-2 shadow rounded"
+            >
+              <fa-icon icon="fa-solid fa-beer" />
+            </router-link>
             <router-link
               :to="{ name: 'About' }"
               class="bg-white p-2 border-app border border-2 shadow rounded"
@@ -61,8 +67,8 @@ import {APP_COLOR} from "@/app-helpers";
 import {LControl, LMap, LTileLayer} from "vue2-leaflet";
 import {IconMarker} from "@/leaflet-icon-marker";
 import {mapGetters, mapState} from 'vuex';
-import MapControls from "@/components/MapControls";
-import MapLookup from "@/components/MapLookup";
+import MapControls from "@/components/MapControls.vue";
+import MapLookup from "@/components/MapLookup.vue";
 import {findColorInvert} from "@/color-helpers";
 import {LatLng} from 'leaflet';
 

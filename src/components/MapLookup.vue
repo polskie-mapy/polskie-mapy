@@ -95,7 +95,7 @@
 import {debounce} from "lodash";
 import {mapGetters, mapState} from "vuex";
 import {LControl} from "vue2-leaflet";
-import MapConfig from "@/components/MapConfig";
+import MapConfig from "@/components/MapConfig.vue";
 
 export default {
     name: "MapLookup",

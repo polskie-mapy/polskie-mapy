@@ -1,19 +1,16 @@
-// eslint-disable-next-line no-unused-vars
-const colors = require('tailwindcss/colors');
-const {APP_COLOR} = require("./src/app-helpers");
-
-module.exports = {
-    content: [
-        './index.html',
-        './src/**/*.{vue,js}',
-    ],
+export default {
+    extract: {
+        include: [
+            './index.html',
+            './src/**/*.{vue,js}',
+        ]
+    },
     darkMode: 'media',
     theme: {
-        colors: {
-            'app': APP_COLOR,
-            ...colors
-        },
         extend: {
+            colors: {
+                'app': '#fb923c',
+            },
             gridTemplateRows: {
                 'app': 'min-content 1fr',
             },

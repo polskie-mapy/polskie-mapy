@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {COLOR_SCHEMES, rsrcUrl} from "@/helpers";
+import { COLOR_SCHEMES, rsrcUrl } from "@/helpers";
 import search from './search';
 import createDelegatedTasksHandler from "@/store/delegated-tasks";
+import { APP_BUILT_DATE, APP_VERSION } from '@/app-helpers';
 
 Vue.use(Vuex);
 
@@ -46,7 +47,7 @@ export default new Vuex.Store({
         setCurrentPoint(state, point) {
             state.currentPoint = point;
         },
-        toggleCurrentMaps(state, {map, enabled}) {
+        toggleCurrentMaps(state, { map, enabled }) {
             if (enabled) {
                 state.currentMaps.set(map.id + '', map);
             } else {
@@ -100,7 +101,10 @@ export default new Vuex.Store({
             return new Set(getters.points.map(x => x.group));
         },
         version() {
-            return process.env.VUE_APP_VERSION;
+            return APP_VERSION;
+        },
+        builtDate() {
+            return APP_BUILT_DATE;
         }
     },
     actions: {
@@ -134,7 +138,10 @@ export default new Vuex.Store({
     },
     plugins: [
         createDelegatedTasksHandler(
-            () => new Worker(new URL('@/web-worker.js', import.meta.url))
+            () => new Worker(
+                new URL('../web-worker.js', import.meta.url),
+                { type: 'module' }
+            )
         )
     ]
 })

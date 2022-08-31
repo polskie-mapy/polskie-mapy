@@ -1,12 +1,11 @@
-@tailwind base;
-@tailwind components;
-
 .tooltipped {
     @apply relative inline-block;
 }
 
 .tooltipped .tooltip {
-    @apply hidden md:block md:invisible absolute bg-black p-2 bottom-full border border-app shadow text-white text-sm w-max max-w-xs rounded -translate-x-1 -translate-y-2;
+    @apply hidden md:block md:invisible absolute bg-black p-2 bottom-full border;
+    @apply border-app shadow text-white text-sm w-max max-w-xs rounded;
+    @apply -translate-x-1 -translate-y-2 transform-gpu;
 }
 
 .tooltipped .tooltip.color-inherit {
@@ -26,7 +25,9 @@
 }
 
 .pm-pin {
-    @apply p-2 rounded-full bg-pin-var border-white border-2 text-white flex w-8 h-8 items-center justify-center hover:border-app hover:shadow relative -ml-[11px] -mt-[32px];
+    @apply p-2 rounded-full bg-pin-var border-white border-2 text-white flex w-8;
+    @apply h-8 items-center justify-center hover:border-app
+    @apply hover:shadow relative -ml-[11px] -mt-[32px];
 }
 
 .pm-pin:hover::after {
@@ -36,7 +37,8 @@
 .pm-pin::after {
     content: "";
 
-    @apply absolute -bottom-1 w-5 h-5 border border-white border-2 border-t-0 border-l-0 rotate-45 bg-white -z-10;
+    @apply absolute -bottom-1 w-5 h-5 border border-white border-2;
+    @apply border-t-0 border-l-0 rotate-45 bg-white -z-10;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -68,5 +70,3 @@
 .leaflet-control a {
     color: inherit;
 }
-
-@tailwind utilities;

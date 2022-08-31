@@ -179,7 +179,7 @@ function iconCodeToIconName(code) {
 }
 
 export function rsrcUrl(url) {
-    return `${process.env.VUE_APP_DATA_BASE_URL}/${trimStart(url, '/')}${process.env.VUE_APP_DATA_URL_SUFFIX}`;
+    return `${import.meta.env.VITE_DATA_BASE_URL}/${trimStart(url, '/')}${import.meta.env.VITE_DATA_URL_SUFFIX}`;
 }
 
 export default {

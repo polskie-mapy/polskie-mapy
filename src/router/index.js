@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MapPage from '../views/MapPage.vue'
-import PointDetails from "@/components/PointDetails";
+import PointDetails from "@/components/PointDetails.vue";
 
 Vue.use(VueRouter)
 
@@ -13,7 +13,12 @@ const routes = [
             {
                 path: 'about',
                 name: 'About',
-                component: () => import(/* webpackChunkName: "about" */ '@/views/AboutModal.vue')
+                component: () => import('@/views/AboutModal.vue')
+            },
+            {
+                path: 'funding',
+                name: 'Funding',
+                component: () => import('@/views/FundingModal.vue')
             }
         ]
     },
