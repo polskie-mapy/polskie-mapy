@@ -6,7 +6,7 @@
     >
       <div class="flex gap-1">
         <button
-          class="p-2 bg-app hover:outline outline-2 outline-offset-1 outline-app text-white rounded shadow flex flex-cols justify-center"
+          class="p-2 bg-app hover:outline outline-2 outline-offset-1 outline-app text-white rounded shadow flex flex-cols justify-center dark:text-gray-800"
           @click="menuVisible = !menuVisible"
         >
           <fa-icon
@@ -23,14 +23,14 @@
           <input
             :disabled="!searchIndexInitialized"
             type="text"
-            class="px-2 py-1 w-full outline-none border-none disabled:bg-white disabled:cursor-not-allowed"
+            class="px-2 py-1 w-full outline-none border-none disabled:bg-white disabled:cursor-not-allowed dark:bg-gray-700 dark:text-white dark:placeholder-gray-300"
             placeholder="Szukaj pinezki (min. 2 znaki)"
             :value="searchQuery"
             @input="setSearchQuery"
           >
           <div
             v-if="performingSearch || !searchIndexInitialized"
-            class="inline px-2 bg-white flex text-app"
+            class="inline px-2 bg-white flex text-app dark:bg-gray-700"
           >
             <fa-icon
               class="self-center"
@@ -47,13 +47,13 @@
     >
       <div
         v-if="menuVisible && hasSearchResults && hasSearchQuery"
-        class="flex flex-col bg-white border-app border-2 rounded shadow divide-y mb-3"
+        class="flex flex-col bg-white border-app border-2 rounded shadow divide-y mb-3 dark:bg-gray-700"
       >
         <router-link
           v-for="item in searchResults"
           :key="item.id"
           :to="{ name: 'PointDetails', params: { pointId: item.id, mapId: item.mapId }}"
-          class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent hover:border-white border last:mb-px"
+          class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent border last:mb-px dark:text-white dark:hover:text-black"
           :title="item.title"
         >
           <fa-icon
@@ -66,22 +66,23 @@
       </div>
       <div
         v-else-if="hasSearchQuery && !hasSearchResults && !performingSearch"
-        class="flex flex-col bg-white border-app border-2 rounded shadow divide-y py-2 px-4 mb-3"
+        class="flex flex-col bg-white border-app border-2 rounded shadow divide-y py-2 px-4 mb-3 dark:bg-gray-700 dark:text-white"
       >
         <p>nie znaleziono wyników :&lt;</p>
       </div>
 
       <div
         v-if="menuVisible"
-        class="py-2 px-4 bg-white border-app border-2 rounded shadow mb-4"
+        class="py-2 px-4 bg-white border-app border-2 rounded shadow mb-4 dark:bg-gray-700"
       >
-        <div class="text-lg leading-loose divide-y">
+        <div class="text-lg leading-loose divide-y dark:text-white">
           Wyświetlane mapy
         </div>
-        <ul class="my-2 ml-4">
+        <ul class="my-2 ml-4 flex flex-col gap-y-2">
           <li
             v-for="map in maps"
             :key="map.id"
+
           >
             <MapConfig :map="map" />
           </li>

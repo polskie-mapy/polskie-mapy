@@ -27,9 +27,9 @@ self.callbacks.extendSearchIndex = ([points]) => {
     if (!self.pointsSearchIndex) {
         self.pointsSearchIndex = Fuse.createIndex(options.keys, points);
         self.pointsSearch = new Fuse(points, options, self.pointsSearchIndex);
-        self.pointsIndexedMaps = [points[0].mapId + ''];
-    } else if (!self.pointsIndexedMaps.includes(points[0].mapId + '')) {
-        self.pointsIndexedMaps.push(points[0].mapId + '');
+        self.pointsIndexedMaps = [points[0].mapId];
+    } else if (!self.pointsIndexedMaps.includes(points[0].mapId)) {
+        self.pointsIndexedMaps.push(points[0].mapId);
         points.forEach(x => self.pointsSearch.add(x));
     }
 }

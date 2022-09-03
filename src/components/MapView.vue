@@ -31,15 +31,31 @@
           <div class="text-app flex gap-2">
             <router-link
               :to="{ name: 'Funding' }"
-              class="bg-white p-2 border-app border border-2 shadow rounded"
+              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700"
             >
-              <fa-icon icon="fa-solid fa-beer" />
+              <fa-icon
+                icon="fa-solid fa-beer"
+                fixed-width
+              />
             </router-link>
+            <a
+              href="#"
+              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700"
+              @click.prevent="toggleColorScheme"
+            >
+              <fa-icon
+                :icon="colorSchemeIcon"
+                fixed-width
+              />
+            </a>
             <router-link
               :to="{ name: 'About' }"
-              class="bg-white p-2 border-app border border-2 shadow rounded"
+              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700"
             >
-              <fa-icon icon="fa-solid fa-circle-exclamation" />
+              <fa-icon
+                icon="fa-solid fa-circle-exclamation"
+                fixed-width
+              />
             </router-link>
           </div>
         </l-control>
@@ -77,7 +93,9 @@ export default {
     components: {
         MapLookup,
         MapControls,
-        LMap, LTileLayer, LControl
+        LMap,
+        LTileLayer,
+        LControl
     },
     data: () => ({
         mapObject: null,
@@ -97,16 +115,9 @@ export default {
             return this.rawPoints
                 .filter(x => x.coords && x.coords.length === 2)
                 .map(x => {
-                    if (!x.icon) {
-                        x.icon = 'fa-solid:fa-question';
-                    }
-
-                    if (!x.pinColor) {
-                        x.pinColor = '#000';
-                    }
-
                     return {
                         ...x,
+                        pinColor: x.pinColor || APP_COLOR,
                         iconName: x.icon,
                         icon: this.$H.findIconDefinition(x.icon).icon,
                     };
@@ -115,8 +126,20 @@ export default {
         focusedMarker() {
             return this.markers.find(x => x._pointData.id === this.focusedPoint.id);
         },
+        colorSchemeIcon() {
+            if (this.colorScheme === 'light') {
+                return 'fa-solid fa-sun';
+            }
+
+            if(this.colorScheme === 'dark') {
+                return 'fa-solid fa-moon';
+            }
+
+            return 'fa-solid fa-desktop';
+        },
         ...mapState({
             focusedPoint: 'focusedPoint',
+            colorScheme: 'colorScheme',
         }),
         ...mapGetters({
             rawPoints: 'currentPoints',
@@ -219,6 +242,15 @@ export default {
                 });
             } else {
                 this.markers.forEach(x => x.blur());
+            }
+        },
+        toggleColorScheme() {
+            if (this.colorScheme === 'system') {
+                this.$store.commit('setColorScheme', 'dark');
+            } else if (this.colorScheme === 'dark') {
+                this.$store.commit('setColorScheme', 'light');
+            } else {
+                this.$store.commit('setColorScheme', 'system');
             }
         }
     },

@@ -24,10 +24,14 @@ export default {
     async beforeRouteEnter(to, _from, next) {
         await store.dispatch('fetchMaps');
 
+        if (!store.getters.anyMapSelected) {
+            store.commit('setCurrentMap', store.getters.defaultMap.id);
+        }
+
         if (store.getters.map(to.params.mapId)) {
             store.commit('setCurrentMap', store.getters.map(to.params.mapId));
 
-            await store.dispatch('fetchPoints', to.params.mapId + '');
+            await store.dispatch('fetchPoints', to.params.mapId);
         }
 
         next(vm => {
@@ -44,9 +48,9 @@ export default {
         if (
             typeof to.params.mapId !== 'undefined'
             && (from.params.mapId != to.params.mapId
-            || !this.$store.getters.currentMapsIds.includes(to.params.mapId + ''))
+            || !this.$store.getters.currentMapsIds.includes(to.params.mapId))
         ) {
-            await this.$store.dispatch('fetchPoints', to.params.mapId + '');
+            await this.$store.dispatch('fetchPoints', to.params.mapId);
 
             store.commit('setCurrentMap', store.getters.map(to.params.mapId));
         }

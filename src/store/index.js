@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        colorSchema: 'system',
+        colorScheme: 'system',
         maps: new Map(),
         points: new Map(),
         currentMaps: new Map(),
@@ -22,25 +22,21 @@ export default new Vuex.Store({
     // toggle - switches between two value (i.e: true and false)
     // mark - one-way toggle (i.e: false to true, subsequent calls don't modify value)
     mutations: {
-        setColorSchema(state, schema) {
-            if (!COLOR_SCHEMES.contains(schema)) {
-                schema = COLOR_SCHEMES[0];
-            }
-
-            state.colorSchema = schema;
+        setColorScheme(state, scheme) {
+            state.colorScheme = scheme;
         },
         addMaps(state, maps) {
-            maps.forEach(x => state.maps.set(x.id + '', x));
+            maps.forEach(x => state.maps.set(x.id, x));
 
             state.maps = new Map(state.maps);
         },
         addPoints(state, points) {
-            points.forEach(x => state.points.set(x.id + '', x))
+            points.forEach(x => state.points.set(x.id, x))
 
             state.points = new Map(state.points);
         },
         setCurrentMap(state, map) {
-            state.currentMaps.set(map.id + '', map);
+            state.currentMaps.set(map.id, map);
 
             state.currentMaps = new Map(state.currentMaps);
         },
@@ -49,9 +45,9 @@ export default new Vuex.Store({
         },
         toggleCurrentMaps(state, { map, enabled }) {
             if (enabled) {
-                state.currentMaps.set(map.id + '', map);
+                state.currentMaps.set(map.id, map);
             } else {
-                state.currentMaps.delete(map.id + '');
+                state.currentMaps.delete(map.id);
             }
 
             state.currentMaps = new Map(state.currentMaps);
@@ -76,26 +72,29 @@ export default new Vuex.Store({
         currentPoint(state) {
             return state.currentPoint;
         },
+        anyMapSelected(state) {
+            return state.currentMaps.size > 0;
+        },
         currentMap(state, getters) {
             return state.currentMaps.values().next().value || getters.defaultMap;
         },
         currentMapsIds(state) {
-            return Array.from(state.currentMaps.keys()).map(x => x + '');
+            return Array.from(state.currentMaps.keys()).map(x => x);
         },
         points(state) {
             return Array.from(state.points.values());
         },
         currentPoints(state, getters) {
-            return getters.points.filter(x => getters.currentMapsIds.includes(x.mapId + ''));
+            return getters.points.filter(x => getters.currentMapsIds.includes(x.mapId));
         },
         maps(state) {
             return Array.from(state.maps.values());
         },
         point(state) {
-            return (id) => state.points.get(id + '')
+            return (id) => state.points.get(id)
         },
         map(state) {
-            return (id) => state.maps.get(id + '')
+            return (id) => state.maps.get(id)
         },
         pinGroups(_state, getters) {
             return new Set(getters.points.map(x => x.group));

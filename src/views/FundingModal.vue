@@ -9,14 +9,14 @@
         @click.self.prevent="closeModal"
       >
         <div
-          class="bg-white rounded p-3 shadow border-2 border-app cursor-auto w-prose"
+          class="bg-white rounded p-3 shadow border-2 border-app cursor-auto w-prose dark:bg-gray-700"
         >
           <div class="flex gap-2">
-            <p class="text-2xl font-bold flex-1">
+            <p class="text-2xl font-bold flex-1 dark:text-white">
               Wsparcie / dotacja projektu
             </p>
             <button
-              class="flex-0 hover:text-app"
+              class="flex-0 hover:text-app dark:text-white dark:hover:text-app"
               @click="closeModal"
             >
               <fa-icon
@@ -25,7 +25,7 @@
               />
             </button>
           </div>
-          <p class="my-4">
+          <p class="my-4 dark:text-gray-300">
             Jeśli podoba Ci się nasza praca i chcesz wesprzeć nas w dalszym
             jej rozwoju, możesz zrobić to na kilka sposobów:
           </p>

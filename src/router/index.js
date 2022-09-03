@@ -30,9 +30,11 @@ const routes = [
             {
                 path: 'point/:pointId',
                 component: PointDetails,
-                name: 'PointDetails'
+                name: 'PointDetails',
+                props: (route) => ({pointId: Number.parseInt(route.params.pointId, 10)})
             }
-        ]
+        ],
+        props: (route) => ({mapId: Number.parseInt(route.params.mapId, 10)})
     },
 ]
 

@@ -8,13 +8,13 @@
         class="self-center flex w-full justify-center cursor-pointer"
         @click.self.prevent="closeModal"
       >
-        <div class="bg-white rounded p-3 shadow border-2 border-app cursor-auto w-prose">
+        <div class="bg-white rounded p-3 shadow border-2 border-app cursor-auto w-prose dark:bg-gray-700">
           <div class="flex gap-2">
-            <p class="text-2xl font-bold flex-1">
+            <p class="text-2xl font-bold flex-1 dark:text-white">
               Projekt <code>mapainternetow.pl</code>
             </p>
             <button
-              class="flex-0 hover:text-app"
+              class="flex-0 hover:text-app dark:text-white dark:hover:text-app"
               @click="closeModal"
             >
               <fa-icon

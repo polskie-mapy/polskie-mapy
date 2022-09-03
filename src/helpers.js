@@ -11,7 +11,7 @@ const LINK_TYPE_COLOR = {
     ['yt']: '#d70000',
     ['ig']: '#405de6',
     ['map']: '#0b4a6e',
-    ['news']: '#75716f'
+    ['news']: '#75716f',
 };
 const LINK_TYPE_ICONS = {
     ['yt']: 'fa-brands fa-youtube',
@@ -23,6 +23,7 @@ const LINK_TYPE_ICONS = {
 const LINK_TYPE_URL = {
     ['ig']: 'https://www.instagram.com/:id/',
     ['wykop']: 'https://www.wykop.pl/ludzie/:id/',
+    ['discord']: '#', // not handling that case
 };
 
 export const COLOR_SCHEMES = [
@@ -144,7 +145,7 @@ function prettyDate(date) {
 }
 
 function translateIconCode(code) {
-    if (code.startsWith('fa-solid:') || code.startsWith('fa-regular:') || code.startsWith('fa-brands:')) {
+    if (code) {
         const icon = code.split(':');
         return {
             prefix: icon[0],
@@ -154,7 +155,7 @@ function translateIconCode(code) {
 
     return {
         prefix: 'fa-solid',
-        iconName: 'marker'
+        iconName: 'fa-marker'
     };
 }
 

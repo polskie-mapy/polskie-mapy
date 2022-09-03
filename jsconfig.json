@@ -4,12 +4,14 @@
         "module": "esnext",
         "baseUrl": "./",
         "paths": {
-        "@/*": ["src/*"]
-        }
+            "@/*": [
+                "src/*"
+            ]
+        },
+        "jsx": "preserve"
     },
     "include": [
         "src/**/*.vue",
         "src/**/*.js"
     ]
 }
-  

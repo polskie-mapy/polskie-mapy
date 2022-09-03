@@ -11,11 +11,11 @@
         @click.self.prevent="hideDetails"
       >
         <div
-          class="bg-white md:rounded-t p-3 pb-0 shadow border-t-2 border-b-0 border-app md:border-l-2 md:border-r-2 grid grid-cols-[12rem_1fr] auto-rows-min w-full md:w-auto md:min-w-prose gap-2 max-w-5xl md:gap-3 cursor-auto"
+          class="bg-white md:rounded-t p-3 pb-0 shadow border-t-2 border-b-0 border-app md:border-l-2 md:border-r-2 grid grid-cols-[12rem_1fr] auto-rows-min w-full md:w-auto md:min-w-prose gap-2 max-w-5xl md:gap-3 cursor-auto dark:bg-gray-700"
         >
           <div class="col-span-2 relative flex gap-x-3">
             <div class="flex-1 flex gap-x-3">
-              <span class="text-2xl font-semibold">
+              <span class="text-2xl font-semibold dark:text-white">
                 {{ point.title }}
               </span>
               <div
@@ -42,7 +42,7 @@
                   Pokaż na mapie
                 </div>
                 <router-link
-                  class="hover:text-app"
+                  class="dark:text-white dark:hover:text-app hover:text-app"
                   :to="{ name:'MapPage', query: {focusPoint: point.id}, params: {mapId: map.id} }"
                 >
                   <fa-icon
@@ -55,7 +55,7 @@
                   Zaproponuj poprawkę
                 </div>
                 <a
-                  class="hover:text-app cursor-pointer"
+                  class="dark:text-white dark:hover:text-app hover:text-app cursor-pointer"
                   :href="proposeUrl"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -66,7 +66,7 @@
                 </a>
               </div>
               <a
-                class="hover:text-app cursor-pointer"
+                class="dark:text-white dark:hover:text-app hover:text-app cursor-pointer"
                 @click.prevent="hideDetails"
               >
                 <fa-icon
@@ -75,14 +75,10 @@
               </a>
             </div>
           </div>
-          <div class="col-span-2 text-gray-400 text-xs flex gap-y-1 gap-x-3 -mt-1 hidden md:visible">
-            <div>
-              grupa:
-              <span class="py-0.5 px-1 rounded-sm bg-app text-white">{{ point.group }}</span>
-            </div>
+          <div class="col-span-2 text-gray-400 text-xs gap-y-1 gap-x-3 -mt-1 md:flex hidden">
             <div>
               mapa:
-              <span class="py-0.5 px-1 rounded-sm bg-app text-white">{{ map.name }}</span>
+              <span class="py-0.5 px-1 rounded-sm bg-app text-white dark:text-black">{{ map.name }}</span>
             </div>
             <div>
               tagi:
@@ -90,14 +86,14 @@
                 <span
                   v-for="tag in point.tags"
                   :key="tag"
-                  class="py-0.5 px-1 rounded-sm bg-app text-white"
+                  class="py-0.5 px-1 rounded-sm bg-app text-white dark:text-black"
                 >
                   {{ tag.title }}
                 </span>
               </template>
               <span
                 v-else
-                class="py-0.5 px-1 rounded-sm bg-app text-white"
+                class="py-0.5 px-1 rounded-sm bg-app text-white dark:text-black"
               >
                 brak
               </span>
@@ -135,7 +131,7 @@
             </div>
           </div>
           <div class="grid grid-rows-1 auto-rows-min gap-y-1 relative md:col-span-1 col-span-2 mb-2 md:mb-0">
-            <p class="break-all max-h-40 overflow-y-auto">
+            <p class="break-all max-h-40 overflow-y-auto dark:text-gray-200">
               {{ point.excerpt }}
             </p>
             <p
@@ -185,7 +181,7 @@
               >
                 {{ createdAt | prettyDate }}
               </div>
-              <p class="text-xs leading-[0] text-right text-gray-500 underline underline-offset-4">
+              <p class="text-xs leading-[0] text-right text-gray-400 underline underline-offset-4">
                 <span>dodano <span class="text-app">{{ createdAtDesc }}</span></span>
               </p>
             </div>
@@ -196,7 +192,7 @@
               >
                 {{ recordedAt | prettyDate }}
               </div>
-              <p class="text-xs leading-[0] text-right text-gray-500">
+              <p class="text-xs leading-[0] text-right text-gray-400">
                 <span>nagrano <span class="text-app">{{ recordedAtDesc }}</span></span>
               </p>
             </div>

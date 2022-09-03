@@ -5,7 +5,7 @@ export default {
             './src/**/*.{vue,js}',
         ]
     },
-    darkMode: 'media',
+    darkMode: 'class',
     theme: {
         extend: {
             colors: {

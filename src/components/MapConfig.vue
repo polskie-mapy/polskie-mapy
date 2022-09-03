@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="flex justify-between">
-      <div>
+      <div class="flex items-center">
         <input
           :id="`ml-map-${map.id}`"
           :checked="isInCurrentMaps"
           :disabled="fetchingData"
           type="checkbox"
-          class="appearance-none h-4 w-4 border border-gray-300 rounded bg-white checked:bg-app checked:border-app focus:outline-none align-top mr-2 cursor-pointer"
+          class="appearance-none h-6 w-6 border border-gray-300 rounded bg-white checked:bg-app checked:border-app focus:outline-none align-top mr-2 cursor-pointer"
           @input="toggleCurrentMaps"
         >
         <label
-          class="inline-block select-none cursor-pointer"
+          class="inline-block select-none cursor-pointer dark:text-white flex-1"
           :for="`ml-map-${map.id}`"
         >
           {{ map.name }}
@@ -26,40 +26,6 @@
           spin
         />
       </div>
-      <button
-        v-if="false"
-        class="text-gray-600"
-        @click="toggle"
-      >
-        <fa-icon :icon="togglerIcon" />
-      </button>
-    </div>
-
-    <div
-      v-if="expanded"
-      class="border-l border-r border-gray-200 px-1"
-    >
-      <p class="text-gray-600 font-bold my-1">
-        Grupy pinezek
-      </p>
-      <ul class="ml-2">
-        <li
-          v-for="(group, i) in pinGroups"
-          :key="group"
-        >
-          <input
-            :id="`ml-map-${map.id}-group-${i}`"
-            type="checkbox"
-            class="appearance-none h-4 w-4 border border-gray-300 rounded bg-white checked:bg-app checked:border-app focus:outline-none align-top mr-2 cursor-pointer"
-          >
-          <label
-            class="inline-block select-none cursor-pointer"
-            :for="`ml-map-${map.id}-group-${i}`"
-          >
-            {{ group }}
-          </label>
-        </li>
-      </ul>
     </div>
   </div>
 </template>
@@ -76,7 +42,6 @@ export default {
         }
     },
     data: () => ({
-        expanded: false,
         fetchingData: false,
     }),
     computed: {
@@ -94,15 +59,8 @@ export default {
             currentMapsIds: 'currentMapsIds',
         }),
         isInCurrentMaps() {
-            return this.currentMaps.has(this.map.id + '');
+            return this.currentMaps.has(this.map.id);
         },
-        pinGroups() {
-            return new Set(
-                this.points.filter(x => {
-                    return this.currentMapsIds.includes(x.mapId + '');
-                }).map(x => x.group)
-            );
-        }
     },
     methods: {
         async toggleCurrentMaps(ev) {
@@ -112,11 +70,8 @@ export default {
             });
 
             this.fetchingData = true;
-            await this.$store.dispatch('fetchPoints', this.map.id + '');
+            await this.$store.dispatch('fetchPoints', this.map.id);
             this.fetchingData = false;
-        },
-        toggle() {
-            this.expanded = !this.expanded;
         }
     },
 }
