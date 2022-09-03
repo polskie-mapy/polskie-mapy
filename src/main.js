@@ -33,7 +33,7 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
         integrations: [
             new BrowserTracing({
                 routingInstrumentation: Sentry.vueRouterInstrumentation(router),
-                tracingOrigins: ["mapainternetow.pl", "*.mapainternetow.pl", /^\//],
+                tracingOrigins: [/^(\*\.)?mapainternetow\.pl/, /^\//],
             }),
         ],
         tracesSampleRate: import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE || 0,
