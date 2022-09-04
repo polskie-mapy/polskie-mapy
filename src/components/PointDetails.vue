@@ -136,12 +136,12 @@
             </p>
             <p
               v-if="submitter"
-              class="text-sm border-l-2 border-grey-500 pl-2"
+              class="text-sm border-l-2 border-grey-500 pl-2 dark:text-gray-200"
             >
               pomógł -
               <a
                 :href="submitter.url"
-                class="hover:text-app font-bold"
+                class="hover:text-app font-bold dark:hover:text-app"
                 target="_blank"
               >
                 @{{ submitter.user }}

@@ -32,7 +32,7 @@
           <ul class="space-y-2">
             <li>
               <a
-                href="https://www.ko-fi.com/polskie-mapy"
+                href="https://www.ko-fi.com/ronaldinhothc"
                 target="_blank"
                 class="text-app hover:underline"
               >
