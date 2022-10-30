@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { COLOR_SCHEMES, rsrcUrl } from "@/helpers";
+import { rsrcUrl } from "@/helpers";
 import search from './search';
 import createDelegatedTasksHandler from "@/store/delegated-tasks";
 import { APP_BUILT_DATE, APP_VERSION } from '@/app-helpers';
@@ -84,7 +84,7 @@ export default new Vuex.Store({
         points(state) {
             return Array.from(state.points.values());
         },
-        currentPoints(state, getters) {
+        currentPoints(_state, getters) {
             return getters.points.filter(x => getters.currentMapsIds.includes(x.mapId));
         },
         maps(state) {
