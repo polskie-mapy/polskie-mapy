@@ -42,7 +42,7 @@ const router = new VueRouter({
     routes,
     linkActiveClass: '',
     linkExactActiveClass: '',
-    mode: import.meta.env.PROD ? `history` : `hash`,
+    mode: import.meta.env.PROD ? 'history' : 'hash',
 })
 
 export default router

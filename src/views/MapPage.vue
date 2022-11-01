@@ -24,14 +24,23 @@ export default {
     async beforeRouteEnter(to, _from, next) {
         await store.dispatch('fetchMaps');
 
-        if (!store.getters.anyMapSelected) {
+        if (!store.getters.anyMapSelected && typeof to.params.mapId === 'undefined') {
             store.commit('setCurrentMap', store.getters.defaultMap.id);
+
+            return next({
+                name: 'MapPage',
+                params: {
+                    mapId: store.getters.defaultMap.id
+                }
+            });
         }
 
-        if (store.getters.map(to.params.mapId)) {
-            store.commit('setCurrentMap', store.getters.map(to.params.mapId));
+        const selectedMapId = parseInt(to.params.mapId);
 
-            await store.dispatch('fetchPoints', to.params.mapId);
+        if (store.getters.map(selectedMapId)) {
+            store.commit('setCurrentMap', store.getters.map(selectedMapId));
+
+            await store.dispatch('fetchPoints', selectedMapId);
         }
 
         next(vm => {
@@ -50,9 +59,11 @@ export default {
             && (from.params.mapId != to.params.mapId
             || !this.$store.getters.currentMapsIds.includes(to.params.mapId))
         ) {
-            await this.$store.dispatch('fetchPoints', to.params.mapId);
+            const selectedMapId = parseInt(to.params.mapId);
 
-            store.commit('setCurrentMap', store.getters.map(to.params.mapId));
+            await this.$store.dispatch('fetchPoints', selectedMapId);
+
+            store.commit('setCurrentMap', store.getters.map(selectedMapId));
         }
 
         next();

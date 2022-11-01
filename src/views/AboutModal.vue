@@ -106,6 +106,29 @@
               </a>
             </li>
           </ul>
+          <div class="flex gap-x-5 mt-5 justify-center text-app">
+            <router-link
+              :to="{ name: 'Funding' }"
+              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700"
+            >
+              <fa-icon
+                icon="fa-solid fa-beer"
+                fixed-width
+              />
+              Wsparcie
+            </router-link>
+            <a
+              href="#"
+              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700"
+              @click.prevent="toggleColorScheme"
+            >
+              <fa-icon
+                :icon="colorSchemeIcon"
+                fixed-width
+              />
+              Zmień schemat
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -113,13 +136,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
     computed: {
         ...mapGetters([
             'version',
-            'builtDate'
+            'builtDate',
+            'colorSchemeIcon',
+        ]),
+
+        ...mapState([
+            'colorScheme',
         ]),
 
         infrigementReportMailtoUrl() {
@@ -136,6 +164,16 @@ export default {
     methods: {
         closeModal() {
             this.$router.back();
+        },
+
+        toggleColorScheme() {
+            if (this.colorScheme === 'system') {
+                this.$store.commit('setColorScheme', 'dark');
+            } else if (this.colorScheme === 'dark') {
+                this.$store.commit('setColorScheme', 'light');
+            } else {
+                this.$store.commit('setColorScheme', 'system');
+            }
         }
     }
 }

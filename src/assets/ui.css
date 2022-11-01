@@ -67,3 +67,8 @@
 .leaflet-control a {
     color: inherit;
 }
+
+/* prevent chrome for android blue highlight of clicked element */
+* {
+    -webkit-tap-highlight-color: transparent;
+}

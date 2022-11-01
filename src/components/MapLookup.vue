@@ -82,7 +82,6 @@
           <li
             v-for="map in maps"
             :key="map.id"
-
           >
             <MapConfig :map="map" />
           </li>

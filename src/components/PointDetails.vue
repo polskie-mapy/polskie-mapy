@@ -213,15 +213,19 @@ export default {
     name: 'PointDetails',
     components: {VideoThumbnail},
     beforeRouteEnter(to, _from, next) {
-        if (store.getters.point(to.params.pointId)) {
-            store.commit('setCurrentPoint', store.getters.point(to.params.pointId));
+        const selectedPointId = parseInt(to.params.pointId);
+
+        if (store.getters.point(selectedPointId)) {
+            store.commit('setCurrentPoint', store.getters.point(selectedPointId));
         }
 
         next();
     },
     beforeRouteUpdate(to, _from, next) {
-        if (store.getters.point(to.params.pointId)) {
-            store.commit('setCurrentPoint', store.getters.point(to.params.pointId));
+        const selectedPointId = parseInt(to.params.pointId);
+
+        if (store.getters.point(selectedPointId)) {
+            store.commit('setCurrentPoint', store.getters.point(selectedPointId));
         }
 
         next();

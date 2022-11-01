@@ -104,6 +104,17 @@ export default new Vuex.Store({
         },
         builtDate() {
             return APP_BUILT_DATE;
+        },
+        colorSchemeIcon(state) {
+            if (state.colorScheme === 'light') {
+                return 'fa-solid fa-sun';
+            }
+
+            if(state.colorScheme === 'dark') {
+                return 'fa-solid fa-moon';
+            }
+
+            return 'fa-solid fa-desktop';
         }
     },
     actions: {

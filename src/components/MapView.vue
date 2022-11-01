@@ -28,10 +28,10 @@
         <l-control
           position="topright"
         >
-          <div class="text-app flex gap-2">
+          <div class="text-app flex flex-row gap-2">
             <router-link
               :to="{ name: 'Funding' }"
-              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700"
+              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700 sm:block hidden"
             >
               <fa-icon
                 icon="fa-solid fa-beer"
@@ -40,7 +40,7 @@
             </router-link>
             <a
               href="#"
-              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700"
+              class="bg-white p-2 border-app border border-2 shadow rounded hover:outline outline-2 outline-offset-1 dark:bg-gray-700 sm:block hidden"
               @click.prevent="toggleColorScheme"
             >
               <fa-icon
@@ -126,17 +126,6 @@ export default {
         focusedMarker() {
             return this.markers.find(x => x._pointData.id === this.focusedPoint.id);
         },
-        colorSchemeIcon() {
-            if (this.colorScheme === 'light') {
-                return 'fa-solid fa-sun';
-            }
-
-            if(this.colorScheme === 'dark') {
-                return 'fa-solid fa-moon';
-            }
-
-            return 'fa-solid fa-desktop';
-        },
         ...mapState({
             focusedPoint: 'focusedPoint',
             colorScheme: 'colorScheme',
@@ -145,6 +134,7 @@ export default {
             rawPoints: 'currentPoints',
             rawMaps: 'maps',
             currentMapsIds: 'currentMapsIds',
+            colorSchemeIcon: 'colorSchemeIcon',
         })
     },
     watch: {
