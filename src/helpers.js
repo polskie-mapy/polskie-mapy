@@ -3,7 +3,7 @@ import {DateTime} from "luxon";
 import {findIconDefinition as faFindIconDefinition} from "@fortawesome/fontawesome-svg-core";
 
 const ytUriRegex = new RegExp(
-    /^(?:https?:\/\/)?(?:\w+\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})$/,
+    /^(?:https?:\/\/)?(?:\w+\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})(?:&t=\d+s?)?$/,
     'i',
 );
 
@@ -23,7 +23,9 @@ const LINK_TYPE_ICONS = {
 const LINK_TYPE_URL = {
     ['ig']: 'https://www.instagram.com/:id/',
     ['wykop']: 'https://www.wykop.pl/ludzie/:id/',
+    ['github']: 'https://github.com/:id',
     ['discord']: '#', // not handling that case
+    ['label']: '#', // not handling that case
 };
 
 export const COLOR_SCHEMES = [
