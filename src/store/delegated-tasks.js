@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/vue';
+
 export default function createDelegatedTasksHandler(createWorker) {
     // need to create worker in closure, so webpack
     // handles imports within web worker correctly
@@ -50,10 +52,16 @@ export default function createDelegatedTasksHandler(createWorker) {
         });
 
         worker.addEventListener('message', (msg) => {
-            const {taskId, data} = msg.data;
-            const {resolve} = store.getters['_tasks/tasks'].get(taskId);
+            if (msg.data.type === 'data') {
+                const {taskId, data} = msg.data;
+                const {resolve} = store.getters['_tasks/tasks'].get(taskId);
 
-            resolve(data, taskId);
+                resolve(data, taskId);
+            } else if (msg.data.type === 'error') {
+                Sentry.captureException(msg.data.error);
+            } else {
+                console.warn('[delegated tasks] received unknown message type', msg.data.type);
+            }
         });
 
         worker.addEventListener('messageerror', (msg) => {

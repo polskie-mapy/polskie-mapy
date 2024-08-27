@@ -232,14 +232,22 @@ export default {
     },
     computed: {
         links() {
-            const STATIC_LINKS = [{
+            const staticLinks = [{
                 type: 'map',
                 url: this.$H.coords2GmapsPin(this.point.coords),
             }];
+            
+            const dynamicLinks = this.point.links.map(link => {
+                if (link.type === 'yt') {
+                    return {...link, url: this.$H.ytLink(link.url)};
+                }
+
+                return link;
+            })
 
             return [
-                ...STATIC_LINKS,
-                ...this.point.links
+                ...staticLinks,
+                ...dynamicLinks
             ].map(x => ({
                 tooltip: this.$H.linkTypeDefaultTooltip(x.type),
                 ...x
@@ -258,7 +266,7 @@ export default {
             const link = this.point.links.find(x => x.type === 'yt');
 
             if (typeof link !== 'undefined') {
-                return link.url;
+                return this.$H.ytLink(link.url);
             }
 
             return null;

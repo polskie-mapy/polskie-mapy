@@ -129,6 +129,7 @@ export default {
         ...mapState({
             focusedPoint: 'focusedPoint',
             colorScheme: 'colorScheme',
+            focusedLocation: 'focusedLocation',
         }),
         ...mapGetters({
             rawPoints: 'currentPoints',
@@ -144,6 +145,11 @@ export default {
         focusedPoint() {
             this.$nextTick(() => {
                 this.flyToFocusedPoint();
+            });
+        },
+        focusedLocation() {
+            this.$nextTick(() => {
+                this.jumpToFocusedLocation();
             });
         }
     },
@@ -232,6 +238,19 @@ export default {
                 });
             } else {
                 this.markers.forEach(x => x.blur());
+            }
+        },
+        jumpToFocusedLocation() {
+            if (this.focusedLocation) {
+                // need to invoke after whole render cycle completed
+                // otherwise race can occur
+                this.$nextTick(() => {
+                    this.mapObject.flyTo(
+                        new LatLng(this.focusedLocation[0], this.focusedLocation[1]),
+                        10, // target zoom level
+                    {animate: false}
+                    );
+                });
             }
         },
         toggleColorScheme() {

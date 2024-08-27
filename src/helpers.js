@@ -1,6 +1,7 @@
 import {round, trimStart} from "lodash";
 import {DateTime} from "luxon";
 import {findIconDefinition as faFindIconDefinition} from "@fortawesome/fontawesome-svg-core";
+import _isMobile from 'ismobilejs';
 
 const ytUriRegex = new RegExp(
     /^(?:https?:\/\/)?(?:\w+\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})(?:&t=\d+s?)?$/,
@@ -52,8 +53,20 @@ const LINK_TYPE_TOOLTIPS = {
     ['news']: 'Zobacz artykuł dotyczący tego nagrania',
 }
 
+function isMobile() {
+    return _isMobile(window.navigator).any;
+}
+
 function ytId(link) {
     return ytUriRegex.exec(link)[1];
+}
+
+function ytLink(link) {
+    if (isMobile()) {
+        return `youtube://${ytId(link)}`;
+    }
+    
+    return link;
 }
 
 function linkTypeColor(type) {
@@ -100,6 +113,10 @@ function coords2GmapsPin(coords) {
     const loc = coords.join(',');
     const placePin = encodeURIComponent(coords2Dms(coords));
     const zoom = 17;
+    
+    if (isMobile()) {
+        return `comgooglemaps://?q=${placePin}&center=${loc}&zoom=${zoom}`;
+    }
 
     return `https://www.google.com/maps/place/${placePin}/@${loc},${zoom}z`;
 }
@@ -197,7 +214,8 @@ export default {
             linkTypeUrl,
             dateTimeDiffHumans,
             findIconDefinition,
-            linkTypeDefaultTooltip
+            linkTypeDefaultTooltip,
+            ytLink,
         };
 
         Vue.mixin({

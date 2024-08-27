@@ -15,6 +15,7 @@ export default new Vuex.Store({
         currentMaps: new Map(),
         currentPoint: null,
         focusedPoint: null,
+        focusedLocation: null,
     },
     // set - overwrites value(s)
     // unset - removes value(s)
@@ -57,6 +58,9 @@ export default new Vuex.Store({
         },
         unsetFocusedPoint(state) {
             state.focusedPoint = null;
+        },
+        setFocusedLocation(state, location) {
+            state.focusedLocation = location;
         }
     },
     getters: {

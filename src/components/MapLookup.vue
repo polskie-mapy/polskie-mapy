@@ -49,20 +49,38 @@
         v-if="menuVisible && hasSearchResults && hasSearchQuery"
         class="flex flex-col bg-white border-app border-2 rounded shadow divide-y mb-3 dark:bg-gray-700"
       >
-        <router-link
-          v-for="item in searchResults"
-          :key="item.id"
-          :to="{ name: 'PointDetails', params: { pointId: item.id, mapId: item.mapId }}"
-          class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent border last:mb-px dark:text-white dark:hover:text-black"
-          :title="item.title"
-        >
-          <fa-icon
-            :icon="item.icon | iconCodeToIconName"
-            fixed-width
-            class="self-center"
-          />
-          <span class="text-ellipsis break-all w-full whitespace-nowrap overflow-x-hidden">{{ item.title }}</span>
-        </router-link>
+          <template 
+            v-for="item in searchResults"
+          >
+              <router-link
+                  v-if="item.type === 'point'"
+                  :key="item.id"
+                  :to="{ name: 'PointDetails', params: { pointId: item.id, mapId: item.mapId }}"
+                  class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent border last:mb-px dark:text-white dark:hover:text-black"
+                  :title="item.title"
+              >
+                  <fa-icon
+                      :icon="item.icon | iconCodeToIconName"
+                      fixed-width
+                      class="self-center"
+                  />
+                  <span class="text-ellipsis break-all w-full whitespace-nowrap overflow-x-hidden">{{ item.title }}</span>
+              </router-link>
+              <div
+                  v-else
+                  :key="item.id"
+                  :title="item.title"
+                  class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent border last:mb-px dark:text-white dark:hover:text-black cursor-pointer"
+                  @click="moveToLocation(item.coords)"
+              >
+                  <fa-icon
+                      :icon="['fas', 'fa-map-marker-alt']"
+                      fixed-width
+                      class="self-center"
+                  />
+                  <span class="text-ellipsis break-all w-full whitespace-nowrap overflow-x-hidden">{{ item.title }}</span>
+              </div>
+          </template>
       </div>
       <div
         v-else-if="hasSearchQuery && !hasSearchResults && !performingSearch"
@@ -114,7 +132,7 @@ export default {
                 : 'fa-solid fa-chevron-right';
         },
         ...mapState({
-            currentMaps: 'currentMaps'
+            currentMaps: 'currentMaps',
         }),
         ...mapGetters({
             maps: 'maps',
@@ -139,7 +157,7 @@ export default {
             if (this.searchQuery.length > 1) {
                 this.$store.dispatch('search/doSearch');
             }
-        }, 250);
+        }, 500);
     },
     methods: {
         setSearchQuery(ev) {
@@ -150,6 +168,9 @@ export default {
             } else {
                 this.searchDebouncer();
             }
+        },
+        moveToLocation([lat, lng]) {
+            this.$store.commit('setFocusedLocation', [lat, lng]);
         }
     }
 }

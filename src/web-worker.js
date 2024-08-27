@@ -1,5 +1,12 @@
 import Fuse from 'fuse.js';
 
+function captureException(error) {
+    self.postMessage({
+        type: 'error',
+        error
+    });
+}
+
 self.callbacks = {}
 
 self.addEventListener('message', async (msg) => {
@@ -12,6 +19,7 @@ self.addEventListener('message', async (msg) => {
     const data = await self.callbacks[type](args);
 
     self.postMessage({
+        type: 'data',
         data: Array.isArray(data) ? data : [data].filter(x => x),
         taskId
     });
@@ -34,10 +42,42 @@ self.callbacks.extendSearchIndex = ([points]) => {
     }
 }
 
-self.callbacks.doSearch = ([query]) => {
-    const results = self.pointsSearch.search(query, {
-        limit: 5
-    });
-
-    return results.map(x => x.item);
+self.callbacks.doSearch = async ([query]) => {
+    async function geocode(query) {
+        const url = new URL('/geocode', import.meta.env.VITE_GEOCODING_API_URL);
+        url.searchParams.set('query', query);
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            return data.map((item) => {
+                return {
+                    id: String(item.longitude) + String(item.latitude),
+                    title: item.fullName,
+                    type: 'map',
+                    coords: [item.latitude, item.longitude],
+                }
+            })
+        } catch (ex) {
+            captureException(ex);
+            return [];
+        }
+    }
+    
+    async function places(query) {
+        const results = self.pointsSearch.search(query, {
+            limit: 5
+        });
+        
+        return Promise.resolve(
+            results.map(x => ({...x.item, type: 'point'}))
+        );
+    }
+    
+    const results = await Promise.all([
+        geocode(query),
+        places(query)
+    ]);
+    
+    return results.flat(1);
 }

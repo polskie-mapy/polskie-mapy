@@ -1,9 +1,9 @@
 {
     "name": "polskie-mapy",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "private": true,
     "scripts": {
-        "dev": "vite --port 8080",
+        "dev": "vite --port 8080 --host",
         "build": "vite build",
         "serve": "vite preview",
         "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
@@ -22,6 +22,7 @@
         "autoprefixer": "^10.4.0",
         "fuse.js": "^6.5.3",
         "idb": "^6.1.5",
+        "ismobilejs": "^1.1.1",
         "leaflet": "^1.7.1",
         "lodash": "^4.17.21",
         "luxon": "^2.3.0",
