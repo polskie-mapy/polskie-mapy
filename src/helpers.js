@@ -53,8 +53,12 @@ const LINK_TYPE_TOOLTIPS = {
     ['news']: 'Zobacz artykuł dotyczący tego nagrania',
 }
 
-function isMobile() {
-    return _isMobile(window.navigator).any;
+function isIos() {
+    return _isMobile(window.navigator).apple.device;
+}
+
+function isAndroid() {
+    return _isMobile(window.navigator).android.device;
 }
 
 function ytId(link) {
@@ -62,8 +66,12 @@ function ytId(link) {
 }
 
 function ytLink(link) {
-    if (isMobile()) {
+    if (isIos()) {
         return `youtube://${ytId(link)}`;
+    }
+
+    if (isAndroid()) {
+        return `vnd.youtube:${ytId(link)}`;
     }
     
     return link;
@@ -114,8 +122,12 @@ function coords2GmapsPin(coords) {
     const placePin = encodeURIComponent(coords2Dms(coords));
     const zoom = 17;
     
-    if (isMobile()) {
+    if (isIos()) {
         return `comgooglemaps://?q=${placePin}&center=${loc}&zoom=${zoom}`;
+    }
+
+    if (isAndroid()) {
+        return `geo:${loc}?q=${placePin}&zoom=${zoom}`;
     }
 
     return `https://www.google.com/maps/place/${placePin}/@${loc},${zoom}z`;
