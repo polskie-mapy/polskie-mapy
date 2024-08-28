@@ -215,8 +215,8 @@ export function rsrcUrl(url) {
 }
 
 export default {
-    install(Vue) {
-        Vue.prototype.$H = {
+    install(app) {
+        app.config.globalProperties.$H = {
             ytId,
             linkTypeColor,
             linkTypeIcon,
@@ -230,8 +230,8 @@ export default {
             ytLink,
         };
 
-        Vue.mixin({
-            filters: {
+        app.mixin({
+            methods: {
                 linkTypeColorStyle,
                 linkTypeDefaultTooltip,
                 linkTypeIcon,

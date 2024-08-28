@@ -1,13 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import {createStore} from 'vuex'
 import { rsrcUrl } from "@/helpers";
 import search from './search';
 import createDelegatedTasksHandler from "@/store/delegated-tasks";
 import { APP_BUILT_DATE, APP_VERSION } from '@/app-helpers';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
     state: {
         colorScheme: 'system',
         maps: new Map(),

@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -15,18 +14,22 @@ import 'virtual:windi.css';
 import 'virtual:windi-devtools';
 import '@/assets/ui.css';
 import { APP_VERSION } from './app-helpers';
+import {createApp} from "vue";
 
 library.add(fas, far, fab);
-Vue.component('FaIcon', FontAwesomeIcon);
 
-Vue.config.productionTip = false;
+const app = createApp(App)
 
-Vue.use(PortalVue);
-Vue.use(VueHelpers);
+app.component('FaIcon', FontAwesomeIcon);
+
+app.use(PortalVue);
+app.use(VueHelpers);
+app.use(store);
+app.use(router);
 
 if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
     Sentry.init({
-        Vue,
+        app,
         release: APP_VERSION,
         logErrors: true,
         dsn: import.meta.env.VITE_SENTRY_DSN,
@@ -40,8 +43,4 @@ if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
     });
 }
 
-new Vue({
-    router,
-    store,
-    render: h => h(App),
-}).$mount('#app');
+app.mount('#app');

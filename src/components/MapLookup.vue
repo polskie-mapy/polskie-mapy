@@ -54,13 +54,13 @@
           >
               <router-link
                   v-if="item.type === 'point'"
-                  :key="item.id"
+                  :key="`${item.id}-point`"
                   :to="{ name: 'PointDetails', params: { pointId: item.id, mapId: item.mapId }}"
                   class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent border last:mb-px dark:text-white dark:hover:text-black"
                   :title="item.title"
               >
                   <fa-icon
-                      :icon="item.icon | iconCodeToIconName"
+                      :icon="iconCodeToIconName(item.icon)"
                       fixed-width
                       class="self-center"
                   />
@@ -68,7 +68,7 @@
               </router-link>
               <div
                   v-else
-                  :key="item.id"
+                  :key="`${item.id}-${item.type}`"
                   :title="item.title"
                   class="py-2 px-4 flex gap-1 hover:bg-app hover:text-white border-transparent border last:mb-px dark:text-white dark:hover:text-black cursor-pointer"
                   @click="moveToLocation(item.coords)"
@@ -112,7 +112,7 @@
 <script>
 import {debounce} from "lodash";
 import {mapGetters, mapState} from "vuex";
-import {LControl} from "vue2-leaflet";
+import {LControl} from "@vue-leaflet/vue-leaflet";
 import MapConfig from "@/components/MapConfig.vue";
 
 export default {

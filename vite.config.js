@@ -1,16 +1,27 @@
 import { defineConfig } from 'vite';
-import { createVuePlugin as vue } from "vite-plugin-vue2";
+import vue from "@vitejs/plugin-vue";
 import * as path from 'path';
 import WindiCSS from 'vite-plugin-windicss'
 export default defineConfig(async () => {
     return {
         plugins: [
-            vue(),
+            vue({
+                template: {
+                    compilerOptions: {
+                        compatConfig: {
+                            RENDER_FUNCTION: false,
+                            MODE: 3,
+                        }
+                    }
+                }
+            }),
             WindiCSS()
         ],
         resolve: {
             alias: {
                 "@": path.resolve(__dirname, "./src"),
+                vue: '@vue/compat'
+                
             },
         },
         define: {

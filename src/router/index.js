@@ -1,9 +1,7 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
 import MapPage from '../views/MapPage.vue'
 import PointDetails from "@/components/PointDetails.vue";
-
-Vue.use(VueRouter)
 
 const routes = [
     {
@@ -38,11 +36,11 @@ const routes = [
     },
 ]
 
-const router = new VueRouter({
+const router = createRouter({
     routes,
     linkActiveClass: '',
     linkExactActiveClass: '',
-    mode: import.meta.env.PROD ? 'history' : 'hash',
+    history: import.meta.env.PROD ? createWebHistory() : createWebHashHistory(),
 })
 
 export default router

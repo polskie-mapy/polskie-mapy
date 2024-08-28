@@ -80,7 +80,7 @@
 <script>
 import 'leaflet/dist/leaflet.css';
 import {APP_COLOR} from "@/app-helpers";
-import {LControl, LMap, LTileLayer} from "vue2-leaflet";
+import {LControl, LMap, LTileLayer} from "@vue-leaflet/vue-leaflet";
 import {IconMarker} from "@/leaflet-icon-marker";
 import {mapGetters, mapState} from 'vuex';
 import MapControls from "@/components/MapControls.vue";
