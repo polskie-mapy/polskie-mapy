@@ -194,7 +194,7 @@ function findIconDefinition(code) {
     const tr = translateIconCode(code);
     const iconLookup = {
         prefix: `fa${tr.prefix[3]}`,
-        iconName: tr.iconName.substr(3)
+        iconName: tr.iconName.substring(3)
     }
 
     return faFindIconDefinition(iconLookup);
@@ -233,6 +233,7 @@ export default {
         Vue.mixin({
             filters: {
                 linkTypeColorStyle,
+                linkTypeDefaultTooltip,
                 linkTypeIcon,
                 prettyDate,
                 iconCodeToIconName

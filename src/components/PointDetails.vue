@@ -75,14 +75,13 @@
               </a>
             </div>
           </div>
-          <div class="col-span-2 text-gray-400 text-xs gap-y-1 gap-x-3 -mt-1 md:flex hidden">
-            <div>
-              mapa:
-              <span class="py-0.5 px-1 rounded-sm bg-app text-white dark:text-black">{{ map.name }}</span>
-            </div>
+        <div class="col-span-2 text-sm -mt-3 text-app dark:text-white">
+            {{ map.name }}
+        </div>
+          <div class="col-span-2 text-gray-400 text-xs gap-y-1 gap-x-3 md:flex hidden">
             <div>
               tagi:
-              <template v-if="point.tags.length">
+              <div v-if="point.tags.length" class="inline-flex gap-x-0.5">
                 <span
                   v-for="tag in point.tags"
                   :key="tag"
@@ -90,7 +89,7 @@
                 >
                   {{ tag.title }}
                 </span>
-              </template>
+              </div>
               <span
                 v-else
                 class="py-0.5 px-1 rounded-sm bg-app text-white dark:text-black"
@@ -106,6 +105,7 @@
             target="_blank"
           >
             <VideoThumbnail
+              :target-url="ytLink"
               :thumbnail-url="ytThumbnail"
               object-class="h-36 w-48"
               class="h-36 w-48"
@@ -134,6 +134,13 @@
             <p class="break-all max-h-40 overflow-y-auto dark:text-gray-200">
               {{ point.excerpt }}
             </p>
+            <a class="dark:text-app hover:underline" :href="mapLink">
+              <fa-icon 
+                icon="fa-solid fa-link"
+                fixed-width
+              />
+              {{ 'map' | linkTypeDefaultTooltip }}
+            </a>
             <p
               v-if="submitter"
               class="text-sm border-l-2 border-grey-500 pl-2 dark:text-gray-200"
@@ -149,6 +156,9 @@
             </p>
           </div>
           <div class="flex gap-2 mb-3">
+            <div>
+                <span class="dark:text-gray-200 text-sm">Linki:</span>
+            </div>
             <div
               v-for="link in links"
               :key="link.url"
@@ -231,10 +241,13 @@ export default {
         next();
     },
     computed: {
+        mapLink() {
+            return this.$H.coords2GmapsPin(this.point.coords);
+        },
         links() {
             const staticLinks = [{
                 type: 'map',
-                url: this.$H.coords2GmapsPin(this.point.coords),
+                url: this.mapLink,
             }];
             
             const dynamicLinks = this.point.links.map(link => {
