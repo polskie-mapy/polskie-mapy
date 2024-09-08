@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { createVuePlugin as vue } from "vite-plugin-vue2";
 import * as path from 'path';
 import WindiCSS from 'vite-plugin-windicss'
+
 export default defineConfig(async () => {
     return {
         plugins: [
@@ -20,6 +21,9 @@ export default defineConfig(async () => {
         },
         worker: {
             format: 'es',
+        },
+        build: {
+            sourcemap: true,
         }
     };
 })
