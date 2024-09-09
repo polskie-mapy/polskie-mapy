@@ -3,25 +3,25 @@ import {DateTime} from "luxon";
 import {findIconDefinition as faFindIconDefinition} from "@fortawesome/fontawesome-svg-core";
 import _isMobile from 'ismobilejs';
 
-const ytUriRegex = new RegExp(
+export const ytUriRegex = new RegExp(
     /^(?:https?:\/\/)?(?:\w+\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})(?:&t=\d+s?)?$/,
     'i',
 );
 
-const LINK_TYPE_COLOR = {
+export const LINK_TYPE_COLOR = {
     ['yt']: '#d70000',
     ['ig']: '#405de6',
     ['map']: '#0b4a6e',
     ['news']: '#75716f',
 };
-const LINK_TYPE_ICONS = {
+export const LINK_TYPE_ICONS = {
     ['yt']: 'fa-brands fa-youtube',
     ['ig']: 'fa-brands fa-instagram',
     ['map']: 'fa-solid fa-map-location-dot',
     ['news']: 'fa-regular fa-newspaper',
     ['link']: linkTypeIconDefault(),
 };
-const LINK_TYPE_URL = {
+export const LINK_TYPE_URL = {
     ['ig']: 'https://www.instagram.com/:id/',
     ['wykop']: 'https://www.wykop.pl/ludzie/:id/',
     ['github']: 'https://github.com/:id',
@@ -35,11 +35,11 @@ export const COLOR_SCHEMES = [
     'light'
 ];
 
-const DATEDIFF_PRIORITIES = [
+export const DATEDIFF_PRIORITIES = [
     'years', 'months', 'weeks', 'days'
 ];
 
-const DATEDIFF_LANG = {
+export const DATEDIFF_LANG = {
     years: ['rok temu', ':v lata temu', 'dawno temu'],
     months: ['miesiąc temu', ':v m-ce temu', ':v m-cy temu'],
     weeks: ['tydzień temu', ':v tygodnie temu', ':v tygodni temu'],
@@ -47,25 +47,25 @@ const DATEDIFF_LANG = {
     recently: ['niedawno']
 };
 
-const LINK_TYPE_TOOLTIPS = {
+export const LINK_TYPE_TOOLTIPS = {
     ['yt']: 'Zobacz nagranie na YT',
     ['map']: 'Zobacz miejsce na Google Maps',
     ['news']: 'Zobacz artykuł dotyczący tego nagrania',
 }
 
-function isIos() {
+export function isIos() {
     return _isMobile(window.navigator).apple.device;
 }
 
-function isAndroid() {
+export function isAndroid() {
     return _isMobile(window.navigator).android.device;
 }
 
-function ytId(link) {
+export function ytId(link) {
     return ytUriRegex.exec(link)[1];
 }
 
-function ytLink(link) {
+export function ytLink(link) {
     if (isIos()) {
         return `youtube://${ytId(link)}`;
     }
@@ -77,27 +77,27 @@ function ytLink(link) {
     return link;
 }
 
-function linkTypeColor(type) {
+export function linkTypeColor(type) {
     return LINK_TYPE_COLOR[type] || linkTypeColorDefault();
 }
 
-function linkTypeIcon(type) {
+export function linkTypeIcon(type) {
     return LINK_TYPE_ICONS[type] || linkTypeIconDefault();
 }
 
-function linkTypeColorDefault() {
+export function linkTypeColorDefault() {
     return '#f2741c';
 }
 
-function linkTypeIconDefault() {
+export function linkTypeIconDefault() {
     return 'fa-solid fa-link';
 }
 
-function linkTypeColorStyle(value) {
+export function linkTypeColorStyle(value) {
     return `--pm-point-details-link-color: ${linkTypeColor(value)}`
 }
 
-function coord2Dms(coord, winds) {
+export function coord2Dms(coord, winds) {
     if (typeof coord !== 'number') throw TypeError('number expected');
 
     const absDegrees = Math.abs(coord);
@@ -111,13 +111,13 @@ function coord2Dms(coord, winds) {
     return `${degrees}°${round(minutes, 3)}'${round(seconds, 3)}"${wind}`;
 }
 
-function coords2Dms(coords) {
+export function coords2Dms(coords) {
     const winds = [['E', 'W'], ['N', 'S']];
 
     return coords.map(coord => coord2Dms(coord, winds.pop())).join(' ');
 }
 
-function coords2GmapsPin(coords) {
+export function coords2GmapsPin(coords) {
     const loc = coords.join(',');
     const placePin = encodeURIComponent(coords2Dms(coords));
     const zoom = 17;
@@ -133,18 +133,18 @@ function coords2GmapsPin(coords) {
     return `https://www.google.com/maps/place/${placePin}/@${loc},${zoom}z`;
 }
 
-function ytThumbUrl(ytUrl) {
+export function ytThumbUrl(ytUrl) {
     return `https://img.youtube.com/vi/${ytId(ytUrl)}/hqdefault.jpg`
 }
 
-function linkTypeUrl(type, id) {
+export function linkTypeUrl(type, id) {
     const template = LINK_TYPE_URL[type];
 
     return template ? template.replace(':id', id) : null;
 
 }
 
-function langChoice(langArr, value) {
+export function langChoice(langArr, value) {
     if (value === 1) {
         return langArr[0].replace(':v', value);
     } else if (value >= 5) {
@@ -154,7 +154,7 @@ function langChoice(langArr, value) {
     return langArr[1].replace(':v', value);
 }
 
-function dateTimeDiffHumans(date) {
+export function dateTimeDiffHumans(date) {
     const dur = DateTime.now().diff(date, DATEDIFF_PRIORITIES).toObject();
 
     for (const k of DATEDIFF_PRIORITIES) {
@@ -167,7 +167,7 @@ function dateTimeDiffHumans(date) {
     return langChoice(DATEDIFF_LANG.recently, 1);
 }
 
-function prettyDate(date) {
+export function prettyDate(date) {
     if (typeof date === 'string') {
         date = DateTime.fromISO(date);
     }
@@ -175,7 +175,7 @@ function prettyDate(date) {
     return date.toLocaleString(DateTime.DATETIME_MED);
 }
 
-function translateIconCode(code) {
+export function translateIconCode(code) {
     if (code) {
         const icon = code.split(':');
         return {
@@ -190,7 +190,7 @@ function translateIconCode(code) {
     };
 }
 
-function findIconDefinition(code) {
+export function findIconDefinition(code) {
     const tr = translateIconCode(code);
     const iconLookup = {
         prefix: `fa${tr.prefix[3]}`,
@@ -200,11 +200,11 @@ function findIconDefinition(code) {
     return faFindIconDefinition(iconLookup);
 }
 
-function linkTypeDefaultTooltip(type) {
+export function linkTypeDefaultTooltip(type) {
     return LINK_TYPE_TOOLTIPS[type];
 }
 
-function iconCodeToIconName(code) {
+export function iconCodeToIconName(code) {
     const {iconName, prefix} = translateIconCode(code);
 
     return `${prefix} ${iconName}`;

@@ -136,7 +136,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex';
+import {mapGetters, mapMutations, mapState} from 'vuex';
 
 export default {
     computed: {
@@ -166,15 +166,9 @@ export default {
             this.$router.back();
         },
 
-        toggleColorScheme() {
-            if (this.colorScheme === 'system') {
-                this.$store.commit('setColorScheme', 'dark');
-            } else if (this.colorScheme === 'dark') {
-                this.$store.commit('setColorScheme', 'light');
-            } else {
-                this.$store.commit('setColorScheme', 'system');
-            }
-        }
+        ...mapMutations([
+            'toggleColorScheme'
+        ]),
     }
 }
 </script>

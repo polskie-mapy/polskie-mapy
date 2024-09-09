@@ -82,7 +82,7 @@ import 'leaflet/dist/leaflet.css';
 import {APP_COLOR} from "@/app-helpers";
 import {LControl, LMap, LTileLayer} from "vue2-leaflet";
 import {IconMarker} from "@/leaflet-icon-marker";
-import {mapGetters, mapState} from 'vuex';
+import {mapGetters, mapMutations, mapState} from 'vuex';
 import MapControls from "@/components/MapControls.vue";
 import MapLookup from "@/components/MapLookup.vue";
 import {findColorInvert} from "@/color-helpers";
@@ -253,15 +253,10 @@ export default {
                 });
             }
         },
-        toggleColorScheme() {
-            if (this.colorScheme === 'system') {
-                this.$store.commit('setColorScheme', 'dark');
-            } else if (this.colorScheme === 'dark') {
-                this.$store.commit('setColorScheme', 'light');
-            } else {
-                this.$store.commit('setColorScheme', 'system');
-            }
-        }
+
+        ...mapMutations([
+            'toggleColorScheme'
+        ]),
     },
 };
 </script>

@@ -60,6 +60,10 @@ export default {
             type: String,
             required: true,
         },
+        pointId: {
+            type: Number,
+            required: true,
+        },
         thumbnailUrl: {
             type: String,
             required: true,
@@ -79,15 +83,16 @@ export default {
             captureMessage(`Video ${this.targetUrl} is unavailable`, {
                 extra: {
                     videoUrl: this.targetUrl
-                }
+                },
+                tags: ['missing_video', `point_${this.pointId}`]
             })
         }
     },
     mounted() {
-        this.$refs.thumbnailObject.addEventListener('error', this.errorHandler);
+        this.$refs.thumbnailObject?.addEventListener('error', this.errorHandler);
     },
     beforeDestroy() {
-        this.$refs.thumbnailObject.removeEventListener('error', this.errorHandler);
+        this.$refs.thumbnailObject?.removeEventListener('error', this.errorHandler);
     }
 }
 </script>

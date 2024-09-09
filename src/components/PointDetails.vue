@@ -75,7 +75,7 @@
               </a>
             </div>
           </div>
-        <div class="col-span-2 text-sm -mt-3 text-app dark:text-white">
+        <div class="col-span-2 text-sm -mt-3 text-black dark:text-white">
             {{ map.name }}
         </div>
           <div class="col-span-2 text-gray-400 text-xs gap-y-1 gap-x-3 md:flex hidden">
@@ -107,6 +107,7 @@
             <VideoThumbnail
               :target-url="ytLink"
               :thumbnail-url="ytThumbnail"
+              :point-id="point.id"
               object-class="h-36 w-48"
               class="h-36 w-48"
             />
@@ -134,7 +135,7 @@
             <p class="break-all max-h-40 overflow-y-auto dark:text-gray-200">
               {{ point.excerpt }}
             </p>
-            <a class="dark:text-app hover:underline" :href="mapLink">
+            <a class="text-app hover:underline" :href="mapLink">
               <fa-icon 
                 icon="fa-solid fa-link"
                 fixed-width
@@ -215,13 +216,15 @@
 
 <script>
 import {DateTime} from 'luxon';
-import {mapGetters} from "vuex";
+import {mapGetters} from 'vuex';
 import store from "@/store";
 import VideoThumbnail from "@/components/VideoThumbnail.vue";
 
 export default {
     name: 'PointDetails',
-    components: {VideoThumbnail},
+    components: {
+        VideoThumbnail
+    },
     beforeRouteEnter(to, _from, next) {
         const selectedPointId = parseInt(to.params.pointId);
 

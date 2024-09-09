@@ -20,11 +20,20 @@ export default new Vuex.Store({
     // set - overwrites value(s)
     // unset - removes value(s)
     // add - appends value(s)
-    // toggle - switches between two value (i.e: true and false)
+    // toggle - switches between predefined value(s) (i.e: true and false)
     // mark - one-way toggle (i.e: false to true, subsequent calls don't modify value)
     mutations: {
         setColorScheme(state, scheme) {
             state.colorScheme = scheme;
+        },
+        toggleColorScheme(state) {
+            if (state.colorScheme === 'system') {
+                state.colorScheme = 'dark';
+            } else if (state.colorScheme === 'dark') {
+                state.colorScheme = 'light';
+            } else {
+                state.colorScheme = 'system';
+            }
         },
         addMaps(state, maps) {
             maps.forEach(x => state.maps.set(x.id, x));

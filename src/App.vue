@@ -15,10 +15,12 @@ import {mapState} from 'vuex';
 export default {
     name: 'App',
     computed: {
-        ...mapState(['colorScheme']),
+        ...mapState([
+            'colorScheme'
+        ]),
     },
     watch: {
-        colorScheme:{
+        colorScheme: {
             handler(colorScheme, oldColorScheme) {
                 if (colorScheme === 'system') {
                     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
