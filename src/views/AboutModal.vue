@@ -29,12 +29,12 @@
           <ul class="space-y-2">
             <li>
               <a
-                href="https://www.instagram.com/ronaldinho_thc"
+                href="mailto:ronaldinhothc@gmail.com"
                 target="_blank"
                 class="text-app hover:underline"
               >
                 <fa-icon
-                  icon="fa-brands fa-instagram"
+                  icon="fa-solid fa-envelope"
                   fixed-width
                 />
                 Dane & pomysł by <b>RonaldinhoTHC</b>
