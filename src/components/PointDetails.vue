@@ -143,11 +143,12 @@
               {{ 'map' | linkTypeDefaultTooltip }}
             </a>
             <p
-              v-if="submitter"
+              v-if="hasSubmitters"
               class="text-sm border-l-2 border-grey-500 pl-2 dark:text-gray-200"
             >
               pomógł -
-              <a
+              <a 
+                v-for="submitter in submitters"
                 :href="submitter.url"
                 class="hover:text-app font-bold dark:hover:text-app"
                 target="_blank"
@@ -287,17 +288,20 @@ export default {
 
             return null;
         },
-        submitter() {
+        hasSubmitters() {
+            return this.point.submitters && this.point.submitters.length !== 0;
+        },
+        submitters() {
             if (!this.point.submitters || this.point.submitters.length === 0) {
-                return null;
+                return [];
             }
 
-            const submitter = this.point.submitters[0];
-
-            return {
-                url: this.$H.linkTypeUrl(submitter.type, submitter.user),
-                ...submitter
-            }
+            return this.point.submitters.map((submitter) => {
+                return {
+                    url: this.$H.linkTypeUrl(submitter.type, submitter.user),
+                    ...submitter
+                }
+            });
         },
         createdAt() {
             return DateTime.fromISO(this.point.createdAt);
